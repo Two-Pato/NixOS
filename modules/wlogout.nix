@@ -77,35 +77,35 @@
       }
 
       #logout {
-        background-image: url(${../imgs/wlogout_icons/logout.png}");
+        background-image: url("${../imgs/wlogout_icons/logout.png}");
       }
 
       #logout:hover {
-        background-image: url(${../imgs/wlogout_icons/logout-hover.png}");
+        background-image: url("${../imgs/wlogout_icons/logout-hover.png}");
       }
 
       #reboot {
-        background-image: url(${../imgs/wlogout_icons/restart.png}");
+        background-image: url("${../imgs/wlogout_icons/restart.png}");
       }
 
       #reboot:hover {
-        background-image: url(${../imgs/wlogout_icons/restart-hover.png}");
+        background-image: url("${../imgs/wlogout_icons/restart-hover.png}");
       }
 
       #lock {
-        background-image: url(${../imgs/wlogout_icons/lock.png}");
+        background-image: url("${../imgs/wlogout_icons/lock.png}");
       }
 
       #lock:hover {
-        background-image: url(${../imgs/wlogout_icons/lock-hover.png}");
+        background-image: url("${../imgs/wlogout_icons/lock-hover.png}");
       }
 
       #hibernate {
-        background-image: url(${../imgs/wlogout_icons/hibernate.png}");
+        background-image: url("${../imgs/wlogout_icons/hibernate.png}");
       }
 
       #hibernate:hover {
-        background-image: url(${../imgs/wlogout_icons/hibernate-hover.png}");
+        background-image: url("${../imgs/wlogout_icons/hibernate-hover.png}");
       }
     '';
   };

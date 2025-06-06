@@ -35,7 +35,7 @@
     mpv
     yt-dlp
     vscode
-    parsec-bin
+    #parsec-bin
   ];
 
   # Home Version
