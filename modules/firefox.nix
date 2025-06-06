@@ -62,8 +62,17 @@
         "font.name.serif.x-western" = "Noto Serif";
         "font.minimum-size.x-western" = 0;
         "toolkit.zoomManager.zoomValues" = ".25,.5,.75,1,1.25,1.5,1.75,2";
+        
+        "browser.startup.page" = 3;
         "browser.tabs.closeWindowWithLastTab" = false;
         "browser.toolbars.bookmarks.visibility" = "never";
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.aboutConfig.showWarning" = false;
+        "browser.translations.enable"	= false;
+        "browser.translations.automaticallyPopup" =	false;
+        "browser.uitour.enabled" = false;
+        "identity.fxaccounts.enabled" = false;
 
         "browser.uiCustomization.state" = ''{
           "placements": {

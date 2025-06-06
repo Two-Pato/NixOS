@@ -104,6 +104,7 @@
   # Hardware Configuration
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  hardware.logitech.wireless.enable = true;
 
   # Desktop Environment / Window Manager
   programs.hyprland = {
@@ -143,6 +144,7 @@
     adwaita-icon-theme
     polkit_gnome
     wl-clipboard
+    usbutils
   ];
 
   fonts.packages = with pkgs; [

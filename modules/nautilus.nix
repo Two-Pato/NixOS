@@ -15,6 +15,7 @@ with lib.hm.gvariant;
     file:///mnt/media Media
   '';
 
+  home.file.".config/user-dirs.dirs".force = true;
   home.file.".config/user-dirs.dirs".text = ''
     XDG_DESKTOP_DIR="$HOME/Desktop"
     XDG_DOCUMENTS_DIR="$HOME/Documents"

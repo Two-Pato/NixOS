@@ -20,7 +20,6 @@ with lib.hm.gvariant;
         "list_tools"
         "convert_format"
         "exiv2_tools"
-        "flicker"
         "edit_metadata"
         "find_duplicates"
         "rename_series"
