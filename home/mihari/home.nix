@@ -20,6 +20,7 @@
     ../../modules/nautilus.nix
     ../../modules/texteditor.nix
     ../../modules/gthumb.nix
+    ../../modules/yt-dlp.nix
   ];
 
   home.username = "laurent";
@@ -33,7 +34,6 @@
     solaar
     imagemagick
     mpv
-    yt-dlp
     vscode
     #parsec-bin
   ];

@@ -34,7 +34,7 @@
       "custom/appmenu" = {
         tooltip = false;
         format = " Apps";
-        on-click = "sleep 0.2; pkill rofi || rofi -show drun -replace -run-command \"uwsm app -- {cmd}\"";
+        on-click = "sleep 0.2; rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\"";
       };
 
       "wlr/taskbar" = {
@@ -46,9 +46,9 @@
       };
 
       "hyprland/window" = {
+        tooltip = false;
         format = "{}";
         max-length = 60;
-        tooltip = false;
       };
 
       "hyprland/workspaces" = {
@@ -72,9 +72,9 @@
       };
 
       pulseaudio = {
+        tooltip = false;
         format = "<span>{icon}</span>  {volume}%";
         format-muted = " muted";
-        tooltip = false;
         format-icons = {
           headphone = "";
           default = [ "" "" "󰕾" "" ];
