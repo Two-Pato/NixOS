@@ -42,8 +42,33 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking & Firewall
-  networking.networkmanager.enable = true;
+  systemd.network.enable = true;
+  networking.useNetworkd = true;
   networking.firewall.enable = true;
+
+  systemd.network.networks."10-wan" = {
+    matchConfig = {
+      Name = [ "en*" "eth*" ];
+    };
+
+    linkConfig = {
+      RequiredForOnline = "routable";
+    };
+
+    networkConfig = {
+      Address = [ "10.0.10.11/24" ];
+      Gateway = "10.0.10.1";
+      DNS = [ "10.0.10.1" ];
+    };
+
+    dhcpV4Config = {
+      RouteMetric = 100;
+    };
+
+    ipv6AcceptRAConfig = {
+      RouteMetric = 100;
+    };
+  };
 
   # CIFS Mount
   fileSystems."/mnt/media" = {
