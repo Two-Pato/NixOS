@@ -7,6 +7,11 @@
     systemd.enable = false;
 
     settings = {
+      # Monitor
+      monitor = [
+        ",preferred,auto,auto"
+      ];
+
       # Autostart
       exec-once = [
         "uwsm app -- hyprpaper"

@@ -45,6 +45,24 @@
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
 
+  # CIFS Mount
+  fileSystems."/mnt/media" = {
+    device = "//10.0.20.31/media";
+    fsType = "cifs";
+    options = [
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.device-timeout=5s"
+      "x-systemd.mount-timeout=5s"
+      "user"
+      "users"
+      "credentials=/home/laurent/.config/samba/credentials"
+      "uid=1000"
+      "gid=100"
+    ];
+  };
+
   # Services
   services.openssh.enable = true;
   services.gvfs.enable = true;
@@ -96,6 +114,7 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
+    cifs-utils
     adwaita-icon-theme
     polkit_gnome
     wl-clipboard

@@ -9,6 +9,54 @@
       name = "default";
       isDefault = true;
 
+      bookmarks.force = true;
+      bookmarks.settings = [
+        {
+          name = "Google";
+          url = "https://www.google.com/";
+        }
+        {
+          name = "YouTube";
+          url = "https://www.youtube.com/";
+        }
+        {
+          name = "ChatGPT";
+          url = "https://chatgpt.com/";
+        }
+        {
+          name = "GitHub";
+          url = "https://github.com/";
+        }
+        {
+          name = "Convert Case";
+          url = "https://convertcase.net/";
+        }
+        {
+          name = "Kavita";
+          url = "https://kavita.nexuinque.de/home";
+        }
+        {
+          name = "Proxmox";
+          url = "https://proxmox.nexuinque.de/";
+        }
+        {
+          name = "Reddit";
+          url = "https://www.reddit.com/";
+        }
+        {
+          name = "Heise";
+          url = "https://www.heise.de/";
+        }
+        {
+          name = "Zeit";
+          url = "https://www.zeit.de/index";
+        }
+        {
+          name = "JLearn";
+          url = "https://jlearn.net/";
+        }
+      ];
+
       settings = {
         "font.default.x-western" = "serif";
         "font.name.serif.x-western" = "Noto Serif";
