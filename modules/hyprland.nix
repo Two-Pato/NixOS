@@ -9,12 +9,12 @@
     settings = {
       # Autostart
       exec-once = [
-        "hyprpaper"
-        "waybar"
-        "clipse -listen"
+        "uwsm app -- hyprpaper"
+        "uwsm app -- waybar"
+        "uwsm app -- clipse -listen"
 
-        "[workspace 1 silent] firefox"
-        "[workspace 2 silent] nautilus"
+        "[workspace 1 silent] uwsm app -- firefox"
+        "[workspace 2 silent] uwsm app -- nautilus"
       ];
 
       # General Window Layout
@@ -114,11 +114,11 @@
         "$mainMod, R, exec, pkill waybar || waybar"
 
         # Applications
-        "$mainMod, RETURN, exec, kitty"
-        "$mainMod, B, exec, firefox"
-        "$mainMod ALT, B, exec, firefox --private-window"
-        "$mainMod, E, exec, nautilus -w"
-        "$mainMod, SPACE, exec, pkill rofi || rofi -show drun -replace -i"
+        "$mainMod, RETURN, exec, uwsm app -- kitty"
+        "$mainMod, B, exec, uwsm app -- firefox"
+        "$mainMod ALT, B, exec, uwsm app -- firefox --private-window"
+        "$mainMod, E, exec, uwsm app -- nautilus -w"
+        "$mainMod, SPACE, exec, rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\""
         "$mainMod, V, exec, kitty --class clipse -e 'clipse'"
         "$mainMod, N, exec, kitty -d ~/Documents --class nano -e 'nano'"
 

@@ -13,6 +13,7 @@
     ../../modules/clipse.nix
 
     # Programs
+    ../../modules/git.nix
     ../../modules/kitty.nix
     ../../modules/fastfetch.nix
     ../../modules/firefox.nix
@@ -23,8 +24,8 @@
 
   home.username = "laurent";
   home.homeDirectory = "/home/laurent";
-  home.stateVersion = "25.05";
 
+  # Packages
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
@@ -36,4 +37,7 @@
     vscode
     parsec-bin
   ];
+
+  # Home Version
+  home.stateVersion = "25.05";
 }

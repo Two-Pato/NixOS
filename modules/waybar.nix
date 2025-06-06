@@ -34,7 +34,7 @@
       "custom/appmenu" = {
         tooltip = false;
         format = " Apps";
-        on-click = "sleep 0.2; pkill rofi || rofi -show drun -replace";
+        on-click = "sleep 0.2; pkill rofi || rofi -show drun -replace -run-command \"uwsm app -- {cmd}\"";
       };
 
       "wlr/taskbar" = {

@@ -94,7 +94,6 @@
 
   # Packages and Fonts
   environment.systemPackages = with pkgs; [
-    git
     wget
     curl
     adwaita-icon-theme
