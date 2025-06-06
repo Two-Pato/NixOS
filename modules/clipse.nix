@@ -20,10 +20,6 @@
     # Clipboard history options
     allowDuplicates = false;
     historySize = 100;
-    historyFile = "clipboard_history.json";
-    logFile = "clipse.log";
-    themeFile = "custom_theme.json";
-    tempDir = "tmp_files";
 
     # Keybindings
     keyBindings = {

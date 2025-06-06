@@ -6,7 +6,7 @@
     ../../modules/hyprland.nix
     ../../modules/hyprpaper.nix
     ../../modules/hyprlock.nix
-    ../../modules/waybar/waybar.nix
+    ../../modules/waybar.nix
     ../../modules/dunst.nix
     ../../modules/wlogout.nix
     ../../modules/rofi.nix
@@ -23,7 +23,7 @@
 
   home.username = "laurent";
   home.homeDirectory = "/home/laurent";
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
 
