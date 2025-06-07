@@ -5,17 +5,11 @@
     enable = true;
 
     settings = {
-      format = "best";
-      outtmpl = "~/Downloads/%(title)s.%(ext)s";
-      postprocessors = [
-        {
-          key = "FFmpegVideoConvertor";
-          preferredformat = "mkv";
-        }
-      ];
-      embedthumbnail = true;
-      addmetadata = true;
-      noplaylist = true;
+      paths = "${config.home.homeDirectory}/Downloads";
+      merge-output-format = "mkv";
+      embed-thumbnail = true;
+      embed-metadata = true;
+      no-playlist = true;
     };
   };
 }
