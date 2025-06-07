@@ -15,6 +15,7 @@
       # Autostart
       exec-once = [
         "uwsm app -- hyprpaper"
+        "uwsm app -- hypridle"
         "uwsm app -- waybar"
         "uwsm app -- clipse -listen"
 

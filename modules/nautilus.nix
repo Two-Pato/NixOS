@@ -23,6 +23,8 @@ with lib.hm.gvariant;
     XDG_MUSIC_DIR="$HOME/Music"
     XDG_PICTURES_DIR="$HOME/Pictures"
     XDG_VIDEOS_DIR="$HOME/Videos"
+    XDG_TEMPLATES_DIR="$HOME/Templates"
+    XDG_PUBLICSHARE_DIR="$HOME/Public"
   '';
 
   dconf.settings = {
