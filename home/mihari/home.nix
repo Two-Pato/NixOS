@@ -6,6 +6,7 @@
     ../../modules/hyprland.nix
     ../../modules/hyprpaper.nix
     ../../modules/hyprlock.nix
+    ../../modules/hypridle.nix
     ../../modules/waybar.nix
     ../../modules/dunst.nix
     ../../modules/wlogout.nix
