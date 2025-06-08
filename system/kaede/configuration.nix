@@ -44,7 +44,14 @@
   # Networking & Firewall
   systemd.network.enable = true;
   networking.useNetworkd = true;
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 
+      80 
+      443
+      5000 #Kavita
+    ];
+  };
 
   systemd.network.networks."10-wan" = {
     matchConfig = {

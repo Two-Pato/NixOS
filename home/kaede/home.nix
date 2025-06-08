@@ -2,11 +2,11 @@
 
 {
   imports = [
-
+    ../../modules/git.nix
   ];
 
   home.username = "laurent";
-  home.homeDirectory = "/home/laurent";
+  home.homeDirectory = lib.mkDefault "/home/laurent";
 
   # Packages
   programs.home-manager.enable = true;
