@@ -23,4 +23,29 @@
   base15-hex = "#95D7E7";  # Bright Cyan / Cornflower
   base16-hex = "#E8F5FA";  # Bright Blue / Lavender
   base17-hex = "#DCC1DC";  # Bright Magenta / Thistle
+
+  base00-rgb = "(28, 29, 33)";  # Background / Black Russian
+  base01-rgb = "(58, 60, 68)";  # Black / Payne's Grey
+  base02-rgb = "(87, 90, 102)";  # Bright Black / Bright Grey
+  base03-rgb = "(117, 121, 137)";  # Grey / Storm Grey
+  base04-rgb = "(151, 154, 167)";  # Light Grey / Santas Grey
+  base05-rgb = "(186, 188, 196)";  # Foreground / Ghost
+  base06-rgb = "(251, 249, 248)";  # White / Hint Of Red
+  base07-rgb = "(254, 253, 252)";  # Bright White / Bianca
+  base08-rgb = "(240, 172, 183)";  # Red / Cupid
+  base09-rgb = "(240, 217, 211)";  # Orange / Pot Pourri
+  base0A-rgb = "(244, 238, 186)";  # Yellow / Cumulus
+  base0B-rgb = "(193, 224, 182)";  # Green / Fringy Flower
+  base0C-rgb = "(107, 199, 222)";  # Cyan / Malibu
+  base0D-rgb = "(189, 226, 242)";  # Blue / Pale Turquoise
+  base0E-rgb = "(201, 160, 202)";  # Magenta / Prelude
+  base0F-rgb = "(226, 96, 117)";  # Dark Red or Brown / Froly
+  base10-rgb = "(14, 15, 17)";  # Darker Black / Black Russian
+  base11-rgb = "(11, 12, 13)";  # Darkest Black / Black Russian
+  base12-rgb = "(248, 215, 221)";  # Bright Red / Carousel Pink
+  base13-rgb = "(251, 249, 230)";  # Bright Yellow / Chilean Heath
+  base14-rgb = "(223, 239, 218)";  # Bright Green / Tara
+  base15-rgb = "(149, 215, 231)";  # Bright Cyan / Cornflower
+  base16-rgb = "(232, 245, 250)";  # Bright Blue / Lavender
+  base17-rgb = "(220, 193, 220)";  # Bright Magenta / Thistle
 }

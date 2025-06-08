@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+ color = import ../var/color.nix;
+in
 {
   programs.waybar = {
     enable = true;
@@ -104,12 +107,6 @@
     }];
 
     style = ''
-      /* Define Colors */
-      @define-color seasalt rgb(251, 249, 248);
-      @define-color mountbatten-pink rgb(149, 117, 128);
-      @define-color eerie-black rgb(28, 29, 33);
-      @define-color cherry-blossom-pink rgb(240, 172, 183);
-
       /* General */
       * {
           font-family: JetBrains Mono Nerd Font;
@@ -119,7 +116,7 @@
 
       #waybar {
           background: transparent;
-          border-bottom: 0px solid @seasalt;
+          border-bottom: 0px solid ${color.base06-hex};
           transition-property: background-color;
           transition-duration: 0.5s;
       }
@@ -131,13 +128,13 @@
           border-radius: 15px;
           font-size: 16px;
           font-weight: bolder;
-          color: @eerie-black;
-          background-color: @seasalt;
+          color: ${color.base00-hex};
+          background-color: ${color.base06-hex};
       }
 
       #custom-appmenu:hover {
-          color: @seasalt;
-          background: @cherry-blossom-pink;
+          color: ${color.base06-hex};
+          background: ${color.base12-hex};
       }
 
       /* Taskbar */
@@ -145,7 +142,7 @@
           margin: 5px 10px;
           padding: 0px 10px;
           border-radius: 15px;
-          background: @seasalt;
+          background: ${color.base06-hex};
       }
 
       #taskbar button {
@@ -156,8 +153,8 @@
 
       #taskbar button.active,
       #taskbar button:hover {
-          color: @seasalt;
-          background: @cherry-blossom-pink;
+          color: ${color.base06-hex};
+          background: ${color.base12-hex};
       }
 
       /* Window */
@@ -166,8 +163,8 @@
           padding: 0px 10px;
           border-radius: 15px;
           font-size: 16px;
-          color: @eerie-black;
-          background: @seasalt;
+          color: ${color.base00-hex};
+          background: ${color.base06-hex};
       }
 
       #waybar.empty #window {
@@ -181,8 +178,8 @@
           border-radius: 15px;
           font-size: 16px;
           font-weight: bold;
-          color: @eerie-black;
-          background: @seasalt;
+          color: ${color.base00-hex};
+          background: ${color.base06-hex};
       }
 
       #workspaces button {
@@ -191,15 +188,15 @@
           border-radius: 15px;
           font-size: 12px;
           font-weight: bold;
-          color: @seasalt;
-          background: @mountbatten-pink;
+          color: ${color.base06-hex};
+          background: ${color.base08-hex};
           transition: all 0.3s ease-in-out;
       }
 
       #workspaces button.active,
       #workspaces button:hover {
-          color: @seasalt;
-          background: @cherry-blossom-pink;
+          color: ${color.base00-hex};
+          background: ${color.base12-hex};
       }
 
       /* Bluetooth */
@@ -209,13 +206,13 @@
           border-radius: 15px;
           font-size: 16px;
           font-weight: bold;
-          color: @eerie-black;
-          background-color: @seasalt;
+          color: ${color.base00-hex};
+          background-color: ${color.base06-hex};
       }
 
       #bluetooth:hover {
-          color: @seasalt;
-          background: @cherry-blossom-pink;
+          color: ${color.base06-hex};
+          background: ${color.base12-hex};
       }
 
       /* Pulseaudio */
@@ -225,13 +222,13 @@
           border-radius: 15px;
           font-size: 16px;
           font-weight: bold;
-          color: @eerie-black;
-          background-color: @seasalt;
+          color: ${color.base00-hex};
+          background-color: ${color.base06-hex};
       }
 
       #pulseaudio:hover {
-          color: @seasalt;
-          background: @cherry-blossom-pink;
+          color: ${color.base06-hex};
+          background: ${color.base12-hex};
       }
 
       /* Clock */
@@ -241,8 +238,8 @@
           border-radius: 15px;
           font-size: 16px;
           font-weight: bold;
-          color: @eerie-black;
-          background-color: @seasalt;
+          color: ${color.base00-hex};
+          background-color: ${color.base06-hex};
       }
 
       /* Custom Hypridle */
@@ -252,13 +249,13 @@
           border-radius: 15px;
           font-size: 16px;
           font-weight: bolder;
-          color: @eerie-black;
-          background-color: @seasalt;
+          color: ${color.base00-hex};
+          background-color: ${color.base06-hex};
       }
 
       #custom-hypridle:hover {
-          color: @seasalt;
-          background: @cherry-blossom-pink;
+          color: ${color.base06-hex};
+          background: ${color.base12-hex};
       }
 
       /* Custom Exit */
@@ -268,13 +265,13 @@
           border-radius: 15px;
           font-size: 16px;
           font-weight: bolder;
-          color: @eerie-black;
-          background-color: @seasalt;
+          color: ${color.base00-hex};
+          background-color: ${color.base06-hex};
       }
 
       #custom-exit:hover {
-          color: @seasalt;
-          background: @cherry-blossom-pink;
+          color: ${color.base06-hex};
+          background: ${color.base12-hex};
       }
     '';
   };
