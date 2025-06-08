@@ -55,6 +55,10 @@
           name = "JLearn";
           url = "https://jlearn.net/";
         }
+        {
+          name = "MyNixOS ";
+          url = "https://mynixos.com/";
+        }
       ];
 
       settings = {

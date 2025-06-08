@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   base00-hex = "#1C1D21";  # Background / Black Russian
   base01-hex = "#3A3C44";  # Black / Payne's Grey
