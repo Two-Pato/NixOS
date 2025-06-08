@@ -1,15 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  # Define color variables
-  accent = "rgba(149, 117, 128, 1)";
-  accentAlpha = "rgba(244, 238, 186, 1)";
-  surface = "rgba(251, 249, 248, 1)";
-  text = "rgba(28, 29, 33, 1)";
-  textAlpha = "rgba(28, 29, 33, 1)";
-  font = "JetBrainsMono Nerd Font";
+  color = import ../var/color.nix;
 in
-
 {
   programs.hyprlock = {
     enable = true;
@@ -25,16 +18,16 @@ in
       background = {
         path = "${../imgs/hyprland_wallpaper.png}";
         blur_passes = 3;
-        color = surface;
+        color = "rgba(${color.base06-rgba})";
       };
 
       label = [
         # Time display
         {
           text = "$TIME";
-          color = text;
+          color = "rgba(${color.base00-rgba})";
           font_size = 90;
-          font_family = font;
+          font_family = "JetBrainsMono Nerd Font";
           position = "-30, 0";
           halign = "right";
           valign = "top";
@@ -42,9 +35,9 @@ in
         # Date display
         {
           text = "cmd[update:43200000] date +\"%A, %d %B %Y\"";
-          color = text;
+          color = "rgba(${color.base00-rgba})";
           font_size = 25;
-          font_family = font;
+          font_family = "JetBrainsMono Nerd Font";
           position = "-30, -150";
           halign = "right";
           valign = "top";
@@ -55,7 +48,7 @@ in
       image = {
         path = "${../imgs/hyprlock_avatar.png}";
         size = 300;
-        border_color = accent;
+        border_color = "rgba(${color.base08-rgba})";
         position = "0, 200";
         halign = "center";
         valign = "center";
@@ -68,16 +61,16 @@ in
         dots_size = 0.2;
         dots_spacing = 0.2;
         dots_center = true;
-        outer_color = accent;
-        inner_color = surface;
-        font_color = text;
+        outer_color = "rgba(${color.base08-rgba})";
+        inner_color = "rgba(${color.base06-rgba})";
+        font_color = "rgba(${color.base00-rgba})";
         fade_on_empty = false;
         placeholder_text = "<i>󰌾   Logged in as $USER</i>";
         hide_input = false;
-        check_color = accent;
-        fail_color = "rgba(149, 117, 128, 1)";
+        check_color = "rgba(${color.base08-rgba})";
+        fail_color = "rgba(${color.base0F-rgba})";
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
-        capslock_color = "rgba(149, 117, 128, 1)";
+        capslock_color = "rgba(${color.base0F-rgba})";
         position = "0, -47";
         halign = "center";
         valign = "center";

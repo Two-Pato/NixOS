@@ -28,7 +28,7 @@ in
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgba(${color.base12-hexs})";
+        "col.active_border" = "rgba(${color.base0F-hexs})";
         "col.inactive_border" = "rgba(${color.base08-hexs})";
         layout = "dwindle";
         resize_on_border = true;

@@ -31,7 +31,7 @@ in
         progress_bar_max_width = 300;
         separator_height = 2;
         frame_width = 2;
-        frame_color = "#${color.base12-hex}";
+        frame_color = "#${color.base0F-hex}";
         separator_color = "frame";
         corner_radius = 15;
         transparency = 0;
@@ -67,7 +67,7 @@ in
       };
 
       urgency_low = {
-        background = "#${color.base06-hex}";
+        background = "#${color.base14-hex}";
         foreground = "#${color.base00-hex}";
         highlight = "#${color.base08-hex}";
         timeout = 4;
@@ -81,7 +81,7 @@ in
       };
 
       urgency_critical = {
-        background = "#${color.base0F-hex}";
+        background = "#${color.base12-hex}";
         foreground = "#${color.base00-hex}";
         highlight = "#${color.base08-hex}";
         timeout = 0;
