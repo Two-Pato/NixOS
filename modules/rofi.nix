@@ -6,7 +6,9 @@ in
 {
   programs.rofi = {
     enable = true;
+
     package = pkgs.rofi-wayland;
+
     theme = builtins.toFile "onimai.rasi" ''
       configuration {
         modi: "drun,run,filebrowser,window";
