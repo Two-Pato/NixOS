@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  color = import ../var/color.nix;
+in
 {
   programs.rofi = {
     enable = true;
@@ -18,12 +21,12 @@
 
       * {
         font: "JetBrains Mono Nerd Font 14";
-        background: #fbf9f8ff;
-        background-alt: #957580ff;
-        foreground: #1c1d21ff;
-        selected: #f0acb7ff;
-        active: #f0acb7ff;
-        urgent: #ef8ca8ff;
+        background: #${color.base06-hexs};
+        background-alt: #${color.base08-hexs};
+        foreground: #${color.base00-hexs};
+        selected: #${color.base12-hexs};
+        active: #${color.base12-hexs};
+        urgent: #${color.base0F-hexs};
       }
 
       window {

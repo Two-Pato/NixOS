@@ -1,5 +1,8 @@
 { config, lib, ... }:
 
+let
+  color = import ../var/color.nix;
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -25,8 +28,8 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgba(f0acb7ff)";
-        "col.inactive_border" = "rgba(957580ff)";
+        "col.active_border" = "rgba(${color.base12-hexs})";
+        "col.inactive_border" = "rgba(${color.base08-hexs})";
         layout = "dwindle";
         resize_on_border = true;
         allow_tearing = false;

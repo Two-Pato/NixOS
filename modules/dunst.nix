@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  color = import ../var/color.nix;
+in
 {
   services.dunst = {
     enable = true;
@@ -28,7 +31,7 @@
         progress_bar_max_width = 300;
         separator_height = 2;
         frame_width = 2;
-        frame_color = "#f0acb7";
+        frame_color = "#${color.base12-hex}";
         separator_color = "frame";
         corner_radius = 15;
         transparency = 0;
@@ -64,23 +67,23 @@
       };
 
       urgency_low = {
-        background = "#fbf9f8";
-        foreground = "#1c1d21";
-        highlight = "#ef8ca8";
+        background = "#${color.base06-hex}";
+        foreground = "#${color.base00-hex}";
+        highlight = "#${color.base08-hex}";
         timeout = 4;
       };
 
       urgency_normal = {
-        background = "#fbf9f8";
-        foreground = "#1c1d21";
-        highlight = "#ef8ca8";
+        background = "#${color.base06-hex}";
+        foreground = "#${color.base00-hex}";
+        highlight = "#${color.base08-hex}";
         timeout = 6;
       };
 
       urgency_critical = {
-        background = "#f4eeba";
-        foreground = "#1c1d21";
-        highlight = "#ef8ca8";
+        background = "#${color.base0F-hex}";
+        foreground = "#${color.base00-hex}";
+        highlight = "#${color.base08-hex}";
         timeout = 0;
       };
     };
