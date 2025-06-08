@@ -16,15 +16,15 @@ with lib.hm.gvariant;
     };
   };
 
-    home.file.".local/share/applications/org.gnome.TextEditor.desktop".text = ''
-      [Desktop Entry]
-      Categories=GNOME;Utility;TextEditor;
-      Exec=gnome-text-editor --new-window %U
-      MimeType=text/plain;
-      Comment=View and edit text files
-      Icon=org.gnome.TextEditor
-      StartupNotify=true
-      Terminal=false
-      Type=Application
-    '';
+  home.file.".local/share/applications/org.gnome.TextEditor.desktop".text = ''
+    [Desktop Entry]
+    Categories=GNOME;Utility;TextEditor;
+    Exec=gnome-text-editor --new-window %U
+    MimeType=text/plain;
+    Comment=View and edit text files
+    Icon=org.gnome.TextEditor
+    StartupNotify=true
+    Terminal=false
+    Type=Application
+  '';
 }

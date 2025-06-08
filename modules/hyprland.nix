@@ -14,7 +14,6 @@
 
       # Autostart
       exec-once = [
-        "uwsm app -- hyprpaper"
         "uwsm app -- waybar"
 
         "[workspace 1 silent] uwsm app -- firefox"

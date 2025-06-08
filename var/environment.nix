@@ -20,5 +20,7 @@
     error = "journalctl -b -p err";
     rebuild-mihari = "sudo nixos-rebuild switch --flake /etc/nixos/.#mihari";
     rebuild-mahiro = "sudo nixos-rebuild switch --flake /etc/nixos/.#mahiro";
+    update = "nix flake update --flake /etc/nixos/ && sudo nixos-rebuild switch --flake /etc/nixos/.#mihari";
+    garbage = "sudo nix-collect-garbage --delete-old";
   };
 }

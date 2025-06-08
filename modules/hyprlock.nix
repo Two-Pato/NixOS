@@ -15,13 +15,13 @@ in
     enable = true;
 
     settings = {
-      # General Settings
+      # General settings
       general = {
         disable_loading_bar = true;
         hide_cursor = false;
       };
 
-      # Background Configuration
+      # Background configuration
       background = {
         path = "${../imgs/hyprland_wallpaper.png}";
         blur_passes = 3;
@@ -29,7 +29,7 @@ in
       };
 
       label = [
-        # Time Display
+        # Time display
         {
           text = "$TIME";
           color = text;
@@ -39,7 +39,7 @@ in
           halign = "right";
           valign = "top";
         }
-        # Date Display
+        # Date display
         {
           text = "cmd[update:43200000] date +\"%A, %d %B %Y\"";
           color = text;
@@ -51,7 +51,7 @@ in
         }
       ];
 
-      # User Avatar Display
+      # User avatar display
       image = {
         path = "${../imgs/hyprlock_avatar.png}";
         size = 300;
@@ -61,7 +61,7 @@ in
         valign = "center";
       };
 
-      # Input Field Configuration
+      # Input field configuration
       input-field = {
         size = "300, 60";
         outline_thickness = 4;
