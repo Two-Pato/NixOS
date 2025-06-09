@@ -25,6 +25,9 @@
     ../../modules/gthumb.nix
     ../../modules/yt-dlp.nix
     ../../modules/yazi.nix
+    ../../modules/btop.nix
+    ../../modules/mpv.nix
+
   ];
 
   home.username = "laurent";
@@ -37,7 +40,6 @@
     blueman
     solaar
     imagemagick
-    mpv
     vscode
     #parsec-bin
   ];
