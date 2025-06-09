@@ -9,6 +9,9 @@
     targets.dunst.enable = true;
     targets.mpv.enable = true;
 
+    targets.hyprland.enable = true;
+    targets.hyprlock.enable = true;
+
     base16Scheme = {
       base00 = "1C1D21"; # Background / Black Russian
       base01 = "3A3C44"; # Black / Payne's Grey
