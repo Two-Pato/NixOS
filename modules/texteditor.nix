@@ -18,6 +18,7 @@ with lib.hm.gvariant;
 
   home.file.".local/share/applications/org.gnome.TextEditor.desktop".text = ''
     [Desktop Entry]
+    Name=Texteditor
     Categories=GNOME;Utility;TextEditor;
     Exec=gnome-text-editor --new-window %U
     MimeType=text/plain;

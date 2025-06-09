@@ -124,6 +124,7 @@ in
         "$mainMod, B, exec, uwsm app -- firefox"
         "$mainMod ALT, B, exec, uwsm app -- firefox --private-window"
         "$mainMod, E, exec, uwsm app -- nautilus -w"
+        "$mainMod SHIFT, E, exec, uwsm app -- kitty --class yazi -e yazi"
         "$mainMod, SPACE, exec, pkill -x rofi || rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\""
         "$mainMod, V, exec, pkill -x clipse || kitty --class clipse -e 'clipse'"
         "$mainMod, N, exec, pkill -x nano || kitty -d ~/Documents --class nano -e 'nano'"
