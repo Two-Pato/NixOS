@@ -8,9 +8,7 @@
 
     settings = {
       # Monitor
-      monitor = [
-        ",preferred,auto,auto"
-      ];
+      monitor = [ ",preferred,auto,auto" ];
 
       # Autostart
       exec-once = [
@@ -19,16 +17,6 @@
         "[workspace 1 silent] uwsm app -- firefox"
         "[workspace 2 silent] uwsm app -- nautilus"
       ];
-
-      # General Window Layout
-      general = {
-        gaps_in = 5;
-        gaps_out = 10;
-        border_size = 2;
-        layout = "dwindle";
-        resize_on_border = true;
-        allow_tearing = false;
-      };
 
       # General window decoration
       decoration = {
@@ -47,7 +35,7 @@
         };
 
         shadow = {
-          enabled = true;
+          enabled = false;
           range = 30;
           render_power = 3;
         };
@@ -74,7 +62,16 @@
         ];
       };
 
-      # Layouts
+      # Layout settings
+      general = {
+        gaps_in = 5;
+        gaps_out = 10;
+        border_size = 2;
+        layout = "dwindle";
+        resize_on_border = true;
+        allow_tearing = false;
+      };
+
       dwindle = {
         pseudotile = true;
         preserve_split = true;
@@ -90,20 +87,16 @@
         pass_mouse_when_bound = false;
       };
 
-      # Keyboard Layout
+      # Keyboard layout
       input = {
         kb_layout = "de";
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
-        touchpad = {
-          natural_scroll = false;
-        };
+        touchpad.natural_scroll = false;
       };
       
-      cursor = {
-        no_warps = true;
-      };
+      cursor.no_warps = true;
 
       # Keybindings
       "$mainMod" = "SUPER";

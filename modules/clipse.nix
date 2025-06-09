@@ -4,11 +4,9 @@
   services.clipse = {
     enable = true;
 
-    # Clipboard history options
     allowDuplicates = false;
     historySize = 100;
 
-    # Keybindings
     keyBindings = {
       choose = "enter";
       clearSelected = "S";
@@ -31,7 +29,6 @@
       yankFilter = "ctrl+s";
     };
 
-    # Image display configuration
     imageDisplay = {
       type = "basic";
       scaleX = 9;

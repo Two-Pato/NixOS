@@ -25,13 +25,11 @@ in
         width = 1000;
         x-offset = 0;
         y-offset = 0;
-        enabled = true;
         border-radius = 15;
         cursor = mkLiteral "default";
       };
 
       mainbox = {
-        enabled = true;
         spacing = 0;
         background-color = mkLiteral "transparent";
         orientation = mkLiteral "horizontal";
@@ -55,7 +53,6 @@ in
       };
 
       inputbar = {
-        enabled = true;
         spacing = 10;
         padding = 15;
         border-radius = 10;
@@ -63,20 +60,17 @@ in
       };
 
       textbox-prompt-colon = {
-        enabled = true;
         expand = false;
         str = " ";
         font = "JetBrainsMono Nerd Font 12";
       };
 
       entry = {
-        enabled = true;
         cursor = "text";
         placeholder = "Search...";
       };
 
       listview = {
-        enabled = true;
         columns = 1;
         lines = 8;
         cycle = true;
@@ -88,43 +82,26 @@ in
         fixed-columns = true;
         spacing = 10;
         background-color = mkLiteral "transparent";
-        cursor = "default";
       };
 
       element = {
-        enabled = true;
         spacing = 15;
         padding = 8;
         border-radius = 10;
         background-color = mkLiteral "transparent";
-        cursor = "pointer";
       };
 
       element-icon = {
         size = 32;
-        cursor = "inherit";
       };
 
       element-text = {
-        cursor = "inherit";
         vertical-align = mkLiteral "0.5";
         horizontal-align = 0;
       };
 
       message = {
-        enabled = true;
-      };
-
-      textbox = {
-        padding = 15;
-        border-radius = 10;
-        vertical-align = mkLiteral "0.5";
-        horizontal-align = 0;
-      };
-
-      error-message = {
-        padding = 15;
-        border-radius = 20;
+        padding = 10;
       };
     };
   };

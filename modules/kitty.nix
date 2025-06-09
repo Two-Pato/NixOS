@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  color = import ../var/color.nix;
+in
 {
   programs.kitty = {
     enable = true;
