@@ -11,6 +11,9 @@
 
     targets.hyprland.enable = true;
     targets.hyprlock.enable = true;
+    targets.rofi.enable = true;
+
+
 
     base16Scheme = {
       base00 = "1C1D21"; # Background / Black Russian
@@ -45,8 +48,8 @@
       };
 
       monospace = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans Mono";
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font Mono";
       };
 
       emoji = {

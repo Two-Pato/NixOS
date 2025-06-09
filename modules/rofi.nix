@@ -1,216 +1,131 @@
 { config, lib, pkgs, ... }:
 
 let
-  color = import ../var/color.nix;
+  inherit (config.lib.formats.rasi) mkLiteral;
 in
 {
   programs.rofi = {
     enable = true;
-
     package = pkgs.rofi-wayland;
 
-    theme = builtins.toFile "onimai.rasi" ''
-      configuration {
-        modi: "drun,run,filebrowser,window";
-        show-icons: true;
-        display-drun: "APPS";
-        display-run: "RUN";
-        display-filebrowser: "FILES";
-        display-window: "WINDOW";
-        drun-display-format: "{name}";
-        window-format: "{w} · {c} · {t}";
-      }
+    extraConfig = {
+      modi = "drun";
+      font = "JetBrains Mono Nerd Font 12";
+      show-icons = true;
+      display-drun = "";
+      drun-display-format = "{name}";
+    };
 
-      * {
-        font: "JetBrains Mono Nerd Font 14";
-        background: #${color.base06-hexs};
-        background-alt: #${color.base08-hexs};
-        foreground: #${color.base00-hexs};
-        selected: #${color.base12-hexs};
-        active: #${color.base12-hexs};
-        urgent: #${color.base0F-hexs};
-      }
+    theme = {
+      window = {
+        transparency = "real";
+        location = "center";
+        anchor = "center";
+        fullscreen = false;
+        width = 1000;
+        x-offset = 0;
+        y-offset = 0;
+        enabled = true;
+        border-radius = 15;
+        cursor = mkLiteral "default";
+      };
 
-      window {
-        transparency: "real";
-        location: center;
-        anchor: center;
-        fullscreen: false;
-        width: 1000px;
-        x-offset: 0px;
-        y-offset: 0px;
-        enabled: true;
-        border-radius: 15px;
-        cursor: "default";
-        background-color: @background;
-      }
+      mainbox = {
+        enabled = true;
+        spacing = 0;
+        background-color = mkLiteral "transparent";
+        orientation = mkLiteral "horizontal";
+        children = [ "imagebox" "listbox" ];
+      };
 
-      mainbox {
-        enabled: true;
-        spacing: 0px;
-        background-color: transparent;
-        orientation: horizontal;
-        children: [ "imagebox", "listbox" ];
-      }
+      imagebox = {
+        padding = 20;
+        background-color = mkLiteral "transparent";
+        background-image = mkLiteral "url(\"/etc/nixos/imgs/rofi_wallpaper.png\")";
+        orientation = "vertical";
+        children = [ "inputbar" ];
+      };
 
-      imagebox {
-        padding: 20px;
-        background-color: transparent;
-        background-image: url("${../imgs/rofi_wallpaper.png}", width);
-        orientation: vertical;
-        children: [ "inputbar", "dummy", "mode-switcher" ];
-      }
+      listbox = {
+        spacing = 20;
+        padding = 20;
+        background-color = mkLiteral "transparent";
+        orientation = "vertical";
+        children = [ "message" "listview" ];
+      };
 
-      listbox {
-        spacing: 20px;
-        padding: 20px;
-        background-color: transparent;
-        orientation: vertical;
-        children: [ "message", "listview" ];
-      }
+      inputbar = {
+        enabled = true;
+        spacing = 10;
+        padding = 15;
+        border-radius = 10;
+        children = [ "textbox-prompt-colon" "entry" ];
+      };
 
-      dummy {
-        background-color: transparent;
-      }
+      textbox-prompt-colon = {
+        enabled = true;
+        expand = false;
+        str = " ";
+        font = "JetBrainsMono Nerd Font 12";
+      };
 
-      inputbar {
-        enabled: true;
-        spacing: 10px;
-        padding: 15px;
-        border-radius: 10px;
-        background-color: @background-alt;
-        text-color: @foreground;
-        children: [ "textbox-prompt-colon", "entry" ];
-      }
+      entry = {
+        enabled = true;
+        cursor = "text";
+        placeholder = "Search...";
+      };
 
-      textbox-prompt-colon {
-        enabled: true;
-        expand: false;
-        str: "▶";
-        background-color: inherit;
-        text-color: inherit;
-      }
+      listview = {
+        enabled = true;
+        columns = 1;
+        lines = 8;
+        cycle = true;
+        dynamic = true;
+        scrollbar = false;
+        layout = "vertical";
+        reverse = false;
+        fixed-height = true;
+        fixed-columns = true;
+        spacing = 10;
+        background-color = mkLiteral "transparent";
+        cursor = "default";
+      };
 
-      entry {
-        enabled: true;
-        background-color: inherit;
-        text-color: inherit;
-        cursor: text;
-        placeholder: "Search";
-        placeholder-color: inherit;
-      }
+      element = {
+        enabled = true;
+        spacing = 15;
+        padding = 8;
+        border-radius = 10;
+        background-color = mkLiteral "transparent";
+        cursor = "pointer";
+      };
 
-      mode-switcher {
-        enabled: true;
-        spacing: 20px;
-        background-color: transparent;
-        text-color: @foreground;
-      }
+      element-icon = {
+        size = 32;
+        cursor = "inherit";
+      };
 
-      button {
-        padding: 15px;
-        border-radius: 10px;
-        background-color: @background-alt;
-        text-color: inherit;
-        cursor: pointer;
-      }
+      element-text = {
+        cursor = "inherit";
+        vertical-align = mkLiteral "0.5";
+        horizontal-align = 0;
+      };
 
-      button selected {
-        background-color: @selected;
-        text-color: @foreground;
-      }
+      message = {
+        enabled = true;
+      };
 
-      listview {
-        enabled: true;
-        columns: 1;
-        lines: 8;
-        cycle: true;
-        dynamic: true;
-        scrollbar: false;
-        layout: vertical;
-        reverse: false;
-        fixed-height: true;
-        fixed-columns: true;
-        spacing: 10px;
-        background-color: transparent;
-        text-color: @foreground;
-        cursor: "default";
-      }
+      textbox = {
+        padding = 15;
+        border-radius = 10;
+        vertical-align = mkLiteral "0.5";
+        horizontal-align = 0;
+      };
 
-      element {
-        enabled: true;
-        spacing: 15px;
-        padding: 8px;
-        border-radius: 10px;
-        background-color: transparent;
-        text-color: @foreground;
-        cursor: pointer;
-      }
-
-      element normal.normal {
-        background-color: inherit;
-        text-color: inherit;
-      }
-
-      element normal.urgent {
-        background-color: @urgent;
-        text-color: @foreground;
-      }
-
-      element normal.active {
-        background-color: @active;
-        text-color: @foreground;
-      }
-
-      element selected.normal {
-        background-color: @selected;
-        text-color: @foreground;
-      }
-
-      element selected.urgent {
-        background-color: @urgent;
-        text-color: @foreground;
-      }
-
-      element selected.active {
-        background-color: @urgent;
-        text-color: @foreground;
-      }
-
-      element-icon {
-        background-color: transparent;
-        text-color: inherit;
-        size: 32px;
-        cursor: inherit;
-      }
-
-      element-text {
-        background-color: transparent;
-        text-color: inherit;
-        cursor: inherit;
-        vertical-align: 0.5;
-        horizontal-align: 0.0;
-      }
-
-      message {
-        background-color: transparent;
-      }
-
-      textbox {
-        padding: 15px;
-        border-radius: 10px;
-        background-color: @background-alt;
-        text-color: @foreground;
-        vertical-align: 0.5;
-        horizontal-align: 0.0;
-      }
-
-      error-message {
-        padding: 15px;
-        border-radius: 20px;
-        background-color: @background;
-        text-color: @foreground;
-      }
-    '';
+      error-message = {
+        padding = 15;
+        border-radius = 20;
+      };
+    };
   };
 }
