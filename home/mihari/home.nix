@@ -14,6 +14,7 @@
     ../../modules/clipse.nix
 
     # Programs
+    ../../modules/bash.nix
     ../../modules/git.nix
     ../../modules/kitty.nix
     ../../modules/fastfetch.nix
