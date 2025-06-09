@@ -8,6 +8,20 @@ with lib.hm.gvariant;
     xdg-user-dirs
   ];
 
+  dconf.settings = {
+    "org/gnome/nautilus/icon-view" = {
+      captions = [ "size" "none" "none" ];
+      default-zoom-level = "large";
+    };
+
+    "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "icon-view";
+      executable-text-activation = "ask";
+      migrated-gtk-settings = true;
+      search-filter-time-type = "last_modified";
+    };
+  };
+
   home.file.".config/gtk-3.0/bookmarks".text = ''
     file:///home/laurent/Documents Documents
     file:///home/laurent/Downloads Downloads
@@ -26,18 +40,4 @@ with lib.hm.gvariant;
     XDG_TEMPLATES_DIR="$HOME/Templates"
     XDG_PUBLICSHARE_DIR="$HOME/Public"
   '';
-
-  dconf.settings = {
-    "org/gnome/nautilus/icon-view" = {
-      captions = [ "size" "none" "none" ];
-      default-zoom-level = "large";
-    };
-
-    "org/gnome/nautilus/preferences" = {
-      default-folder-viewer = "icon-view";
-      executable-text-activation = "ask";
-      migrated-gtk-settings = true;
-      search-filter-time-type = "last_modified";
-    };
-  };
 }
