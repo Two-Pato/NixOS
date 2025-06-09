@@ -23,6 +23,7 @@
     ../../modules/texteditor.nix
     ../../modules/gthumb.nix
     ../../modules/yt-dlp.nix
+    ../../modules/yazi.nix
   ];
 
   home.username = "laurent";

@@ -11,13 +11,23 @@
   };
 
   environment.shellAliases = {
+    # System
     ls = "ls --color=auto";
+    la = "ls -a --color=auto";
+    cds = "cds";
     grep = "grep --color=auto";
-    manga-convert = "python \"/home/laurent/Programs/Manga-Converter/converter.py\" && exit";
-    manga-unzip = "python \"/home/laurent/Programs/Manga-Converter/unziper.py\" && exit";
-    count-folder = "find . -mindepth 1 -maxdepth 1 -type d | wc -l";
+    hs = "history | grep";
+    
+    # Usefull stuff
     ipv4 = "ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1";
     error = "journalctl -b -p err";
+    count-folder = "find . -mindepth 1 -maxdepth 1 -type d | wc -l";
+
+    # Programs
+    manga-convert = "python \"/home/laurent/Programs/Manga-Converter/converter.py\" && exit";
+    manga-unzip = "python \"/home/laurent/Programs/Manga-Converter/unziper.py\" && exit";
+    
+    # Nix
     rebuild-mihari = "sudo nixos-rebuild switch --flake /etc/nixos/.#mihari";
     rebuild-mahiro = "sudo nixos-rebuild switch --flake /etc/nixos/.#mahiro";
     rebuild-kaede = "sudo nixos-rebuild switch --flake /etc/nixos/.#kaede";
