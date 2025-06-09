@@ -1,24 +1,8 @@
 { config, lib, pkgs, ... }:
 
-let
- color = import ../var/color.nix;
-in
 {
   services.clipse = {
     enable = true;
-
-    # Custom theme colors
-    theme = {
-      FilteredMatch = "#${color.base06-hex}";
-      NormalDesc = "#${color.base06-hex}";
-      NormalTitle = "#${color.base06-hex}";
-      SelectedDesc = "#${color.base08-hex}";
-      SelectedTitle = "#${color.base08-hex}";
-      SelectedDescBorder = "#${color.base08-hex}";
-      TitleFore = "#${color.base0E-hex}";
-      StatusMsg = "#${color.base0C-hex}";
-      PinIndicatorColor = "#${color.base06-hex}";
-    };
 
     # Clipboard history options
     allowDuplicates = false;

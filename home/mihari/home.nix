@@ -12,6 +12,7 @@
     ../../modules/wlogout.nix
     ../../modules/rofi.nix
     ../../modules/clipse.nix
+    ../../modules/stylix.nix
 
     # Programs
     ../../modules/bash.nix

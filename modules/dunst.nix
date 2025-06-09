@@ -1,8 +1,5 @@
 { config, lib, pkgs, ... }:
 
-let
-  color = import ../var/color.nix;
-in
 {
   services.dunst = {
     enable = true;
@@ -31,8 +28,6 @@ in
         progress_bar_max_width = 300;
         separator_height = 2;
         frame_width = 2;
-        frame_color = "#${color.base0F-hex}";
-        separator_color = "frame";
         corner_radius = 15;
         transparency = 0;
         gap_size = 8;
@@ -42,7 +37,7 @@ in
         history_length = 20;
         show_age_threshold = 60;
         markup = "full";
-        font = "JetBrainsMono Nerd Font 10";
+        font = lib.mkForce "JetBrainsMono Nerd Font 10";
         format = "<b>%s</b>\\n%b";
         word_wrap = "yes";
         sort = "yes";
@@ -67,23 +62,14 @@ in
       };
 
       urgency_low = {
-        background = "#${color.base14-hex}";
-        foreground = "#${color.base00-hex}";
-        highlight = "#${color.base08-hex}";
         timeout = 4;
       };
 
       urgency_normal = {
-        background = "#${color.base06-hex}";
-        foreground = "#${color.base00-hex}";
-        highlight = "#${color.base08-hex}";
         timeout = 6;
       };
 
       urgency_critical = {
-        background = "#${color.base12-hex}";
-        foreground = "#${color.base00-hex}";
-        highlight = "#${color.base08-hex}";
         timeout = 0;
       };
     };
