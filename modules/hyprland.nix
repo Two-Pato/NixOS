@@ -113,8 +113,9 @@
         "$mainMod, E, exec, uwsm app -- nautilus -w"
         "$mainMod SHIFT, E, exec, uwsm app -- kitty --class yazi -e yazi"
         "$mainMod, SPACE, exec, pkill -x rofi || rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\""
-        "$mainMod, V, exec, pkill -x clipse || kitty --class clipse -e 'clipse'"
-        "$mainMod, N, exec, pkill -x nano || kitty -d ~/Documents --class nano -e 'nano'"
+        "$mainMod, V, exec, pkill -x clipse || kitty --class clipse -e clipse"
+        "$mainMod, N, exec, pkill -x nano || kitty -d ~/Documents --class nano -e nano"
+        "$mainMod, S, exec, pkill -x fzf || kitty --class fzf -e fzf --preview \'cat {}\' --bind \'enter:become(nano {+})\'"
 
         # Windows
         "$mainMod, Q, killactive"
@@ -177,7 +178,7 @@
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ];
 
-      # Window Rules
+      # Window rules
       windowrulev2 = [
         # General
         "suppressevent maximize, class:.*" # Ignore maximize requests from apps. You'll probably like this.
@@ -187,6 +188,9 @@
         "size 622 652,class:(clipse)"
         # Nano
         "float,class:(nano)"
+        # Fzf
+        "float,class:(fzf)"
+        "size 75% 75%,class:(fzf)"
       ];
     };
   };

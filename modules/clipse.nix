@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  color = import ../var/color.nix;
+in
 {
   services.clipse = {
     enable = true;
@@ -37,15 +40,16 @@
     };
 
     theme = {
-      #useCustomTheme = true;
-      #NormalTitle = "#fa07fa";
-      #SelectedTitle = "#07fa1b";
-      #PageActiveDot = "#3498db";
-      #DividerDot":         "#3498db",
-      #"StatusMsg":          "#2ecc71",
-      #"PinIndicatorColor":  "#FFD700",
-
-
+      useCustomTheme = true;
+      TitleFore = "#${color.base0E-hex}";
+      NormalTitle = "#${color.base00-hex}";
+      SelectedTitle = "#${color.base08-hex}";
+      SelectedDesc = "#${color.base12-hex}";
+      SelectedDescBorder = "#${color.base0C-hex}";
+      PageActiveDot = "#${color.base0C-hex}";
+      DividerDot = "#${color.base0C-hex}";
+      StatusMsg = "#${color.base0B-hex}";
+      PinIndicatorColor = "#${color.base0A-hex}";
     };
   };
 }

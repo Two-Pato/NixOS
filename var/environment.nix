@@ -16,7 +16,6 @@
     la = "ls -a --color=auto";
     cds = "cds";
     grep = "grep --color=auto";
-    hs = "history | grep";
     
     # Usefull stuff
     ipv4 = "ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1";
