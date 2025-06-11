@@ -134,7 +134,7 @@ in
 
       #custom-appmenu:hover {
           color: #${color.base06-hex};
-          background: #${color.base12-hex};
+          background: #${color.base08-hex};
       }
 
       /* Taskbar */
@@ -154,7 +154,7 @@ in
       #taskbar button.active,
       #taskbar button:hover {
           color: #${color.base06-hex};
-          background: #${color.base12-hex};
+          background: #${color.base08-hex};
       }
 
       /* Window */
@@ -189,14 +189,14 @@ in
           font-size: 12px;
           font-weight: bold;
           color: #${color.base06-hex};
-          background: #${color.base08-hex};
+          background: #${color.base12-hex};
           transition: all 0.3s ease-in-out;
       }
 
       #workspaces button.active,
       #workspaces button:hover {
           color: #${color.base00-hex};
-          background: #${color.base12-hex};
+          background: #${color.base08-hex};
       }
 
       /* Bluetooth */
@@ -212,7 +212,7 @@ in
 
       #bluetooth:hover {
           color: #${color.base06-hex};
-          background: #${color.base12-hex};
+          background: #${color.base08-hex};
       }
 
       /* Pulseaudio */
@@ -228,7 +228,7 @@ in
 
       #pulseaudio:hover {
           color: #${color.base06-hex};
-          background: #${color.base12-hex};
+          background: #${color.base08-hex};
       }
 
       /* Clock */
@@ -255,7 +255,7 @@ in
 
       #custom-hypridle:hover {
           color: #${color.base06-hex};
-          background: #${color.base12-hex};
+          background: #${color.base08-hex};
       }
 
       /* Custom Exit */
@@ -271,7 +271,7 @@ in
 
       #custom-exit:hover {
           color: #${color.base06-hex};
-          background: #${color.base12-hex};
+          background: #${color.base08-hex};
       }
     '';
   };

@@ -17,20 +17,21 @@ in
     targets.btop.enable = true;
 
     base16Scheme = {
-      base00 = "#${color.base06-hex}";
-      base01 = "#${color.base07-hex}";
+      base00 = "#${color.base07-hex}";
+      base01 = "#${color.base06-hex}";
       base02 = "#${color.base05-hex}";
       base03 = "#${color.base04-hex}";
       base04 = "#${color.base03-hex}";
       base05 = "#${color.base02-hex}";
       base06 = "#${color.base01-hex}";
       base07 = "#${color.base00-hex}";
+
       base08 = "#${color.base0D-hex}";
       base09 = "#${color.base09-hex}";
       base0A = "#${color.base0A-hex}";
       base0B = "#${color.base0B-hex}";
       base0C = "#${color.base0C-hex}";
-      base0D = "#${color.base0F-hex}";
+      base0D = "#${color.base08-hex}";
       base0E = "#${color.base0E-hex}";
       base0F = "#${color.base0F-hex}";
     };

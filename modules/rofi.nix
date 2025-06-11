@@ -2,6 +2,7 @@
 
 let
   inherit (config.lib.formats.rasi) mkLiteral;
+  color = import ../var/color.nix;
 in
 {
   programs.rofi = {
@@ -34,12 +35,15 @@ in
         background-color = mkLiteral "transparent";
         orientation = mkLiteral "horizontal";
         children = [ "imagebox" "listbox" ];
+        border = 2;
+        border-radius = 15;
+        border-color = mkLiteral "#${color.base08-hex}";
       };
 
       imagebox = {
         padding = 20;
         background-color = mkLiteral "transparent";
-        background-image = mkLiteral "url(\"/etc/nixos/imgs/rofi_wallpaper.png\")";
+        background-image = mkLiteral "url(\"/etc/nixos/imgs/rofi_wallpaper.png\", width)";
         orientation = "vertical";
         children = [ "inputbar" ];
       };
