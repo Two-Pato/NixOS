@@ -44,7 +44,7 @@ in
         background-repeat: no-repeat;
         background-position: center;
         background-size: 20%;
-        background-color: rgba(${color.base06-rgb}, 1);
+        background-color: rgba(${color.base07-rgb}, 1);
         animation: gradient_f 20s ease-in infinite;
         transition: all 0.3s ease-in;
         box-shadow: 0 0 10px 2px transparent;
@@ -65,7 +65,7 @@ in
         background-size: 50%;
         box-shadow: 0 0 10px 3px rgba(0, 0, 0, .4);
         background-color: rgba(${color.base08-rgb}, 1);
-        color: rgba(${color.base06-rgb}, 1);
+        color: rgba(${color.base07-rgb}, 1);
         transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
         outline: none;
         border: none;

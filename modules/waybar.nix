@@ -116,7 +116,7 @@ in
 
       #waybar {
           background: transparent;
-          border-bottom: 0px solid #${color.base06-hex};
+          border-bottom: 0px solid #${color.base07-hex};
           transition-property: background-color;
           transition-duration: 0.5s;
       }
@@ -129,11 +129,11 @@ in
           font-size: 16px;
           font-weight: bolder;
           color: #${color.base00-hex};
-          background-color: #${color.base06-hex};
+          background-color: #${color.base07-hex};
       }
 
       #custom-appmenu:hover {
-          color: #${color.base06-hex};
+          color: #${color.base07-hex};
           background: #${color.base08-hex};
       }
 
@@ -142,7 +142,7 @@ in
           margin: 5px 10px;
           padding: 0px 10px;
           border-radius: 15px;
-          background: #${color.base06-hex};
+          background: #${color.base07-hex};
       }
 
       #taskbar button {
@@ -153,7 +153,7 @@ in
 
       #taskbar button.active,
       #taskbar button:hover {
-          color: #${color.base06-hex};
+          color: #${color.base07-hex};
           background: #${color.base08-hex};
       }
 
@@ -164,7 +164,7 @@ in
           border-radius: 15px;
           font-size: 16px;
           color: #${color.base00-hex};
-          background: #${color.base06-hex};
+          background: #${color.base07-hex};
       }
 
       #waybar.empty #window {
@@ -179,7 +179,7 @@ in
           font-size: 16px;
           font-weight: bold;
           color: #${color.base00-hex};
-          background: #${color.base06-hex};
+          background: #${color.base07-hex};
       }
 
       #workspaces button {
@@ -188,7 +188,7 @@ in
           border-radius: 15px;
           font-size: 12px;
           font-weight: bold;
-          color: #${color.base06-hex};
+          color: #${color.base07-hex};
           background: #${color.base12-hex};
           transition: all 0.3s ease-in-out;
       }
@@ -207,11 +207,11 @@ in
           font-size: 16px;
           font-weight: bold;
           color: #${color.base00-hex};
-          background-color: #${color.base06-hex};
+          background-color: #${color.base07-hex};
       }
 
       #bluetooth:hover {
-          color: #${color.base06-hex};
+          color: #${color.base07-hex};
           background: #${color.base08-hex};
       }
 
@@ -223,11 +223,11 @@ in
           font-size: 16px;
           font-weight: bold;
           color: #${color.base00-hex};
-          background-color: #${color.base06-hex};
+          background-color: #${color.base07-hex};
       }
 
       #pulseaudio:hover {
-          color: #${color.base06-hex};
+          color: #${color.base07-hex};
           background: #${color.base08-hex};
       }
 
@@ -239,7 +239,7 @@ in
           font-size: 16px;
           font-weight: bold;
           color: #${color.base00-hex};
-          background-color: #${color.base06-hex};
+          background-color: #${color.base07-hex};
       }
 
       /* Custom Hypridle */
@@ -250,11 +250,11 @@ in
           font-size: 16px;
           font-weight: bolder;
           color: #${color.base00-hex};
-          background-color: #${color.base06-hex};
+          background-color: #${color.base07-hex};
       }
 
       #custom-hypridle:hover {
-          color: #${color.base06-hex};
+          color: #${color.base07-hex};
           background: #${color.base08-hex};
       }
 
@@ -266,11 +266,11 @@ in
           font-size: 16px;
           font-weight: bolder;
           color: #${color.base00-hex};
-          background-color: #${color.base06-hex};
+          background-color: #${color.base07-hex};
       }
 
       #custom-exit:hover {
-          color: #${color.base06-hex};
+          color: #${color.base07-hex};
           background: #${color.base08-hex};
       }
     '';

@@ -35,5 +35,17 @@
       scaleY = 9;
       heightCut = 2;
     };
+
+    theme = {
+      #useCustomTheme = true;
+      #NormalTitle = "#fa07fa";
+      #SelectedTitle = "#07fa1b";
+      #PageActiveDot = "#3498db";
+      #DividerDot":         "#3498db",
+      #"StatusMsg":          "#2ecc71",
+      #"PinIndicatorColor":  "#FFD700",
+
+
+    };
   };
 }

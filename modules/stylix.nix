@@ -15,6 +15,7 @@ in
     targets.hyprlock.enable = true;
     targets.rofi.enable = true;
     targets.btop.enable = true;
+    targets.fzf.enable = true;
 
     base16Scheme = {
       base00 = "#${color.base07-hex}";

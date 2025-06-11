@@ -27,7 +27,7 @@
     ../../modules/yazi.nix
     ../../modules/btop.nix
     ../../modules/mpv.nix
-
+    ../../modules/fzf.nix
   ];
 
   home.username = "laurent";
