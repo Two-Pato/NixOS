@@ -6,8 +6,18 @@ in
 {
   stylix = {
     enable = true;
-    autoEnable = true;
-    targets.waybar.enable = false;
+    autoEnable = false;
+    targets = {
+      btop.enable = true;
+      dunst.enable = true;
+      fzf.enable = true;
+      hyprland.enable = true;
+      hyprlock.enable = true;
+      kitty.enable = true;
+      mpv.enable = true;
+      rofi.enable = true;
+      yazi.enable = true;
+    };
 
     base16Scheme = {
       base00 = "#${color.base07-hex}";

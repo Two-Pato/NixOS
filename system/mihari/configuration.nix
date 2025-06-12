@@ -82,7 +82,7 @@
       "x-systemd.mount-timeout=5s"
       "user"
       "users"
-      "credentials=/home/laurent/.config/samba/credentials"
+      "credentials=/home/laurent/.secrets/credentials"
       "uid=1000"
       "gid=100"
     ];

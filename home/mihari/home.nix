@@ -3,31 +3,31 @@
 {
   imports = [
     # Desktop
-    ../../modules/hyprland.nix
-    ../../modules/hyprpaper.nix
-    ../../modules/hyprlock.nix
-    ../../modules/hypridle.nix
-    ../../modules/waybar.nix
-    ../../modules/dunst.nix
-    ../../modules/wlogout.nix
-    ../../modules/rofi.nix
     ../../modules/clipse.nix
+    ../../modules/dunst.nix
+    ../../modules/hypridle.nix
+    ../../modules/hyprland.nix
+    ../../modules/hyprlock.nix
+    ../../modules/hyprpaper.nix
+    ../../modules/rofi.nix
     ../../modules/stylix.nix
-
+    ../../modules/waybar.nix
+    ../../modules/wlogout.nix
+  
     # Programs
     ../../modules/bash.nix
-    ../../modules/git.nix
-    ../../modules/kitty.nix
+    ../../modules/btop.nix
     ../../modules/fastfetch.nix
     ../../modules/firefox.nix
+    ../../modules/fzf.nix
+    ../../modules/git.nix
+    ../../modules/gthumb.nix
+    ../../modules/kitty.nix
+    ../../modules/mpv.nix
     ../../modules/nautilus.nix
     ../../modules/texteditor.nix
-    ../../modules/gthumb.nix
-    ../../modules/yt-dlp.nix
     ../../modules/yazi.nix
-    ../../modules/btop.nix
-    ../../modules/mpv.nix
-    ../../modules/fzf.nix
+    ../../modules/yt-dlp.nix
   ];
 
   home.username = "laurent";
@@ -40,6 +40,7 @@
     blueman
     solaar
     imagemagick
+    ncdu
     vscode
     #parsec-bin
   ];

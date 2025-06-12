@@ -137,8 +137,8 @@
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
-      DontCheckDefaultBrowser = true;
       DisablePocket = true;
+      DontCheckDefaultBrowser = true;
 
       ExtensionSettings = {
         "uBlock0@raymondhill.net" = {
