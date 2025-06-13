@@ -10,7 +10,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # System Identity & Locale
-  networking.hostName = "mihari";
+  networking.hostName = "mahiro";
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";

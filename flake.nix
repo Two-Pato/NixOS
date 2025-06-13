@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +30,22 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
           home-manager.users.laurent = import ./home/mihari/home.nix;
+        }
+      ];
+    };
+
+    nixosConfigurations.mahiro = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./system/mahiro/configuration.nix
+        ./var/environment.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
+          home-manager.users.laurent = import ./home/mahiro/home.nix;
         }
       ];
     };
