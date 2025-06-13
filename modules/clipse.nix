@@ -52,4 +52,8 @@ in
       PinIndicatorColor = "#${color.base0A-hex}";
     };
   };
+
+  home.packages = with pkgs; [
+    wl-clipboard
+  ];
 }

@@ -151,7 +151,6 @@
     polkit_gnome
     usbutils
     wget
-    wl-clipboard
   ];
 
   fonts.packages = with pkgs; [
