@@ -4,8 +4,10 @@
   # Imports and Nix Settings
   imports = [
     ./hardware-configuration.nix
-    ../../modules/kavita.nix
-    ../../modules/jellyfin.nix
+    ../../server/kavita.nix
+    ../../server/jellyfin.nix
+    ../../server/uptime-kuma.nix
+    ../../server/stirling-pdf.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
