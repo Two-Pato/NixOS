@@ -39,7 +39,7 @@ in
       base0F = "#${color.base0F-hex}";
     };
 
-    image = ../imgs/hyprland_wallpaper.png;
+    image = ../imgs/hyprland_wallpaper_1.png;
 
     fonts = {
       serif = {
