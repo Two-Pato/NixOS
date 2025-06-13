@@ -16,7 +16,7 @@ in
 
       # Background configuration
       background = {
-        path = "${../imgs/hyprland_wallpaper.png}";
+        path = "${../imgs/hyprland_wallpaper_1.png}";
         blur_passes = 3;
       };
 
