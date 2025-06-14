@@ -7,6 +7,7 @@
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
 
   # System Identity & Locale
@@ -60,14 +61,6 @@
       Gateway = "10.0.10.1";
       DNS = [ "10.0.10.1" ];
     };
-
-    dhcpV4Config = {
-      RouteMetric = 100;
-    };
-
-    ipv6AcceptRAConfig = {
-      RouteMetric = 100;
-    };
   };
 
   # CIFS Mount
@@ -91,6 +84,11 @@
   # Services
   services.openssh.enable = true;
   services.gvfs.enable = true;
+  services.resolved.enable = true;
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
 
   # PipeWire audio configuration
   services.pipewire = {

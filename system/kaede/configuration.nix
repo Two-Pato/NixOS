@@ -11,6 +11,7 @@
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
 
   # System Identity & Locale
@@ -70,14 +71,6 @@
       Address = [ "10.0.20.100/24" ];
       Gateway = "10.0.20.1";
       DNS = [ "10.0.20.1" ];
-    };
-
-    dhcpV4Config = {
-      RouteMetric = 100;
-    };
-
-    ipv6AcceptRAConfig = {
-      RouteMetric = 100;
     };
   };
 

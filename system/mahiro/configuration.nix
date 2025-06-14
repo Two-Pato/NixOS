@@ -4,9 +4,11 @@
   # Imports and Nix Settings
   imports = [
     ./hardware-configuration.nix
+    ../../modules/steam.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
 
   # System Identity & Locale
@@ -59,14 +61,6 @@
       Address = [ "10.0.10.11/24" ];
       Gateway = "10.0.10.1";
       DNS = [ "10.0.10.1" ];
-    };
-
-    dhcpV4Config = {
-      RouteMetric = 100;
-    };
-
-    ipv6AcceptRAConfig = {
-      RouteMetric = 100;
     };
   };
 
@@ -146,6 +140,7 @@
   # Packages and Fonts
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
+    bottles
     cifs-utils
     curl
     polkit_gnome

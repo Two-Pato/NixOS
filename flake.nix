@@ -40,6 +40,8 @@
         ./system/mahiro/configuration.nix
         ./var/environment.nix
 
+        stylix.nixosModules.stylix
+
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
