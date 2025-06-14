@@ -1,10 +1,17 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hostName, ... }:
 
 let
   color = import ../var/color.nix;
+  wallpaper_mihari = ../imgs/hyprland_wallpaper_1.png;
+  wallpaper_mahiro = ../imgs/hyprland_wallpaper_2.png;
+
+  wallpaper_host =
+    if hostName == "mihari" then wallpaper_mihari
+    else if hostName == "mahiro" then wallpaper_mahiro
+    else null;
 in
 {
-  programs.hyprlock = {
+  programs.hyprlock = lib.mkIf (wallpaper_host != null) {
     enable = true;
 
     settings = {
@@ -16,7 +23,7 @@ in
 
       # Background configuration
       background = {
-        path = "${../imgs/hyprland_wallpaper_1.png}";
+        path = lib.mkForce "${wallpaper_host}";
         blur_passes = 3;
       };
 
