@@ -7,7 +7,7 @@
   ];
 
   home.username = "laurent";
-  home.homeDirectory = lib.mkDefault "/home/laurent";
+  home.homeDirectory = "/home/laurent";
 
   # Packages
   programs.home-manager.enable = true;

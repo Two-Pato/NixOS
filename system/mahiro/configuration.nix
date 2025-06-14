@@ -160,6 +160,11 @@
     nerd-fonts.jetbrains-mono
   ];
 
+  # Home manger
+  home-manager.extraSpecialArgs = {
+    inherit (config.networking) hostName;
+  };
+
   # System Version
   system.stateVersion = "25.05";
 }
