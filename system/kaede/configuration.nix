@@ -104,9 +104,9 @@
 
   # Packages and Fonts
   environment.systemPackages = with pkgs; [
-    wget
-    curl
     cifs-utils
+    curl
+    wget
   ];
 
   # System Version
