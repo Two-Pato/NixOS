@@ -25,7 +25,6 @@
     ../../modules/kitty.nix
     ../../modules/nautilus.nix
     ../../modules/texteditor.nix
-    ../../modules/transmission.nix
     ../../modules/yazi.nix
   ];
 
