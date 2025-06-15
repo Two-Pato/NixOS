@@ -86,12 +86,6 @@
   services.openssh.enable = true;
   services.gvfs.enable = true;
 
-  services.resolved.enable = true;
-  services.mullvad-vpn = {
-    enable = true;
-    package = pkgs.mullvad-vpn;
-  };
-
   # PipeWire audio configuration
   services.pipewire = {
     enable = true;
