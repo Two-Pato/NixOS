@@ -4,7 +4,7 @@
   # Imports and Nix Settings
   imports = [
     ./hardware-configuration.nix
-    ../../modules/steam.nix
+    ../../modules/games.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -46,6 +46,7 @@
   # Networking & Firewall
   systemd.network.enable = true;
   networking.useNetworkd = true;
+
   networking.firewall.enable = true;
 
   systemd.network.networks."10-wan" = {
@@ -58,7 +59,7 @@
     };
 
     networkConfig = {
-      Address = [ "10.0.10.11/24" ];
+      Address = [ "10.0.10.12/24" ];
       Gateway = "10.0.10.1";
       DNS = [ "10.0.10.1" ];
     };
@@ -98,6 +99,15 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   hardware.logitech.wireless.enable = true;
+
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia{
+    modesetting.enable = true;
+    open = true;
+    nvidiaSettings = true;
+  }
+
 
   # Desktop Environment / Window Manager
   programs.hyprland = {
@@ -140,7 +150,6 @@
   # Packages and Fonts
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
-    bottles
     cifs-utils
     curl
     polkit_gnome

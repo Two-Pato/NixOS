@@ -45,6 +45,7 @@
   # Networking & Firewall
   systemd.network.enable = true;
   networking.useNetworkd = true;
+
   networking.firewall.enable = true;
 
   systemd.network.networks."10-wan" = {
@@ -84,6 +85,7 @@
   # Services
   services.openssh.enable = true;
   services.gvfs.enable = true;
+
   services.resolved.enable = true;
   services.mullvad-vpn = {
     enable = true;

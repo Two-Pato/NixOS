@@ -49,6 +49,7 @@
   # Networking & Firewall
   systemd.network.enable = true;
   networking.useNetworkd = true;
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 
@@ -68,7 +69,7 @@
     };
 
     networkConfig = {
-      Address = [ "10.0.20.100/24" ];
+      Address = [ "10.0.20.23/24" ];
       Gateway = "10.0.20.1";
       DNS = [ "10.0.20.1" ];
     };
