@@ -6,8 +6,8 @@
 
     package = pkgs.uptime-kuma;
 
-    settings = {
-      PORT = "3001";
-    };
+    #settings = {
+    #  PORT = "3001";
+    #};
   };
 }
