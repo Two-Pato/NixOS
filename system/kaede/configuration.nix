@@ -55,7 +55,9 @@
     allowedTCPPorts = [ 
       80 
       443
-      5000 #Kavita
+      3001 # Kuma
+      5000 # Kavita
+      8080 # Stirling
     ];
   };
 
