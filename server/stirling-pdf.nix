@@ -6,7 +6,7 @@
 
     package = pkgs.stirling-pdf;
 
-    settings = {
+    environment = {
       SERVER_PORT = 8080;
     };
   };
