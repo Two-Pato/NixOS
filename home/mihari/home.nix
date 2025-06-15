@@ -14,7 +14,7 @@
     ../../modules/waybar.nix
     ../../modules/wlogout.nix
   
-    # Programs
+    # Programs Default
     ../../modules/bash.nix
     ../../modules/btop.nix
     ../../modules/fastfetch.nix
@@ -23,10 +23,12 @@
     ../../modules/git.nix
     ../../modules/gthumb.nix
     ../../modules/kitty.nix
-    ../../modules/mpv.nix
     ../../modules/nautilus.nix
     ../../modules/texteditor.nix
     ../../modules/yazi.nix
+
+    # Programs Extra
+    ../../modules/mpv.nix
     ../../modules/yt-dlp.nix
   ];
 

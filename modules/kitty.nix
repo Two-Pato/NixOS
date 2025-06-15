@@ -13,29 +13,29 @@ in
     };
 
     settings = {
-      # General settings
+      # General Settings
       confirm_os_window_close = "0";
 
-      # Font settings
+      # Font Settings
       bold_font = "auto";
       italic_font = "auto";
       bold_italic_font = "auto";
 
-      # Window settings
+      # Window Settings
       remember_window_size = "no";
       initial_window_width = "950";
       initial_window_height = "500";
       window_padding_width = "10";
       hide_window_decorations = "yes";
 
-      # Cursor settings
+      # Cursor Settings
       cursor_blink_interval = "0.5";
       cursor_stop_blinking_after = "5";
 
-      # Audio bell settings
+      # Audio Bell Settings
       enable_audio_bell = "no";
 
-      # Background settings
+      # Background Settings
       #background_opacity = lib.mkForce "0.01";
     };
   };

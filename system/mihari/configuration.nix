@@ -10,7 +10,7 @@
   nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
 
-  # System Identity & Locale
+  # System Identity and Locale
   networking.hostName = "mihari";
 
   time.timeZone = "Europe/Berlin";
@@ -28,7 +28,7 @@
   };
   console.keyMap = "de";
 
-  # Users & Permissions
+  # Users and Permissions
   users.users.laurent = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Allow sudo usage
@@ -42,7 +42,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Networking & Firewall
+  # Networking and Firewall
   systemd.network.enable = true;
   networking.useNetworkd = true;
 
@@ -86,7 +86,7 @@
   services.openssh.enable = true;
   services.gvfs.enable = true;
 
-  # PipeWire audio configuration
+  # PipeWire Audio configuration
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -105,7 +105,7 @@
     withUWSM = true;
   };
 
-  # Login manager
+  # Login Manager
    services.greetd = {
     enable = true;
     settings = {
@@ -154,7 +154,7 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  # Home manger
+  # Home Manager
   home-manager.extraSpecialArgs = {
     inherit (config.networking) hostName;
   };

@@ -14,7 +14,7 @@
     ../../modules/waybar.nix
     ../../modules/wlogout.nix
   
-    # Programs
+    # Programs Default
     ../../modules/bash.nix
     ../../modules/btop.nix
     ../../modules/fastfetch.nix

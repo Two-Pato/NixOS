@@ -15,20 +15,20 @@ in
     enable = true;
 
     settings = {
-      # General settings
+      # General Settings
       general = {
         disable_loading_bar = true;
         hide_cursor = false;
       };
 
-      # Background configuration
+      # Background Configuration
       background = {
         path = lib.mkForce "${wallpaper_host}";
         blur_passes = 3;
       };
 
       label = [
-        # Time display
+        # Time Display
         {
           text = "$TIME";
           font_size = 90;
@@ -37,7 +37,7 @@ in
           halign = "right";
           valign = "top";
         }
-        # Date display
+        # Date Display
         {
           text = "cmd[update:43200000] date +\"%A, %d %B %Y\"";
           font_size = lib.mkForce 25;
@@ -48,7 +48,7 @@ in
         }
       ];
 
-      # User avatar display
+      # User Avatar Display
       image = {
         path = "${../imgs/hyprlock_avatar.png}";
         size = 300;
@@ -58,7 +58,7 @@ in
         valign = "center";
       };
 
-      # Input field configuration
+      # Input Field Configuration
       input-field = {
         size = "300, 60";
         outline_thickness = 4;

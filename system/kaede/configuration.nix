@@ -15,7 +15,7 @@
   nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
 
-  # System Identity & Locale
+  # System Identity and Locale
   networking.hostName = "kaede";
 
   time.timeZone = "Europe/Berlin";
@@ -33,7 +33,7 @@
   };
   console.keyMap = "de";
 
-  # Users & Permissions
+  # Users and Permissions
   users.users.laurent = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Allow sudo usage
@@ -47,7 +47,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  # Networking & Firewall
+  # Networking and Firewall
   systemd.network.enable = true;
   networking.useNetworkd = true;
 

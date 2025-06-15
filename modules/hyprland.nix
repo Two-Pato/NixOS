@@ -18,7 +18,7 @@
         "[workspace 2 silent] uwsm app -- nautilus"
       ];
 
-      # General window decoration
+      # General Window Decoration
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
@@ -62,7 +62,7 @@
         ];
       };
 
-      # Layout settings
+      # Layout Settings
       general = {
         gaps_in = 5;
         gaps_out = 10;
@@ -87,7 +87,7 @@
         pass_mouse_when_bound = false;
       };
 
-      # Keyboard layout
+      # Keyboard Layout
       input = {
         kb_layout = "de";
         numlock_by_default = true;
@@ -178,7 +178,7 @@
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ];
 
-      # Window rules
+      # Window Rules
       windowrulev2 = [
         # General
         "suppressevent maximize, class:.*" # Ignore maximize requests from apps. You'll probably like this.
