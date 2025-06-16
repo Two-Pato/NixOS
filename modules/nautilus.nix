@@ -22,6 +22,11 @@ with lib.hm.gvariant;
     };
   };
 
+  xdg.userDirs = { 
+    enable = true;
+    createDirectories = true;
+  };
+
   home.file.".config/gtk-3.0/bookmarks".text = ''
     file:///home/laurent/Documents Documents
     file:///home/laurent/Downloads Downloads
@@ -29,15 +34,15 @@ with lib.hm.gvariant;
     file:///mnt/media Media
   '';
 
-  home.file.".config/user-dirs.dirs".force = true;
-  home.file.".config/user-dirs.dirs".text = ''
-    XDG_DESKTOP_DIR="$HOME/Desktop"
-    XDG_DOCUMENTS_DIR="$HOME/Documents"
-    XDG_DOWNLOAD_DIR="$HOME/Downloads"
-    XDG_MUSIC_DIR="$HOME/Music"
-    XDG_PICTURES_DIR="$HOME/Pictures"
-    XDG_VIDEOS_DIR="$HOME/Videos"
-    XDG_TEMPLATES_DIR="$HOME/Templates"
-    XDG_PUBLICSHARE_DIR="$HOME/Public"
-  '';
+  #home.file.".config/user-dirs.dirs".force = true;
+  #home.file.".config/user-dirs.dirs".text = ''
+  #  XDG_DESKTOP_DIR="$HOME/Desktop"
+  #  XDG_DOCUMENTS_DIR="$HOME/Documents"
+  #  XDG_DOWNLOAD_DIR="$HOME/Downloads"
+  #  XDG_MUSIC_DIR="$HOME/Music"
+  #  XDG_PICTURES_DIR="$HOME/Pictures"
+  #  XDG_VIDEOS_DIR="$HOME/Videos"
+  #  XDG_TEMPLATES_DIR="$HOME/Templates"
+  #  XDG_PUBLICSHARE_DIR="$HOME/Public"
+  #'';
 }
