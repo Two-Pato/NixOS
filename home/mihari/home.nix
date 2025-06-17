@@ -40,11 +40,11 @@
 
   home.packages = with pkgs; [
     blueman
-    solaar
     imagemagick
     ncdu
+    parsec-bin
+    solaar
     vscode
-    #parsec-bin
   ];
 
   # Home Version

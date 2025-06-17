@@ -34,9 +34,6 @@ in
 
       # Audio Bell Settings
       enable_audio_bell = "no";
-
-      # Background Settings
-      #background_opacity = lib.mkForce "0.01";
     };
   };
 }

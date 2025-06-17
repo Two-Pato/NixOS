@@ -77,7 +77,7 @@
       "x-systemd.mount-timeout=5s"
       "user"
       "users"
-      "credentials=/home/laurent/.secrets/credentials"
+      "credentials=/home/laurent/.secrets/nas_token"
       "uid=1000"
       "gid=100"
     ];

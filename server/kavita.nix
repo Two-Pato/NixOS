@@ -10,6 +10,6 @@
       Port = 5000;
     };
 
-    tokenKeyFile = "/home/laurent/.secrets/token.key"; # head -c 64 /dev/urandom | base64 --wrap=0
+    tokenKeyFile = "/home/laurent/.secrets/kavita_token.key"; # head -c 64 /dev/urandom | base64 --wrap=0
   };
 }

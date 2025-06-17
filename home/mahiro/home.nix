@@ -36,9 +36,8 @@
 
   home.packages = with pkgs; [
     blueman
-    solaar
     ncdu
-    #parsec-bin
+    solaar
   ];
 
   # Home Version

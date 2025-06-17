@@ -9,6 +9,7 @@
     settings = {
       # Monitor
       monitor = [ ",preferred,auto,auto" ];
+      xwayland.force_zero_scaling = true;
 
       # Autostart
       exec-once = [
