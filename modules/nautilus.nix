@@ -27,6 +27,14 @@ with lib.hm.gvariant;
     createDirectories = true;
   };
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/plain" =  [ "org.gnome.TextEditor.desktop" ];
+      "application/xml" = [ "org.gnome.TextEditor.desktop" ];
+    };
+  };
+
   home.file.".config/gtk-3.0/bookmarks".text = ''
     file:///home/laurent/Documents Documents
     file:///home/laurent/Downloads Downloads

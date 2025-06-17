@@ -50,4 +50,22 @@ with lib.hm.gvariant;
       smoothing = 0;
     };
   };
+
+  home.file.".config/gthumb/shortcuts.xml".text = ''
+    <?xml version="1.0" encoding="UTF-8"?>
+    <shortcuts>
+      <shortcut accelerator="Up" action="show-first-image"/>
+      <shortcut accelerator="Down" action="show-last-image"/>
+      <shortcut accelerator="Right" action="show-next-image"/>
+      <shortcut accelerator="Left" action="show-previous-image"/>
+
+      <shortcut accelerator="&lt;Primary&gt;Down" action="scroll-step-down"/>
+      <shortcut accelerator="&lt;Primary&gt;Left" action="scroll-step-left"/>
+      <shortcut accelerator="&lt;Primary&gt;Right" action="scroll-step-right"/>
+      <shortcut accelerator="&lt;Primary&gt;Up" action="scroll-step-up"/>
+
+      <shortcut accelerator="&lt;Shift&gt;c" action="edit-metadata"/>
+      <shortcut accelerator="c" action="file-tool-crop"/>
+    </shortcuts>
+  '';
 }
