@@ -1,7 +1,23 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hostName, ... }:
 
+let
+  workspace1_mihari = "[workspace 1 silent] uwsm app -- firefox";
+  workspace2_mihari = "[workspace 2 silent] uwsm app -- nautilus";
+  workspace1_mahiro = "[workspace 1 silent] uwsm app -- steam";
+  workspace2_mahiro = "[workspace 2 silent] uwsm app -- bottles";
+
+  workspace1_host =
+    if hostName == "mihari" then workspace1_mihari
+    else if hostName == "mahiro" then workspace1_mahiro
+    else null;
+  
+  workspace2_host =
+    if hostName == "mihari" then workspace2_mihari
+    else if hostName == "mahiro" then workspace2_mahiro
+    else null;
+in
 {
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = lib.mkIf (workspace1_host != null || workspace2_host != null) {
     enable = true;
     xwayland.enable = true;
     systemd.enable = false;
@@ -15,8 +31,8 @@
       exec-once = [
         "uwsm app -- waybar"
 
-        "[workspace 1 silent] uwsm app -- firefox"
-        "[workspace 2 silent] uwsm app -- nautilus"
+        workspace1_host
+        workspace2_host
       ];
 
       # General Window Decoration
