@@ -100,7 +100,6 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   hardware.logitech.wireless.enable = true;
-  hardware.pulseaudio.enable = false;
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -115,6 +114,12 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true;
+  };
+
+  stylix = {
+    enable = true;
+    autoEnable = false;
+    image = ../../imgs/hyprland_wallpaper_1.png;
   };
 
   # Login Manager

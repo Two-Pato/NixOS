@@ -99,12 +99,17 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   hardware.logitech.wireless.enable = true;
-  hardware.pulseaudio.enable = false;
 
   # Desktop Environment / Window Manager
   programs.hyprland = {
     enable = true;
     withUWSM = true;
+  };
+
+  stylix = {
+    enable = true;
+    autoEnable = false;
+    image = ../../imgs/hyprland_wallpaper_1.png;
   };
 
   # Login Manager

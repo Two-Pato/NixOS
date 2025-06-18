@@ -5,7 +5,6 @@ let
 in
 {
   stylix = {
-    enable = true;
     autoEnable = false;
     targets = {
       btop.enable = true;
@@ -38,8 +37,6 @@ in
       base0E = "#${color.base0E-hex}";
       base0F = "#${color.base0F-hex}";
     };
-
-    image = ../imgs/hyprland_wallpaper_1.png;
 
     fonts = {
       serif = {
