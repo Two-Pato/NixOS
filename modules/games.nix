@@ -5,7 +5,5 @@
     enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    bottles
-  ];
+  environment.systemPackages = [ (pkgs.bottles.override { removeWarningPopup = true; }) ];
 }
