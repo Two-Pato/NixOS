@@ -83,6 +83,7 @@ in
           default = [ "" "" "󰕾" "" ];
         };
         scroll-step = 5;
+        on-click = "pwvucontrol";
       };
 
       clock = {

@@ -10,6 +10,7 @@ with lib.hm.gvariant;
   dconf.settings = {
     "org/gnome/gthumb/browser" = {
       statusbar-visible = false;
+      sort-type = "file::name";
     };
 
     "org/gnome/gthumb/general" = {
