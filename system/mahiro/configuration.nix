@@ -88,6 +88,7 @@
   services.gvfs.enable = true;
 
   # PipeWire Audio Configuration
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -99,6 +100,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   hardware.logitech.wireless.enable = true;
+  hardware.pulseaudio.enable = false;
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -153,6 +155,7 @@
     cifs-utils
     curl
     polkit_gnome
+    pwvucontrol
     usbutils
     wget
   ];
