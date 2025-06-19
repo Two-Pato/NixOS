@@ -23,6 +23,7 @@
     ../../modules/git.nix
     ../../modules/gthumb.nix
     ../../modules/kitty.nix
+    ../../modules/lazygit.nix
     ../../modules/nautilus.nix
     ../../modules/texteditor.nix
     ../../modules/yazi.nix

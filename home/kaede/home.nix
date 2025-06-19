@@ -4,6 +4,7 @@
   imports = [
     ../../modules/bash.nix
     ../../modules/git.nix
+    ../../modules/lazygit.nix
   ];
 
   home.username = "laurent";
