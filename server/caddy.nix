@@ -29,11 +29,14 @@
     '';
 
     virtualHosts."proxmox.nexuinque.de".extraConfig = ''
-      reverse_proxy http://10.0.20.11:8006
-      tls {
-        dns porkbun {
-          api_key {$APIKEY}
-          api_secret_key {$APISECRETKEY}
+      reverse_proxy https://10.0.20.11:8006 {
+        transport http {
+          tls {
+            dns porkbun {
+              api_key {$APIKEY}
+              api_secret_key {$APISECRETKEY}
+            }
+          }
         }
       }
     '';
