@@ -7,9 +7,9 @@
     ../../server/caddy.nix
     ../../server/jellyfin.nix
     ../../server/kavita.nix
-    ../../server/sonarr.nix
+    #../../server/sonarr.nix
     ../../server/stirling-pdf.nix
-    ../../server/uptime-kuma.nix
+    #../../server/uptime-kuma.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

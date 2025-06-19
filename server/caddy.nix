@@ -8,14 +8,36 @@
       hash = "sha256-7TqepCX9F5AMAUJrH8wxdnrr3JMezhowyIPlfFYUQG8=";
     };
 
+    virtualHosts."jellyfin.nexuinque.de".extraConfig = ''
+      reverse_proxy http://localhost:8096
+      tls {
+        dns porkbun {
+          api_key {$APIKEY}
+          api_secret_key {$APISECRETKEY}
+        }
+      }
+    '';
+
     virtualHosts."kavita.nexuinque.de".extraConfig = ''
       reverse_proxy http://localhost:5000
       tls {
         dns porkbun {
-          api_key {env.PORKBUN_API_KEY}
-          api_secret_key {env.PORKBUN_API_SECRET_KEY}
+          api_key {$APIKEY}
+          api_secret_key {$APISECRETKEY}
+        }
+      }
+    '';
+
+    virtualHosts."stirling.nexuinque.de".extraConfig = ''
+      reverse_proxy http://localhost:8080
+      tls {
+        dns porkbun {
+          api_key {$APIKEY}
+          api_secret_key {$APISECRETKEY}
         }
       }
     '';
   };
+
+  systemd.services.caddy.serviceConfig.EnvironmentFile = ["/home/laurent/.secrets/caddy_token"];
 }
