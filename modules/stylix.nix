@@ -13,6 +13,7 @@ in
       hyprland.enable = true;
       hyprlock.enable = true;
       kitty.enable = true;
+      lazygit.enable = true;
       mpv.enable = true;
       rofi.enable = true;
       yazi.enable = true;
