@@ -28,6 +28,16 @@
       }
     '';
 
+    virtualHosts."proxmox.nexuinque.de".extraConfig = ''
+      reverse_proxy http://10.0.20.11:8006
+      tls {
+        dns porkbun {
+          api_key {$APIKEY}
+          api_secret_key {$APISECRETKEY}
+        }
+      }
+    '';
+
     virtualHosts."stirling.nexuinque.de".extraConfig = ''
       reverse_proxy http://localhost:8080
       tls {
