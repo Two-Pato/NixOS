@@ -3,8 +3,12 @@
 {
   imports = [
     ../../modules/bash.nix
+    ../../modules/btop.nix
+    ../../modules/fastfetch.nix
+    ../../modules/fzf.nix
     ../../modules/git.nix
     ../../modules/lazygit.nix
+    ../../modules/yazi.nix
   ];
 
   home.username = "laurent";
