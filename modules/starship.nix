@@ -9,7 +9,6 @@ in
     enableBashIntegration = true;
 
     settings = {
-
       format = builtins.concatStringsSep "" [
         "[](fg:#${color.base08-hex})"
         "$username"

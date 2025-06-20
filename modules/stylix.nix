@@ -6,6 +6,7 @@ in
 {
   stylix = {
     autoEnable = false;
+
     targets = {
       btop.enable = true;
       dunst.enable = true;
