@@ -32,12 +32,14 @@
     virtualHosts."proxmox.nexuinque.de".extraConfig = ''
       reverse_proxy https://10.0.20.11:8006 {
         transport http {
-          tls {
-            dns porkbun {
-              api_key {$APIKEY}
-              api_secret_key {$APISECRETKEY}
-            }
-          }
+          tls_insecure_skip_verify
+        }
+      }
+
+      tls {
+        dns porkbun {
+          api_key {$APIKEY}
+          api_secret_key {$APISECRETKEY}
         }
       }
     '';
