@@ -21,6 +21,7 @@
       modules = [
         ./system/mihari/configuration.nix
         ./var/environment.nix
+        ./var/shell.nix
 
         stylix.nixosModules.stylix
 
@@ -38,7 +39,8 @@
       system = "x86_64-linux";
       modules = [
         ./system/mahiro/configuration.nix
-        ./var/environment.nix
+        ./var/environment-nvidia.nix
+        ./var/shell.nix
 
         stylix.nixosModules.stylix
 
@@ -56,7 +58,7 @@
       system = "x86_64-linux";
       modules = [
         ./system/kaede/configuration.nix
-        ./var/environment.nix
+        ./var/shell.nix
 
         home-manager.nixosModules.home-manager
         {
