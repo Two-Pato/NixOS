@@ -8,7 +8,8 @@ in
     enable = true;
 
     settings = [{
-      layer = "top";
+      layer = "bottom";
+      position = "top";
       margin-top = 10;
       margin-bottom = 0;
       margin-left = 10;

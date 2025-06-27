@@ -7,7 +7,7 @@
     la = "ls -a --color=auto";
     cds = "cds";
     grep = "grep --color=auto";
-    
+
     # Usefull stuff
     ipv4 = "ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1";
     error = "journalctl -b -p err";
@@ -16,7 +16,7 @@
     # Programs
     manga-convert = "python \"/home/laurent/Programs/Manga-Converter/converter.py\" && exit";
     manga-unzip = "python \"/home/laurent/Programs/Manga-Converter/unziper.py\" && exit";
-    
+
     # Nix
     rebuild-mihari = "sudo nixos-rebuild switch --flake /etc/nixos/.#mihari";
     rebuild-mahiro = "sudo nixos-rebuild switch --flake /etc/nixos/.#mahiro";
