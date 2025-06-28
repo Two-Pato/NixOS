@@ -25,11 +25,10 @@
       }
 
       search() {
-          local query="$*"
           local RG_CMD="rg -i --color=always --line-number --no-heading"
 
           fzf --ansi \
-              --query="$query" \
+              --query="" \
               --delimiter=":" \
               --preview='cat {1} | head -100' \
               --bind "change:reload:$RG_CMD {q} || true" \
