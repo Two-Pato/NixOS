@@ -16,6 +16,7 @@
   
     # Programs Default
     ../../modules/bash.nix
+    ../../modules/bat.nix
     ../../modules/btop.nix
     ../../modules/fastfetch.nix
     ../../modules/firefox.nix

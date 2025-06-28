@@ -8,6 +8,7 @@ in
     autoEnable = false;
 
     targets = {
+      bat.enable = true;
       btop.enable = true;
       dunst.enable = true;
       fzf.enable = true;
