@@ -25,6 +25,7 @@
     ../../modules/kitty.nix
     ../../modules/lazygit.nix
     ../../modules/nautilus.nix
+    ../../modules/ripgrep.nix
     ../../modules/starship.nix
     ../../modules/texteditor.nix
     ../../modules/yazi.nix

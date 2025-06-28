@@ -26,14 +26,14 @@
 
       search() {
           local query="$*"
-          local GREP_CMD="grep -i --color=always -n -r"
+          local RG_CMD="rg -i --color=always --line-number --no-heading"
 
           fzf --ansi \
               --query="$query" \
               --delimiter=":" \
-              --preview='cat {1}' \
-              --bind "change:reload:$GREP_CMD {q} ./" \
-              --bind "start:reload:$GREP_CMD {q} ./" \
+              --preview='cat {1} | head -100' \
+              --bind "change:reload:$RG_CMD {q} || true" \
+              --bind "start:reload:$RG_CMD {q} || true" \
               --bind "enter:become(nano +{2} {1})"
       }
     '';
