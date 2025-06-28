@@ -13,6 +13,7 @@
     historyIgnore = [
       "ls"
       "la"
+      "ll"
       "cd"
       "cds"
       "clear"
