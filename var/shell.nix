@@ -22,6 +22,7 @@
     rebuild-mihari = "sudo nixos-rebuild switch --flake /etc/nixos/.#mihari";
     rebuild-mahiro = "sudo nixos-rebuild switch --flake /etc/nixos/.#mahiro";
     rebuild-kaede = "sudo nixos-rebuild switch --flake /etc/nixos/.#kaede";
+    rebuild-momiji = "sudo darwin-rebuild switch --flake ./NixOS/.#momiji";
     update = "nix flake update --flake /etc/nixos/";
     garbage = "sudo nix-collect-garbage --delete-old";
   };
