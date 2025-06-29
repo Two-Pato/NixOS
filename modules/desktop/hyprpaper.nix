@@ -1,8 +1,8 @@
 { config, lib, pkgs, hostName, ... }:
 
 let
-  wallpaper_mihari = ../imgs/hyprland_wallpaper_1.png;
-  wallpaper_mahiro = ../imgs/hyprland_wallpaper_2.png;
+  wallpaper_mihari = ../../imgs/hyprland_wallpaper_1.png;
+  wallpaper_mahiro = ../../imgs/hyprland_wallpaper_2.png;
 
   wallpaper_host =
     if hostName == "mihari" then wallpaper_mihari

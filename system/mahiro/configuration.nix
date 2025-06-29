@@ -4,7 +4,7 @@
   # Imports and Nix Settings
   imports = [
     ./hardware-configuration.nix
-    ../../modules/games.nix
+    ./games.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

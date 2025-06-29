@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  color = import ../var/color.nix;
+  color = import ../../var/color.nix;
 in
 {
   programs.wlogout = {
@@ -72,43 +72,43 @@ in
       }
 
       #shutdown {
-        background-image: url("${../imgs/wlogout_icons/power.png}");
+        background-image: url("${../../imgs/wlogout_icons/power.png}");
       }
 
       #shutdown:hover {
-        background-image: url("${../imgs/wlogout_icons/power-hover.png}");
+        background-image: url("${../../imgs/wlogout_icons/power-hover.png}");
       }
 
       #logout {
-        background-image: url("${../imgs/wlogout_icons/logout.png}");
+        background-image: url("${../../imgs/wlogout_icons/logout.png}");
       }
 
       #logout:hover {
-        background-image: url("${../imgs/wlogout_icons/logout-hover.png}");
+        background-image: url("${../../imgs/wlogout_icons/logout-hover.png}");
       }
 
       #reboot {
-        background-image: url("${../imgs/wlogout_icons/restart.png}");
+        background-image: url("${../../imgs/wlogout_icons/restart.png}");
       }
 
       #reboot:hover {
-        background-image: url("${../imgs/wlogout_icons/restart-hover.png}");
+        background-image: url("${../../imgs/wlogout_icons/restart-hover.png}");
       }
 
       #lock {
-        background-image: url("${../imgs/wlogout_icons/lock.png}");
+        background-image: url("${../../imgs/wlogout_icons/lock.png}");
       }
 
       #lock:hover {
-        background-image: url("${../imgs/wlogout_icons/lock-hover.png}");
+        background-image: url("${../../imgs/wlogout_icons/lock-hover.png}");
       }
 
       #hibernate {
-        background-image: url("${../imgs/wlogout_icons/hibernate.png}");
+        background-image: url("${../../imgs/wlogout_icons/hibernate.png}");
       }
 
       #hibernate:hover {
-        background-image: url("${../imgs/wlogout_icons/hibernate-hover.png}");
+        background-image: url("${../../imgs/wlogout_icons/hibernate-hover.png}");
       }
     '';
   };

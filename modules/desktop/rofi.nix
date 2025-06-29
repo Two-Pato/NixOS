@@ -2,7 +2,7 @@
 
 let
   inherit (config.lib.formats.rasi) mkLiteral;
-  color = import ../var/color.nix;
+  color = import ../../var/color.nix;
 in
 {
   programs.rofi = {

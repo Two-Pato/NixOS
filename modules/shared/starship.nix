@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  color = import ../var/color.nix;
+  color = import ../../var/color.nix;
 in
 {
   programs.starship = {
