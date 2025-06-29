@@ -3,7 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }: {
+  outputs = { self, nixpkgs, nix-darwin, home-manager, stylix, ... }: {
     nixosConfigurations.mihari = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -50,6 +55,22 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
           home-manager.users.laurent = import ./home/mahiro/home.nix;
+        }
+      ];
+    };
+
+    darwinConfigurations.momiji = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [
+        ./system/momiji/configuration.nix
+        ./var/shell.nix
+
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
+          home-manager.users.laurent = import ./home/momiji/home.nix;
         }
       ];
     };
