@@ -3,7 +3,7 @@
 {
   # Imports and Nix Settings
   imports = [
-
+    ./darwin.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -11,13 +11,13 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  # Users and Permissions
   users.users.laurent = {
     home = "/Users/laurent";
     shell = pkgs.zsh;
   };
 
   system.primaryUser = "laurent";
-  system.defaults.dock.autohide = false;
 
   # Packages and Fonts
   environment.systemPackages = with pkgs; [
@@ -27,11 +27,6 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
-
-  # Home Manager
-  #home-manager.extraSpecialArgs = {
-  #  inherit (config.networking) hostName;
-  #};
 
   # System Version
   system.stateVersion = 6;
