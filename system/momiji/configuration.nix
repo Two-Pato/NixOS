@@ -16,6 +16,9 @@
     shell = pkgs.zsh;
   };
 
+  system.primaryUser = "laurent";
+  system.defaults.dock.autohide = false;
+
   # Packages and Fonts
   #environment.systemPackages = with pkgs; [
 
