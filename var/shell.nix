@@ -24,6 +24,6 @@
     rebuild-kaede = "sudo nixos-rebuild switch --flake /etc/nixos/.#kaede";
     rebuild-momiji = "sudo darwin-rebuild switch --flake ./NixOS/.#momiji";
     update = "nix flake update --flake /etc/nixos/";
-    garbage = "sudo nix-collect-garbage --delete-old";
+    garbage = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
   };
 }
