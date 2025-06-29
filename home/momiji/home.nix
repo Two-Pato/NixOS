@@ -7,6 +7,8 @@
     ../../modules/fastfetch.nix
     ../../modules/fzf.nix
     ../../modules/ripgrep.nix
+    ../../modules/starship.nix
+    ../../modules/zsh.nix
   ];
 
   home.username = "laurent";
