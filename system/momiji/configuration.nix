@@ -21,9 +21,9 @@
 
   #];
 
-  #fonts.packages = with pkgs; [
-
-  #];
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
 
   # Home Manager
   #home-manager.extraSpecialArgs = {
