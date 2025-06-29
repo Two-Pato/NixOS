@@ -4,12 +4,12 @@
   # Imports and Nix Settings
   imports = [
     ./hardware-configuration.nix
-    ../../server/caddy.nix
-    ../../server/jellyfin.nix
-    ../../server/kavita.nix
-    #../../server/sonarr.nix
-    ../../server/stirling-pdf.nix
-    #../../server/uptime-kuma.nix
+    ../../modules/server/caddy.nix
+    ../../modules/server/jellyfin.nix
+    ../../modules/server/kavita.nix
+    #../../modules/server/sonarr.nix
+    ../../modules/server/stirling-pdf.nix
+    #../../modules/server/uptime-kuma.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

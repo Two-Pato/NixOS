@@ -21,6 +21,7 @@
   };
 
   outputs = { self, nixpkgs, nix-darwin, home-manager, stylix, ... }: {
+    # NixOS
     nixosConfigurations.mihari = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -35,7 +36,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./home/mihari/home.nix;
+          home-manager.users.laurent = import ./system/mihari/home.nix;
         }
       ];
     };
@@ -54,11 +55,12 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./home/mahiro/home.nix;
+          home-manager.users.laurent = import ./system/mahiro/home.nix;
         }
       ];
     };
 
+    # MacOS
     darwinConfigurations.momiji = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
@@ -70,11 +72,12 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./home/momiji/home.nix;
+          home-manager.users.laurent = import ./system/momiji/home.nix;
         }
       ];
     };
 
+    # Server
     nixosConfigurations.kaede = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -86,7 +89,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./home/kaede/home.nix;
+          home-manager.users.laurent = import ./system/kaede/home.nix;
         }
       ];
     };
