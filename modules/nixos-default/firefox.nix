@@ -166,6 +166,11 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/file/3423739/save_all_tab_urls-0.1.4.xpi";
           installation_mode = "force_installed";
         };
+
+        "{f558e0b7-ded4-4803-a06f-3dcc5a8cc37e}" = {
+          install_url = https://addons.mozilla.org/firefox/downloads/file/4522550/easy_speed_dial-2.10.1.xpi;
+          installation_mode = "force_installed";
+        };
       };
     };
   };
