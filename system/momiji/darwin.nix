@@ -4,6 +4,7 @@
   # Dock
   system.defaults.dock = {
     autohide = false;
+    show-recents = false;
   };
 
   #system.defaults.NSGlobalDomain = {
