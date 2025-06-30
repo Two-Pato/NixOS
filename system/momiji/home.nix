@@ -22,7 +22,10 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    #handbrake
+    #mullvad-vpn
     ncdu
+    #transmission_4
     #vscode
   ];
 
