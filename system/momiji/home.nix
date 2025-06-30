@@ -22,7 +22,8 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    
+    ncdu
+    #vscode
   ];
 
   # Home Version
