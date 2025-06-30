@@ -3,6 +3,7 @@
 {
   imports = [
     # Default
+    #../../modules/macos-default/ghostty.nix
     ../../modules/macos-default/zsh.nix
 
     # Shared
