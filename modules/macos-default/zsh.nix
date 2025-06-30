@@ -8,6 +8,15 @@
 
     history = {
       ignoreAllDups = true;
+      ignorePatterns = [
+        "ls"
+        "la"
+        "ll"
+        "cd *"
+        "cds *"
+        "clear"
+        "exit"
+      ];
     };
   };
 }
