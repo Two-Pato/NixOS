@@ -19,11 +19,5 @@
       "clear"
       "exit"
     ];
-
-    bashrcExtra = ''
-      cds() {
-        cd "$@" && ls
-      }
-    '';
   };
 }

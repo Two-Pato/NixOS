@@ -1,11 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   environment.shellAliases = {
     # System
     ls = "ls --color=auto";
     la = "ls -a --color=auto";
-    cds = "cds";
     rg = "rg -i";
 
     # Usefull stuff
