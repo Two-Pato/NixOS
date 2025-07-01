@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   base00-hex = "4A4D57"; # Background / Tuna
   base01-hex = "616472"; # Black / Comet

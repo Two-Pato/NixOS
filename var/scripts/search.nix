@@ -1,7 +1,6 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "search"''
-      search() (
         RELOAD='reload:rg --column --color=always --smart-case {q} || :'
         OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
                   nano +{2} {1}
@@ -17,5 +16,4 @@ pkgs.writeShellScriptBin "search"''
             --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
             --preview-window '~4,+{2}+4/3,<80(up)' \
             --query "$*"
-      )
 ''

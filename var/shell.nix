@@ -26,4 +26,8 @@
     update = "nix flake update --flake /etc/nixos/";
     garbage = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
   };
+
+  environment.systemPackages = with pkgs; [
+    (import ./scripts/search.nix { inherit pkgs; })
+  ];
 }
