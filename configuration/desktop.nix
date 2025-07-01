@@ -9,7 +9,7 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    image = ../../assets/hyprland_wallpaper_1.png;
+    image = ../assets/hyprland_wallpaper_1.png;
   };
 
   programs.nautilus-open-any-terminal = {
