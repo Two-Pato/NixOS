@@ -25,7 +25,7 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-
+    (import ../../var/search.nix)
   ];
 
   # System Version
