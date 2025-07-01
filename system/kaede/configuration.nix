@@ -1,9 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  # Imports and Nix Settings
+  # Imports
   imports = [
     ./hardware-configuration.nix
+    ./networking.nix
+
+    # Configuration
+    ../../configuration/locale.nix
+    ../../configuration/nas.nix
+    ../../configuration/user.nix
+
+    # Server
     ../../modules/server/caddy.nix
     ../../modules/server/jellyfin.nix
     ../../modules/server/kavita.nix
@@ -12,95 +20,20 @@
     #../../modules/server/uptime-kuma.nix
   ];
 
+  # Nix Settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
-
-  # System Identity and Locale
-  networking.hostName = "kaede";
-
-  time.timeZone = "Europe/Berlin";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
-  };
-  console.keyMap = "de";
-
-  # Users and Permissions
-  users.users.laurent = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Allow sudo usage
-    shell = pkgs.bash;
-  };
-
-  security.sudo.enable = true;
 
   # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  # Networking and Firewall
-  systemd.network.enable = true;
-  networking.useNetworkd = true;
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 
-      80 
-      443
-      3001 # Kuma
-      5000 # Kavita
-      8080 # Stirling
-    ];
-  };
-
-  systemd.network.networks."10-wan" = {
-    matchConfig = {
-      Name = [ "en*" "eth*" ];
-    };
-
-    linkConfig = {
-      RequiredForOnline = "routable";
-    };
-
-    networkConfig = {
-      Address = [ "10.0.20.22/24" ];
-      Gateway = "10.0.20.1";
-      DNS = [ "10.0.20.1" ];
-    };
-  };
-
-  # CIFS Mount
-  fileSystems."/mnt/media" = {
-    device = "//10.0.20.31/media";
-    fsType = "cifs";
-    options = [
-      "x-systemd.automount"
-      "noauto"
-      "x-systemd.idle-timeout=60"
-      "x-systemd.device-timeout=5s"
-      "x-systemd.mount-timeout=5s"
-      "user"
-      "users"
-      "credentials=/home/laurent/.secrets/nas_token"
-      "uid=1000"
-      "gid=100"
-    ];
-  };
-
   # Services
   services.openssh.enable = true;
 
-  # Packages and Fonts
+  # Packages
   environment.systemPackages = with pkgs; [
     cifs-utils
     curl

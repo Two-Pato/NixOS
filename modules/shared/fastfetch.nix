@@ -7,7 +7,7 @@
     settings = {
       logo = {
         type = "kitty";
-        source = "${../../imgs/fastfetch_avatar.png}";
+        source = "${../../assets/fastfetch_avatar.png}";
         height = 25;
       };
 

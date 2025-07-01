@@ -1,11 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  # Imports and Nix Settings
+  # Imports
   imports = [
     ./darwin.nix
+
+    # Configuration
+    ../../configuration/fonts.nix
   ];
 
+  # Nix Settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
@@ -19,13 +23,9 @@
 
   system.primaryUser = "laurent";
 
-  # Packages and Fonts
+  # Packages
   environment.systemPackages = with pkgs; [
 
-  ];
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
   ];
 
   # System Version

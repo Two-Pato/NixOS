@@ -44,7 +44,7 @@ in
       imagebox = {
         padding = 20;
         background-color = mkLiteral "transparent";
-        background-image = mkLiteral "url(\"/etc/nixos/imgs/rofi_wallpaper.png\", width)";
+        background-image = mkLiteral "url(\"/etc/nixos/assets/rofi_wallpaper.png\", width)";
         orientation = "vertical";
         children = [ "inputbar" ];
       };

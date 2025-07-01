@@ -2,8 +2,8 @@
 
 let
   color = import ../../var/color.nix;
-  wallpaper_mihari = ../../imgs/hyprland_wallpaper_1.png;
-  wallpaper_mahiro = ../../imgs/hyprland_wallpaper_2.png;
+  wallpaper_mihari = ../../assets/hyprland_wallpaper_1.png;
+  wallpaper_mahiro = ../../assets/hyprland_wallpaper_2.png;
 
   wallpaper_host =
     if hostName == "mihari" then wallpaper_mihari
@@ -50,7 +50,7 @@ in
 
       # User Avatar Display
       image = {
-        path = "${../../imgs/hyprlock_avatar.png}";
+        path = "${../../assets/hyprlock_avatar.png}";
         size = 300;
         border_color = lib.mkForce "rgba(${color.base08-rgba})";
         position = "0, 200";
