@@ -133,7 +133,7 @@ in
         "$mainMod, V, exec, pkill -x clipse || kitty --class clipse -e clipse"
         "$mainMod, N, exec, pkill -x nano || kitty -d ~/Documents --class nano -e nano"
         "$mainMod, S, exec, bash -c \"hyprctl clients | grep -q 'class: search' && pkill -f 'kitty --class search' || kitty --class search bash -i -c 'search' &\""
-        "$mainMod ALT, S, exec, pkill -x fzf || kitty --class fzf -e fzf --preview \'bat {}\' --bind \'enter:become(nano {+})\'"
+        "$mainMod SHIFT, S, exec, pkill -x fzf || kitty --class fzf -e fzf --ansi --preview \'bat --style=full --color=always {}\' --bind \'enter:become(nano {+})\'"
 
         # Windows
         "$mainMod, Q, killactive"
@@ -152,10 +152,10 @@ in
         "$mainMod SHIFT, up, swapwindow, u"
         "$mainMod SHIFT, down, swapwindow, d"
 
-        "$mainMod ALT, right, resizeactive, 100 0"
-        "$mainMod ALT, left, resizeactive, -100 0"
-        "$mainMod ALT, down, resizeactive, 0 100"
-        "$mainMod ALT, up, resizeactive, 0 -100"
+        "$mainMod CTRL, right, resizeactive, 100 0"
+        "$mainMod CTRL, left, resizeactive, -100 0"
+        "$mainMod CTRL, down, resizeactive, 0 100"
+        "$mainMod CTRL, up, resizeactive, 0 -100"
 
         # Workspaces
         "$mainMod, 1, workspace, 1"
