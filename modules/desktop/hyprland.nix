@@ -121,7 +121,7 @@ in
       bind = [
         # Important
         "$mainMod CTRL, ESCAPE, exit"
-        "$mainMod, R, exec, pkill waybar || waybar"
+        "$mainMod, R, exec, pkill -SIGUSR1 waybar"
 
         # Applications
         "$mainMod, RETURN, exec, uwsm app -- kitty"
@@ -133,7 +133,7 @@ in
         "$mainMod, V, exec, pkill -x clipse || kitty --class clipse -e clipse"
         "$mainMod, N, exec, pkill -x nano || kitty -d ~/Documents --class nano -e nano"
         "$mainMod, S, exec, bash -c \"hyprctl clients | grep -q 'class: search' && pkill -f 'kitty --class search' || kitty --class search bash -i -c 'search' &\""
-        "$mainMod ALT, S, exec, pkill -x fzf || kitty --class fzf -e fzf --preview \'cat {}\' --bind \'enter:become(nano {+})\'"
+        "$mainMod ALT, S, exec, pkill -x fzf || kitty --class fzf -e fzf --preview \'bat {}\' --bind \'enter:become(nano {+})\'"
 
         # Windows
         "$mainMod, Q, killactive"
@@ -141,15 +141,21 @@ in
         "$mainMod, T, togglefloating"
         "$mainMod, Y, togglesplit"
         "$mainMod, X, swapsplit"
+
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
-        "$mainMod SHIFT, right, resizeactive, 100 0"
-        "$mainMod SHIFT, left, resizeactive, -100 0"
-        "$mainMod SHIFT, down, resizeactive, 0 100"
-        "$mainMod SHIFT, up, resizeactive, 0 -100"
-        "$mainMod, G, togglegroup"
+
+        "$mainMod SHIFT, left, swapwindow, l"
+        "$mainMod SHIFT, right, swapwindow, r"
+        "$mainMod SHIFT, up, swapwindow, u"
+        "$mainMod SHIFT, down, swapwindow, d"
+
+        "$mainMod ALT, right, resizeactive, 100 0"
+        "$mainMod ALT, left, resizeactive, -100 0"
+        "$mainMod ALT, down, resizeactive, 0 100"
+        "$mainMod ALT, up, resizeactive, 0 -100"
 
         # Workspaces
         "$mainMod, 1, workspace, 1"
@@ -204,6 +210,7 @@ in
         # Clipse
         "float,class:(clipse)"
         "size 622 652,class:(clipse)"
+        "stayfocused,class:(clipse)"
         # Nano
         "float,class:(nano)"
         # Search
