@@ -147,10 +147,10 @@ in
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
 
-        "$mainMod SHIFT, left, swapwindow, l"
-        "$mainMod SHIFT, right, swapwindow, r"
-        "$mainMod SHIFT, up, swapwindow, u"
-        "$mainMod SHIFT, down, swapwindow, d"
+        "$mainMod SHIFT, left, movewindow, l"
+        "$mainMod SHIFT, right, movewindow, r"
+        "$mainMod SHIFT, up, movewindow, u"
+        "$mainMod SHIFT, down, movewindow, d"
 
         "$mainMod CTRL, right, resizeactive, 100 0"
         "$mainMod CTRL, left, resizeactive, -100 0"
