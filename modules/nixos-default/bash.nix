@@ -15,7 +15,6 @@
       "la"
       "ll"
       "cd"
-      "cds"
       "clear"
       "exit"
     ];
