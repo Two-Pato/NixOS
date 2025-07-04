@@ -3,15 +3,12 @@
 {
   environment.shellAliases = {
     # System
-    ls = "ls --color=auto";
-    la = "ls -a --color=auto";
     rg = "rg -i";
 
     # Usefull stuff
     ipv4 = "ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1";
     error = "journalctl -b -p err";
     count-folder = "find . -mindepth 1 -maxdepth 1 -type d | wc -l";
-    search = "search";
 
     # Programs
     manga-convert = "python \"/home/laurent/Programs/Manga-Converter/converter.py\" && exit";
