@@ -8,6 +8,7 @@
 
     # Shared
     ../../modules/shared/bat.nix
+    ../../modules/shared/eza.nix
     ../../modules/shared/fastfetch.nix
     ../../modules/shared/fzf.nix
     ../../modules/shared/git.nix
