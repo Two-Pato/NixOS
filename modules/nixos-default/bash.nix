@@ -14,7 +14,8 @@
       "ls"
       "la"
       "ll"
-      "cd"
+      "lt"
+      "cd *"
       "clear"
       "exit"
     ];
