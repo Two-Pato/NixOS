@@ -33,7 +33,7 @@
         }
         {
           name = "Kavita";
-          url = "https://kavita.nexuinque.de/home";
+          url = "https://kavita.nexuinque.de/home/";
         }
         {
           name = "Proxmox";
@@ -49,15 +49,23 @@
         }
         {
           name = "Zeit";
-          url = "https://www.zeit.de/index";
+          url = "https://www.zeit.de/";
         }
         {
           name = "JLearn";
           url = "https://jlearn.net/";
         }
         {
-          name = "MyNixOS ";
+          name = "MyNixOS";
           url = "https://mynixos.com/";
+        }
+        {
+          name = "Proton Mail";
+          url = "https://account.proton.me/mail/";
+        }
+        {
+          name = "SimpleLogin";
+          url = "https://app.simplelogin.io/dashboard/";
         }
       ];
 
