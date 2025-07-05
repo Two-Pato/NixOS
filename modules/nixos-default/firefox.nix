@@ -150,6 +150,9 @@
       DisableFirefoxStudies = true;
       DisablePocket = true;
       DontCheckDefaultBrowser = true;
+      PasswordManagerEnabled = false;
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
 
       ExtensionSettings = {
         "uBlock0@raymondhill.net" = {
@@ -168,7 +171,7 @@
         };
 
         "{f558e0b7-ded4-4803-a06f-3dcc5a8cc37e}" = {
-          install_url = https://addons.mozilla.org/firefox/downloads/file/4522550/easy_speed_dial-2.10.1.xpi;
+          install_url = https://addons.mozilla.org/firefox/downloads/file/4522550/easy_speed_dial/latest.xpi;
           installation_mode = "force_installed";
         };
       };
