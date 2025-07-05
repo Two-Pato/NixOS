@@ -22,7 +22,7 @@ with lib.hm.gvariant;
     };
   };
 
-  xdg.userDirs = { 
+  xdg.userDirs = {
     enable = true;
     createDirectories = true;
   };
