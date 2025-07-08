@@ -18,9 +18,14 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, stylix, ... }: {
+  outputs = { self, nixpkgs, nix-darwin, home-manager, stylix, nvf, ... }: {
     # NixOS
     nixosConfigurations.mihari = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -55,7 +60,12 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./system/mahiro/home.nix;
+          home-manager.users.laurent = {
+            imports = [
+              ./system/mahiro/home.nix
+              inputs.nvf.homeManagerModules.default
+            ];
+          };
         }
       ];
     };
