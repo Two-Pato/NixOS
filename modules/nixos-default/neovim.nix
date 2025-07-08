@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  color = import ../../var/color.nix;
+in
 {
   programs.nvf = {
     enable = true;
@@ -12,11 +15,6 @@
         lsp = {
           enable = true;
         };
-
-        #theme = {
-        #  enable = true;
-        #  name = "base16";
-        #};
 
         # Plugins
         statusline.lualine.enable = true;

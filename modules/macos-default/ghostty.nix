@@ -6,7 +6,7 @@
     enableZshIntegration = true;
 
     settings = {
-      window-padding-x = 10
+      window-padding-x = 10;
     };
   };
 }
