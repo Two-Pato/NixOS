@@ -5,6 +5,7 @@ let
 in
 {
   stylix = {
+    enable = true;
     autoEnable = false;
 
     targets = {
@@ -20,6 +21,8 @@ in
       rofi.enable = true;
       yazi.enable = true;
     };
+
+    image = ../../assets/hyprland_wallpaper_1.png;
 
     base16Scheme = {
       base00 = "#${color.base07-hex}";

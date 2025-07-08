@@ -34,14 +34,18 @@
         ./var/environment.nix
         ./var/shell.nix
 
-        stylix.nixosModules.stylix
-
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./system/mihari/home.nix;
+          home-manager.users.laurent = {
+            imports = [
+              ./system/mihari/home.nix
+              stylix.homeModules.stylix
+              nvf.homeManagerModules.default
+            ];
+          };
         }
       ];
     };
@@ -53,8 +57,6 @@
         ./var/environment-nvidia.nix
         ./var/shell.nix
 
-        stylix.nixosModules.stylix
-
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -63,7 +65,8 @@
           home-manager.users.laurent = {
             imports = [
               ./system/mahiro/home.nix
-              inputs.nvf.homeManagerModules.default
+              stylix.homeModules.stylix
+              nvf.homeManagerModules.default
             ];
           };
         }

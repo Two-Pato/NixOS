@@ -22,6 +22,7 @@
     ../../modules/nixos-default/kitty.nix
     ../../modules/nixos-default/lazygit.nix
     ../../modules/nixos-default/nautilus.nix
+    ../../modules/nixos-default/neovim.nix
     ../../modules/nixos-default/texteditor.nix
     ../../modules/nixos-default/yazi.nix
 

@@ -131,7 +131,7 @@ in
         "$mainMod SHIFT, E, exec, uwsm app -- kitty --class yazi -e yazi"
         "$mainMod, SPACE, exec, pkill -x rofi || rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\""
         "$mainMod, V, exec, pkill -x clipse || kitty --class clipse -e clipse"
-        "$mainMod, N, exec, pkill -x nano || kitty -d ~/Documents --class nano -e nano"
+        "$mainMod, N, exec, pkill -x nvim || kitty -d ~/Documents --class nvim -e nvim"
         "$mainMod, S, exec, bash -c \"hyprctl clients | grep -q 'class: search' && pkill -f 'kitty --class search' || kitty --class search bash -i -c 'search' &\""
         "$mainMod SHIFT, S, exec, pkill -x fzf || kitty --class fzf -e fzf --ansi --preview \'bat --style=full --color=always {}\' --bind \'enter:become(nano {+})\'"
 
@@ -211,8 +211,9 @@ in
         "float,class:(clipse)"
         "size 622 652,class:(clipse)"
         "stayfocused,class:(clipse)"
-        # Nano
-        "float,class:(nano)"
+        # Nvim
+        "float,class:(nvim)"
+        "size 75% 75%,class:(nvim)"
         # Search
         "float,class:(search)"
         "size 75% 75%,class:(search)"
