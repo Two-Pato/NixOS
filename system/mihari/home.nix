@@ -49,6 +49,7 @@
   home.packages = with pkgs; [
     blueman
     imagemagick
+    mkvtoolnix
     ncdu
     parsec-bin
     solaar
