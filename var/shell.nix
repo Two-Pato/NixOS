@@ -25,5 +25,6 @@
 
   environment.systemPackages = with pkgs; [
     (import ./scripts/search.nix { inherit pkgs; })
+    (import ./scripts/mkvconvert.nix { inherit pkgs; })
   ];
 }
