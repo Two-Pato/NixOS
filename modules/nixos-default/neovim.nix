@@ -1,30 +1,47 @@
 { config, lib, pkgs, ... }:
 
-let
-  color = import ../../var/color.nix;
-in
 {
   programs.nvf = {
     enable = true;
 
-    settings = {
-      vim = {
-        viAlias = false;
-        vimAlias = true;
+    settings.vim = {
+      viAlias = false;
+      vimAlias = true;
 
-        lsp = {
-          enable = true;
-        };
+      lsp = {
+        enable = true;
+      };
 
-        # Plugins
-        statusline.lualine.enable = true;
+      # Options
+      options = {
+        showmode = false;
+      };
 
-        filetree.nvimTree = {
-          enable = true;
-          openOnSetup = true;
-        };
+      # Theme
+      theme = {
+        enable = true;
+        name = "github";
+        style = "light";
+        transparent = true;
+      };
 
-        binds.whichKey.enable = true;
+      statusline.lualine.enable = true;
+
+      ui.noice.enable = true;
+
+      mini.icons.enable = true;
+
+      # Plugins
+      filetree.nvimTree = {
+        enable = true;
+        openOnSetup = true;
+      };
+
+      telescope.enable = true;
+
+      binds = {
+        whichKey.enable = true;
+        cheatsheet.enable = true;
       };
     };
   };

@@ -25,7 +25,6 @@
   home.packages = with pkgs; [
     #handbrake
     #iina
-    #mullvad-vpn
     ncdu
     #transmission_4
     #vscode

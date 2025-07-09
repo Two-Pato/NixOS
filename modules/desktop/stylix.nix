@@ -18,7 +18,6 @@ in
       kitty.enable = true;
       lazygit.enable = true;
       mpv.enable = true;
-      nvf.enable = true;
       rofi.enable = true;
       yazi.enable = true;
     };

@@ -7,10 +7,7 @@
     show-recents = false;
   };
 
-  #system.defaults.NSGlobalDomain = {
-  #  AppleShowAllExtensions = true;
-  #};
-
+  #Finder
   #system.defaults.finder = {
   #  AppleShowAllExtensions = true;
   #  FXPreferredViewStyle = "icnv";
