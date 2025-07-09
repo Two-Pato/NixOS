@@ -14,7 +14,14 @@
 
       # Options
       options = {
+        cursorline = true;
         showmode = false;
+
+        # Tabs
+        tabstop = 2;
+        shiftwidth = 2;
+        expandtab = true;
+        autoindent = true;
       };
 
       # Theme
@@ -43,6 +50,40 @@
         whichKey.enable = true;
         cheatsheet.enable = true;
       };
+
+      # Keymaps
+      globals.mapleader = " ";
+      keymaps = [
+        # Filetree
+        {
+          key = "<leader>ee";
+          mode = "n";
+          silent = true;
+          action = "<cmd>NvimTreeToggle<CR>";
+          desc = "Toggle file explorer";
+        }
+        {
+          key = "<leader>ef";
+          mode = "n";
+          silent = true;
+          action = "<cmd>NvimTreeFindFileToggle<CR>";
+          desc = "Toggle file explorer on current file";
+        }
+        {
+          key = "<leader>ec";
+          mode = "n";
+          silent = true;
+          action = "<cmd>NvimTreeCollapse<CR>";
+          desc = "Collapse file explorer";
+        }
+        {
+          key = "<leader>er";
+          mode = "n";
+          silent = true;
+          action = "<cmd>NvimTreeRefresh<CR>";
+          desc = "Refresh file explorer";
+        }
+      ];
     };
   };
 }
