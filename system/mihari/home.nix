@@ -13,7 +13,7 @@
     ../../modules/desktop/stylix.nix
     ../../modules/desktop/waybar.nix
     ../../modules/desktop/wlogout.nix
-  
+
     # Default
     ../../modules/nixos-default/bash.nix
     ../../modules/nixos-default/btop.nix
