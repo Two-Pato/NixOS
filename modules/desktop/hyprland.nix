@@ -220,6 +220,9 @@ in
         # Fzf
         "float,class:(fzf)"
         "size 75% 75%,class:(fzf)"
+        # Sushi
+        "float, class:^(org.gnome.NautilusPreviewer)"
+        "size 35% 75%,class:(org.gnome.NautilusPreviewer)"
       ];
     };
   };

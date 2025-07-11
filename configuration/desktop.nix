@@ -10,4 +10,6 @@
     enable = true;
     terminal = "kitty";
   };
+
+  services.gnome.sushi.enable = true;
 }
