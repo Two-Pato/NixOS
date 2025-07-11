@@ -23,11 +23,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    #handbrake
-    #iina
     ncdu
-    #transmission_4
-    #vscode
   ];
 
   # Home Version

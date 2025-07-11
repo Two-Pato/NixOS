@@ -84,11 +84,9 @@
 
         nix-homebrew.darwinModules.nix-homebrew
         {
-          nix-homebrew = {
-            user = laurent;
-            enable = true;
-            autoMigrate = true;
-          };
+          nix-homebrew.user = "laurent";
+          nix-homebrew.enable = true;
+          nix-homebrew.autoMigrate = true;
         }
 
         home-manager.darwinModules.home-manager
