@@ -4,6 +4,7 @@
   # Imports
   imports = [
     ./darwin.nix
+    ./homebrew.nix
 
     # Configuration
     ../../configuration/fonts.nix

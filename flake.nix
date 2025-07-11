@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +27,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, stylix, nvf, ... }: {
+  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, stylix, nvf, ... }: {
     # NixOS
     nixosConfigurations.mihari = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -79,6 +81,15 @@
       modules = [
         ./system/momiji/configuration.nix
         ./var/shell.nix
+
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            user = laurent;
+            enable = true;
+            autoMigrate = true;
+          };
+        }
 
         home-manager.darwinModules.home-manager
         {
