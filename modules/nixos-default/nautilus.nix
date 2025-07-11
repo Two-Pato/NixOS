@@ -30,7 +30,8 @@ with lib.hm.gvariant;
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/plain" =  [ "org.gnome.TextEditor.desktop" ];
+      "text/plain" = [ "org.gnome.TextEditor.desktop" ];
+      "image/avif" = [ "org.gnome.gThumb.desktop" ];
       "application/xml" = [ "org.gnome.TextEditor.desktop" ];
       "application/zip" = [ "org.gnome.Nautilus.desktop" ];
     };
