@@ -14,7 +14,13 @@
     global.brewfile = true;
 
     casks = [
+      #"handbrake"
+      #"iina"
+      #"opera"
+      #"parsec"
       "protonvpn"
+      #"transmission"
+      #"visual-studio-code"
     ];
 
     brews = [
