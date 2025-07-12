@@ -17,4 +17,13 @@
       "gid=100"
     ];
   };
+
+  fileSystems."/home/laurent/.cache/thumbnails" = {
+    fsType = "tmpfs";
+    neededForBoot = false;
+    options = [
+      "size=512M"
+      "mode=0755"
+    ];
+  };
 }
