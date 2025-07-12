@@ -19,6 +19,8 @@ with lib.hm.gvariant;
       executable-text-activation = "ask";
       migrated-gtk-settings = true;
       search-filter-time-type = "last_modified";
+      show-image-thumbnails = "always";
+      thumbnail-limit = 10;
     };
   };
 
