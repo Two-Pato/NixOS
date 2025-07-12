@@ -7,8 +7,8 @@
     ./networking.nix
 
     # Configuration
+    ../../configuration/filesystems.nix
     ../../configuration/locale.nix
-    ../../configuration/nas.nix
     ../../configuration/user.nix
 
     # Server

@@ -23,7 +23,8 @@
     neededForBoot = false;
     options = [
       "size=512M"
-      "mode=0755"
+      "uid=1000"
+      "gid=100"
     ];
   };
 }

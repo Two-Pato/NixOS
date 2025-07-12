@@ -10,10 +10,10 @@
     # Configuration
     ../../configuration/audio.nix
     ../../configuration/desktop.nix
+    ../../configuration/filesystems.nix
     ../../configuration/fonts.nix
     ../../configuration/locale.nix
     ../../configuration/login.nix
-    ../../configuration/nas.nix
     ../../configuration/polkit.nix
     ../../configuration/user.nix
   ];
