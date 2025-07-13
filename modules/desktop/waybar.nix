@@ -27,6 +27,7 @@ in
       ];
 
       modules-right = [
+        "network"
         "bluetooth"
         "pulseaudio"
         "clock"
@@ -70,6 +71,14 @@ in
         };
       };
 
+      network = {
+        tooltip = false;
+        format-wifi = "  {essid}";
+        format-ethernet = " ";
+        format-linked = "  Linked (No IP)";
+        format-disconnected = "  Disconnected";
+      };
+
       bluetooth = {
         format-connected-battery = " {device_alias} {device_battery_percentage}%";
         on-click = "blueman-manager";
@@ -109,7 +118,6 @@ in
     }];
 
     style = ''
-      /* General */
       * {
           font-family: JetBrains Mono Nerd Font;
           border: none;
@@ -123,7 +131,6 @@ in
           transition-duration: 0.5s;
       }
 
-      /* Custom Appmenu */
       #custom-appmenu {
           margin: 5px 10px;
           padding: 0px 15px;
@@ -139,7 +146,6 @@ in
           background: #${color.base08-hex};
       }
 
-      /* Taskbar */
       #taskbar {
           margin: 5px 10px;
           padding: 0px 10px;
@@ -159,7 +165,6 @@ in
           background: #${color.base08-hex};
       }
 
-      /* Window */
       #window {
           margin: 5px 10px;
           padding: 0px 10px;
@@ -173,7 +178,6 @@ in
           background-color: transparent;
       }
 
-      /* Workspaces */
       #workspaces {
           margin: 5px 10px;
           padding: 0px 1px;
@@ -201,11 +205,25 @@ in
           background: #${color.base08-hex};
       }
 
-      /* Bluetooth */
-      #bluetooth {
-          margin: 5px 10px;
+      #network {
+          margin: 5px 0px 5px 10px;
           padding: 0px 15px;
-          border-radius: 15px;
+          border-radius: 15px 0px 0px 15px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #${color.base00-hex};
+          background-color: #${color.base07-hex};
+      }
+
+      #network:hover {
+          color: #${color.base07-hex};
+          background: #${color.base08-hex};
+      }
+
+      #bluetooth {
+          margin: 5px 0px 5px 0px;
+          padding: 0px 15px;
+          border-radius: 0px;
           font-size: 16px;
           font-weight: bold;
           color: #${color.base00-hex};
@@ -217,11 +235,10 @@ in
           background: #${color.base08-hex};
       }
 
-      /* Pulseaudio */
       #pulseaudio {
-          margin: 5px 10px;
+          margin: 5px 10px 5px 0px;
           padding: 0px 15px;
-          border-radius: 15px;
+          border-radius: 0px 15px 15px 0px;
           font-size: 16px;
           font-weight: bold;
           color: #${color.base00-hex};
@@ -233,7 +250,6 @@ in
           background: #${color.base08-hex};
       }
 
-      /* Clock */
       #clock {
           margin: 5px 10px;
           padding: 0px 15px;
@@ -244,7 +260,6 @@ in
           background-color: #${color.base07-hex};
       }
 
-      /* Custom Hypridle */
       #custom-hypridle {
           margin: 5px 10px;
           padding: 0px 15px;
@@ -260,7 +275,6 @@ in
           background: #${color.base08-hex};
       }
 
-      /* Custom Exit */
       #custom-exit {
           margin: 5px 10px;
           padding: 0px 15px;
