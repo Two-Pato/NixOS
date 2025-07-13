@@ -18,6 +18,7 @@ in
 
       modules-left = [
         "custom/appmenu"
+        "custom/tray"
         "wlr/taskbar"
         "hyprland/window"
       ];
@@ -40,6 +41,12 @@ in
         tooltip = false;
         format = "󱄅 Apps";
         on-click = "sleep 0.2; rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\"";
+      };
+
+      "custom/tray" = {
+        tooltip = false;
+        format = "󰙵 |";
+        on-click = "kitty tray-tui";
       };
 
       "wlr/taskbar" = {
@@ -146,10 +153,25 @@ in
           background: #${color.base08-hex};
       }
 
+      #custom-tray {
+          margin: 5px 0px 5px 10px;
+          padding: 0px 0px 0px 15px;
+          border-radius: 15px 0px 0px 15px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #${color.base00-hex};
+          background-color: #${color.base07-hex};
+      }
+
+      #custom-tray:hover {
+          color: #${color.base07-hex};
+          background: #${color.base08-hex};
+      }
+
       #taskbar {
-          margin: 5px 10px;
+          margin: 5px 10px 5px 0px;
           padding: 0px 10px;
-          border-radius: 15px;
+          border-radius: 0px 15px 15px 0px;
           background: #${color.base07-hex};
       }
 

@@ -51,6 +51,7 @@
     curl
     polkit_gnome
     pwvucontrol
+    tray-tui
     usbutils
     wget
   ];
