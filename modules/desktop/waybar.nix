@@ -40,13 +40,13 @@ in
       "custom/appmenu" = {
         tooltip = false;
         format = "󱄅 Apps";
-        on-click = "sleep 0.2; rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\"";
+        on-click = "sleep 0.2; uwsm app -- rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\"";
       };
 
       "custom/tray" = {
         tooltip = false;
         format = "󰙵 |";
-        on-click = "kitty tray-tui";
+        on-click = "uwsm app -- kitty tray-tui";
       };
 
       "wlr/taskbar" = {
@@ -88,7 +88,7 @@ in
 
       bluetooth = {
         format-connected-battery = " {device_alias} {device_battery_percentage}%";
-        on-click = "blueman-manager";
+        on-click = "uwsm app -- blueman-manager";
       };
 
       pulseaudio = {
@@ -100,7 +100,7 @@ in
           default = [ "" "" "󰕾" "" ];
         };
         scroll-step = 5;
-        on-click = "pwvucontrol";
+        on-click = "uwsm app -- pwvucontrol";
       };
 
       clock = {
@@ -114,13 +114,13 @@ in
         return-type = "json";
         escape = true;
         exec-on-event = true;
-        on-click = "hyprlock";
+        on-click = "uwsm app -- hyprlock";
       };
 
       "custom/exit" = {
         tooltip = false;
         format = " Laurent";
-        on-click = "wlogout";
+        on-click = "uwsm app -- wlogout";
       };
     }];
 

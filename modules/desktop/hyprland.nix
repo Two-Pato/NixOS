@@ -129,11 +129,11 @@ in
         "$mainMod ALT, B, exec, uwsm app -- firefox --private-window"
         "$mainMod, E, exec, uwsm app -- nautilus -w"
         "$mainMod SHIFT, E, exec, uwsm app -- kitty --class yazi -e yazi"
-        "$mainMod, SPACE, exec, pkill -x rofi || rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\""
-        "$mainMod, V, exec, pkill -x clipse || kitty --class clipse -e clipse"
-        "$mainMod, N, exec, pkill -x nvim || kitty -d ~/Documents --class nvim -e nvim"
-        #"$mainMod, S, exec, bash -c \"hyprctl clients | grep -q 'class: search' && pkill -f 'kitty --class search' || kitty --class search bash -i -c 'search' &\""
-        "$mainMod SHIFT, S, exec, pkill -x tv || kitty --class tv -e tv"
+        "$mainMod, SPACE, exec, pkill -x rofi || uwsm app -- rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\""
+        "$mainMod, V, exec, pkill -x clipse || uwsm app -- kitty --class clipse -e clipse"
+        "$mainMod, N, exec, pkill -x nvim || uwsm app -- kitty -d ~/Documents --class nvim -e nvim"
+        "$mainMod, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv text"
+        "$mainMod SHIFT, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv"
 
         # Windows
         "$mainMod, Q, killactive"
