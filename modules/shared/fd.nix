@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.fzf = {
+  programs.fd = {
     enable = true;
   };
 }

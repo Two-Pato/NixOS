@@ -30,10 +30,11 @@
     ../../modules/shared/bat.nix
     ../../modules/shared/eza.nix
     ../../modules/shared/fastfetch.nix
-    ../../modules/shared/fzf.nix
+    ../../modules/shared/fd.nix
     ../../modules/shared/git.nix
     ../../modules/shared/ripgrep.nix
     ../../modules/shared/starship.nix
+    ../../modules/shared/television.nix
   ];
 
   home.username = "laurent";

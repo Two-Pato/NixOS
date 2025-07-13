@@ -132,8 +132,8 @@ in
         "$mainMod, SPACE, exec, pkill -x rofi || rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\""
         "$mainMod, V, exec, pkill -x clipse || kitty --class clipse -e clipse"
         "$mainMod, N, exec, pkill -x nvim || kitty -d ~/Documents --class nvim -e nvim"
-        "$mainMod, S, exec, bash -c \"hyprctl clients | grep -q 'class: search' && pkill -f 'kitty --class search' || kitty --class search bash -i -c 'search' &\""
-        "$mainMod SHIFT, S, exec, pkill -x fzf || kitty --class fzf -e fzf --ansi --preview \'bat --style=full --color=always {}\' --bind \'enter:become(nano {+})\'"
+        #"$mainMod, S, exec, bash -c \"hyprctl clients | grep -q 'class: search' && pkill -f 'kitty --class search' || kitty --class search bash -i -c 'search' &\""
+        "$mainMod SHIFT, S, exec, pkill -x tv || kitty --class tv -e tv"
 
         # Windows
         "$mainMod, Q, killactive"
@@ -217,9 +217,9 @@ in
         # Search
         "float,class:(search)"
         "size 75% 75%,class:(search)"
-        # Fzf
-        "float,class:(fzf)"
-        "size 75% 75%,class:(fzf)"
+        # Tv
+        "float,class:(tv)"
+        "size 75% 75%,class:(tv)"
         # Sushi
         "float, class:^(org.gnome.NautilusPreviewer)"
         "size 35% 75%,class:(org.gnome.NautilusPreviewer)"
