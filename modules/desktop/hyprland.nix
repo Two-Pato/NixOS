@@ -1,10 +1,10 @@
 { config, lib, pkgs, hostName, ... }:
 
 let
-  workspace1_mihari = "[workspace 1 silent] uwsm app -- firefox";
-  workspace2_mihari = "[workspace 2 silent] uwsm app -- nautilus";
-  workspace1_mahiro = "[workspace 1 silent] uwsm app -- steam";
-  workspace2_mahiro = "[workspace 2 silent] uwsm app -- bottles";
+  workspace1_mihari = "[ workspace 1 silent ] uwsm app -- firefox";
+  workspace2_mihari = "[ workspace 2 silent ] uwsm app -- nautilus";
+  workspace1_mahiro = "[ workspace 1 silent ] uwsm app -- steam";
+  workspace2_mahiro = "[ workspace 2 silent ] uwsm app -- bottles";
 
   workspace1_host =
     if hostName == "mihari" then workspace1_mihari

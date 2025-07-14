@@ -55,5 +55,5 @@
     '';
   };
 
-  systemd.services.caddy.serviceConfig.EnvironmentFile = ["/home/laurent/.secrets/caddy_token"];
+  systemd.services.caddy.serviceConfig.EnvironmentFile = [ "/home/laurent/.secrets/caddy_token" ];
 }

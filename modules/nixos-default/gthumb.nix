@@ -40,6 +40,7 @@ with lib.hm.gvariant;
         "comments"
         "slideshow"
       ];
+
       store-metadata-in-files = false;
     };
 

@@ -23,10 +23,11 @@
   networking.useNetworkd = true;
   networking.firewall = {
     enable = true;
+
     allowedTCPPorts = [ 
       80 
       443
-      3001 # Kuma
+      #3001 # Kuma
       5000 # Kavita
       8080 # Stirling
     ];

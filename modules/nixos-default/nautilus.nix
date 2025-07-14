@@ -26,11 +26,13 @@ with lib.hm.gvariant;
 
   xdg.userDirs = {
     enable = true;
+
     createDirectories = true;
   };
 
   xdg.mimeApps = {
     enable = true;
+
     defaultApplications = {
       "text/plain" = [ "org.gnome.TextEditor.desktop" ];
       "image/avif" = [ "org.gnome.gThumb.desktop" ];
