@@ -1,4 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hostName, ... }:
+
 
 {
   programs.firefox = {
@@ -117,6 +118,7 @@
               "downloads-button",
               "unified-extensions-button",
               "ublock0_raymondhill_net-browser-action"
+              ${lib.strings.optionalString (hostName == "mihari") ", \"78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action\""}
             ],
             "toolbar-menubar": [
               "menubar-items"
@@ -137,7 +139,9 @@
             "save-to-pocket-button",
             "developer-button",
             "ublock0_raymondhill_net-browser-action",
-            "_f8e12521-acde-4a17-9f1f-c10a32d053e2_-browser-action"
+            "_f8e12521-acde-4a17-9f1f-c10a32d053e2_-browser-action",
+            ${lib.strings.optionalString (hostName == "mihari") "\"78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action\","}
+            "screenshot-button"
           ],
           "dirtyAreaCache": [
             "nav-bar",
@@ -179,7 +183,7 @@
         };
 
         "{f558e0b7-ded4-4803-a06f-3dcc5a8cc37e}" = {
-          install_url = https://addons.mozilla.org/firefox/downloads/file/4522550/easy_speed_dial/latest.xpi;
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4522550/easy_speed_dial/latest.xpi";
           installation_mode = "force_installed";
         };
       };
