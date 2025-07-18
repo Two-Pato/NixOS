@@ -283,6 +283,11 @@ in
           background-color: #${color.base07-hex};
       }
 
+      #clock:hover {
+          color: #${color.base07-hex};
+          background: #${color.base08-hex};
+      }
+
       #custom-hypridle {
           margin: 5px 10px;
           padding: 0px 15px;
