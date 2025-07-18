@@ -17,6 +17,7 @@
     # Default
     ../../modules/nixos-default/bash.nix
     ../../modules/nixos-default/btop.nix
+    ../../modules/nixos-default/calcure.nix
     ../../modules/nixos-default/firefox.nix
     ../../modules/nixos-default/gthumb.nix
     ../../modules/nixos-default/kitty.nix
