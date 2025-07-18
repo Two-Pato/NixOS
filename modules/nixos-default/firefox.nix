@@ -1,6 +1,5 @@
 { config, lib, pkgs, hostName, ... }:
 
-
 {
   programs.firefox = {
     enable = true;

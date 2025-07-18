@@ -106,6 +106,7 @@ in
       clock = {
         tooltip = false;
         format = "{:%H:%M %a}";
+        on-click = "uwsm app -- kitty calcure";
       };
 
       "custom/hypridle" = {
