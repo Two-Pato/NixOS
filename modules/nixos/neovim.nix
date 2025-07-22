@@ -8,14 +8,30 @@
       viAlias = false;
       vimAlias = true;
 
+      clipboard = {
+        enable = true;
+        registers = "unnamedplus";
+      };
+
+      # Language Server Protocol
       lsp = {
         enable = true;
+      };
+
+      languages = {
+        nix.enable = true;
+        html.enable = true;
+        css.enable = true;
+        bash.enable = true;
+        python.enable = true;
+        markdown.enable = true;
       };
 
       # Options
       options = {
         cursorline = true;
         showmode = false;
+        undofile = true;
 
         # Tabs
         tabstop = 2;
@@ -24,7 +40,7 @@
         autoindent = true;
       };
 
-      # Theme
+      # Gui
       theme = {
         enable = true;
         name = "github";
@@ -34,11 +50,19 @@
 
       statusline.lualine.enable = true;
 
-      ui.noice.enable = true;
-
-      mini.icons.enable = true;
+      ui = {
+        noice.enable = true;
+        colorizer.enable = true;
+      };
 
       # Plugins
+      treesitter = {
+        enable = true;
+        highlight.enable = true;
+        indent.enable = true;
+        context.enable = true;
+      };
+
       filetree.nvimTree = {
         enable = true;
         openOnSetup = true;
