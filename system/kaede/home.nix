@@ -2,21 +2,21 @@
 
 {
   imports = [
-    # Default
-    ../../modules/nixos-default/bash.nix
-    ../../modules/nixos-default/btop.nix
-    ../../modules/nixos-default/lazygit.nix
-    ../../modules/nixos-default/yazi.nix
+    # Core
+    ../../modules/core/bat.nix
+    ../../modules/core/eza.nix
+    ../../modules/core/fastfetch.nix
+    ../../modules/core/fd.nix
+    ../../modules/core/git.nix
+    ../../modules/core/ripgrep.nix
+    ../../modules/core/starship.nix
+    ../../modules/core/television.nix
 
-    # Shared
-    ../../modules/shared/bat.nix
-    ../../modules/shared/eza.nix
-    ../../modules/shared/fastfetch.nix
-    ../../modules/shared/fd.nix
-    ../../modules/shared/git.nix
-    ../../modules/shared/ripgrep.nix
-    ../../modules/shared/starship.nix
-    ../../modules/shared/television.nix
+    # NixOS
+    ../../modules/nixos/bash.nix
+    ../../modules/nixos/btop.nix
+    ../../modules/nixos/lazygit.nix
+    ../../modules/nixos/yazi.nix
   ];
 
   home.username = "laurent";

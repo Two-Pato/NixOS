@@ -2,6 +2,16 @@
 
 {
   imports = [
+    # Core
+    ../../modules/core/bat.nix
+    ../../modules/core/eza.nix
+    ../../modules/core/fastfetch.nix
+    ../../modules/core/fd.nix
+    ../../modules/core/git.nix
+    ../../modules/core/ripgrep.nix
+    ../../modules/core/starship.nix
+    ../../modules/core/television.nix
+
     # Desktop
     ../../modules/desktop/clipse.nix
     ../../modules/desktop/dunst.nix
@@ -14,28 +24,18 @@
     ../../modules/desktop/waybar.nix
     ../../modules/desktop/wlogout.nix
 
-    # Default
-    ../../modules/nixos-default/bash.nix
-    ../../modules/nixos-default/btop.nix
-    ../../modules/nixos-default/calcure.nix
-    ../../modules/nixos-default/firefox.nix
-    ../../modules/nixos-default/gthumb.nix
-    ../../modules/nixos-default/kitty.nix
-    ../../modules/nixos-default/lazygit.nix
-    ../../modules/nixos-default/nautilus.nix
-    ../../modules/nixos-default/neovim.nix
-    ../../modules/nixos-default/texteditor.nix
-    ../../modules/nixos-default/yazi.nix
-
-    # Shared
-    ../../modules/shared/bat.nix
-    ../../modules/shared/eza.nix
-    ../../modules/shared/fastfetch.nix
-    ../../modules/shared/fd.nix
-    ../../modules/shared/git.nix
-    ../../modules/shared/ripgrep.nix
-    ../../modules/shared/starship.nix
-    ../../modules/shared/television.nix
+    # NixOS
+    ../../modules/nixos/bash.nix
+    ../../modules/nixos/btop.nix
+    ../../modules/nixos/calcure.nix
+    ../../modules/nixos/firefox.nix
+    ../../modules/nixos/gthumb.nix
+    ../../modules/nixos/kitty.nix
+    ../../modules/nixos/lazygit.nix
+    ../../modules/nixos/nautilus.nix
+    ../../modules/nixos/neovim.nix
+    ../../modules/nixos/texteditor.nix
+    ../../modules/nixos/yazi.nix
   ];
 
   home.username = "laurent";
