@@ -7,6 +7,7 @@
     settings.vim = {
       viAlias = false;
       vimAlias = true;
+      preventJunkFiles = true;
 
       clipboard = {
         enable = true;
@@ -15,10 +16,16 @@
 
       # Language Server Protocol
       lsp = {
-        enable = true;
+        formatOnSave = true;
+        trouble.enable = true;
+        lightbulb.enable = true;
       };
 
       languages = {
+        enableFormat = true;
+        enableTreesitter = true;
+        enableExtraDiagnostics = true;
+
         nix.enable = true;
         html.enable = true;
         css.enable = true;
@@ -53,16 +60,10 @@
       ui = {
         noice.enable = true;
         colorizer.enable = true;
+        breadcrumbs.enable = true;
       };
 
       # Plugins
-      treesitter = {
-        enable = true;
-        highlight.enable = true;
-        indent.enable = true;
-        context.enable = true;
-      };
-
       filetree.nvimTree = {
         enable = true;
         openOnSetup = true;
