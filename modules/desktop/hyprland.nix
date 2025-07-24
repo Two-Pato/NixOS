@@ -135,6 +135,10 @@ in
         "$mainMod, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv text"
         "$mainMod SHIFT, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv"
 
+        # Screenshots
+        "$mainMod, print, exec, grim $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')"
+        "$mainMod SHIFT, print, exec, grim -g \"$(slurp)\" $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')"
+
         # Windows
         "$mainMod, Q, killactive"
         "$mainMod, F, fullscreen"
@@ -226,4 +230,9 @@ in
       ];
     };
   };
+
+  home.packages = with pkgs; [
+    grim
+    slurp
+  ];
 }
