@@ -16,6 +16,7 @@
 
       # Language Server Protocol
       lsp = {
+        enable = true;
         formatOnSave = true;
         trouble.enable = true;
         lightbulb.enable = true;
@@ -55,7 +56,13 @@
         transparent = true;
       };
 
+      visuals = {
+        nvim-web-devicons.enable = true;
+      };
+
       statusline.lualine.enable = true;
+
+      notify.nvim-notify.enable = true;
 
       ui = {
         noice.enable = true;
