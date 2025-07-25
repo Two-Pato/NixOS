@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  color = import ../../var/color.nix;
+in
 {
   programs.nvf = {
     enable = true;
@@ -32,7 +35,11 @@
         css.enable = true;
         bash.enable = true;
         python.enable = true;
-        markdown.enable = true;
+
+        markdown = {
+          enable = true;
+          extensions.render-markdown-nvim.enable = true;
+        };
       };
 
       # Options
@@ -62,12 +69,15 @@
 
       statusline.lualine.enable = true;
 
-      notify.nvim-notify.enable = true;
+      notify.nvim-notify = {
+        enable = true;
+        setupOpts.background_colour = "#${color.base07-hex}";
+      };
 
       ui = {
-        noice.enable = true;
-        colorizer.enable = true;
         breadcrumbs.enable = true;
+        colorizer.enable = true;
+        noice.enable = true;
       };
 
       # Plugins
