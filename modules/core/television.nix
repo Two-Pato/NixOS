@@ -9,28 +9,11 @@
     settings = {
       tick_rate = 50;
       ui = {
-        use_nerd_font_icons = true;
         ui_scale = 100;
-        input_bar_position = "bottom";
         orientation = "landscape";
 
-        features = {
-          preview_panel = {
-            enabled = true;
-            visible = true;
-          };
-          help_panel = {
-            enabled = true;
-            visible = false;
-          };
-          status_bar = {
-            enabled = true;
-            visible = true;
-          };
-          remote_control = {
-            enabled = true;
-            visible = false;
-          };
+        input_bar = {
+          position = "bottom";
         };
 
         preview_panel = {
@@ -43,34 +26,109 @@
           sort_alphabetically = true;
         };
       };
-
-      keybindings = {
-        select_next_entry = [ "down" "ctrl-j" ];
-        select_prev_entry = [ "up" "ctrl-k" ];
-        #scroll_preview_half_page_down = ["pagedown" "mousescrolldown"];
-        #scroll_preview_half_page_up = ["pageup" "mousescrollup"];
-        toggle_preview = [ "ctrl-p" ];
-        toggle_remote_control = [ "ctrl-r" ];
-        toggle_help = [ "ctrl-h" "?" ];
-        confirm_selection = [ "enter" "ctrl-y" ];
-      };
     };
 
     channels = {
-      default.cable_channel = [
-        {
+      bash-history = {
+        metadata = {
           name = "bash-history";
           description = "A channel to select from your bash history";
           requirements = [ "bash" ];
-          source_command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.bash_history}";
-        }
-        {
+        };
+        source = {
+          command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.bash_history}";
+        };
+      };
+
+      zsh-history = {
+        metadata = {
           name = "zsh-history";
           description = "A channel to select from your zsh history";
           requirements = [ "zsh" ];
-          source_command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.zsh_history} | cut -d\";\" -f 2-";
-        }
-      ];
+        };
+        source = {
+          command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.zsh_history}";
+          display = "{split:;:1..}";
+          output = "{split:;:1..}";
+        };
+      };
+
+      dirs = {
+        metadata = {
+          name = "dirs";
+          description = "A channel to select from directories";
+          requirements = [ "fd" ];
+        };
+        source = {
+          command = [ "fd -t d" "fd -t d --hidden" ];
+        };
+        preview = {
+          command = "ls -la --color=always '{}'";
+        };
+        keybindings = {
+          shortcut = "f3";
+        };
+      };
+
+      env = {
+        metadata = {
+          name = "env";
+          description = "A channel to select from environment variables";
+        };
+        source = {
+          command = "printenv";
+          output = "{split:=:1..}";
+        };
+        preview = {
+          command = "echo '{split:=:1..}'";
+        };
+        ui = {
+          layout = "portrait";
+        };
+      };
+
+      files = {
+        metadata = {
+          name = "files";
+          description = "A channel to select files and directories";
+          requirements = [ "fd" "bat" ];
+        };
+        source = {
+          command = ["fd -t f" "fd -t f -H"];
+        };
+        preview = {
+          command = "bat -n --color=always '{}'";
+        };
+        keybindings = {
+          shortcut = "f2";
+          enter = "actions:edit";
+        };
+        actions.edit = {
+          description = "Opens the selected entries with neovim";
+          command = "nvim '{}'";
+          mode = "execute";
+        };
+      };
+
+      text = {
+        metadata = {
+          name = "text";
+          description = "A channel to find and select text from files";
+          requirements = [ "rg" "bat" ];
+        };
+        source = {
+          command = "rg . --no-heading --line-number --colors 'match:fg:white' --colors 'path:fg:blue' --color=always";
+          ansi = true;
+          output = "{strip_ansi|split:\\::..2}";
+        };
+        preview = {
+          command = "bat -n --color=always '{strip_ansi|split:\\::0}'";
+          offset = "'{strip_ansi|split:\::1}'";
+        };
+        keybindings = {
+          shortcut = "f1";
+        };
+      };
     };
   };
 }
