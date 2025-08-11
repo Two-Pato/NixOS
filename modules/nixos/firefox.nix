@@ -165,27 +165,31 @@
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
 
-      ExtensionSettings = {
-        "uBlock0@raymondhill.net" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-          installation_mode = "force_installed";
-        };
+      ExtensionSettings = lib.mkMerge [
+        {
+          "uBlock0@raymondhill.net" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            installation_mode = "force_installed";
+          };
 
-        "jid1-xUfzOsOFlzSOXg@jetpack" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/reddit-enhancement-suite/latest.xpi";
-          installation_mode = "force_installed";
-        };
+          "{f558e0b7-ded4-4803-a06f-3dcc5a8cc37e}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4522550/easy_speed_dial/latest.xpi";
+            installation_mode = "force_installed";
+          };
+        }
 
-        "{f8e12521-acde-4a17-9f1f-c10a32d053e2}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/3423739/save_all_tab_urls-0.1.4.xpi";
-          installation_mode = "force_installed";
-        };
+        (lib.optionalAttrs (hostName == "mihari") {
+          "jid1-xUfzOsOFlzSOXg@jetpack" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/reddit-enhancement-suite/latest.xpi";
+            installation_mode = "force_installed";
+          };
 
-        "{f558e0b7-ded4-4803-a06f-3dcc5a8cc37e}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4522550/easy_speed_dial/latest.xpi";
-          installation_mode = "force_installed";
-        };
-      };
+          "{f8e12521-acde-4a17-9f1f-c10a32d053e2}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/3423739/save_all_tab_urls-0.1.4.xpi";
+            installation_mode = "force_installed";
+          };
+        })
+      ];
     };
   };
 }
