@@ -35,6 +35,7 @@
           description = "A channel to select from your bash history";
           requirements = [ "bash" ];
         };
+
         source = {
           command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.bash_history}";
         };
@@ -46,6 +47,7 @@
           description = "A channel to select from your zsh history";
           requirements = [ "zsh" ];
         };
+
         source = {
           command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.zsh_history}";
           display = "{split:;:1..}";
@@ -59,12 +61,15 @@
           description = "A channel to select from directories";
           requirements = [ "fd" ];
         };
+
         source = {
           command = [ "fd -t d" "fd -t d --hidden" ];
         };
+
         preview = {
           command = "ls -la --color=always '{}'";
         };
+
         keybindings = {
           shortcut = "f3";
         };
@@ -75,13 +80,16 @@
           name = "env";
           description = "A channel to select from environment variables";
         };
+
         source = {
           command = "printenv";
           output = "{split:=:1..}";
         };
+
         preview = {
           command = "echo '{split:=:1..}'";
         };
+
         ui = {
           layout = "portrait";
         };
@@ -93,16 +101,20 @@
           description = "A channel to select files and directories";
           requirements = [ "fd" "bat" ];
         };
+
         source = {
           command = ["fd -t f" "fd -t f -H"];
         };
+
         preview = {
           command = "bat -n --color=always '{}'";
         };
+
         keybindings = {
           shortcut = "f2";
           enter = "actions:edit";
         };
+
         actions.edit = {
           description = "Opens the selected entries with neovim";
           command = "nvim '{}'";
@@ -116,15 +128,18 @@
           description = "A channel to find and select text from files";
           requirements = [ "rg" "bat" ];
         };
+
         source = {
           command = "rg . --no-heading --line-number --colors 'match:fg:white' --colors 'path:fg:blue' --color=always";
           ansi = true;
           output = "{strip_ansi|split:\\::..2}";
         };
+
         preview = {
           command = "bat -n --color=always '{strip_ansi|split:\\::0}'";
           offset = "'{strip_ansi|split:\::1}'";
         };
+
         keybindings = {
           shortcut = "f1";
         };
