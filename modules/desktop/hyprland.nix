@@ -218,9 +218,6 @@ in
         # Nvim
         "float,class:(nvim)"
         "size 75% 75%,class:(nvim)"
-        # Search
-        "float,class:(search)"
-        "size 75% 75%,class:(search)"
         # Tv
         "float,class:(tv)"
         "size 75% 75%,class:(tv)"
