@@ -71,7 +71,7 @@
         };
 
         keybindings = {
-          shortcut = "f3";
+          shortcut = "1";
         };
       };
 
@@ -92,6 +92,14 @@
 
         ui = {
           layout = "portrait";
+          preview_panel = {
+            size = 20;
+            header = "{split:=:0}";
+          };
+        };
+
+        keybindings = {
+          shortcut = "4";
         };
       };
 
@@ -108,10 +116,13 @@
 
         preview = {
           command = "bat -n --color=always '{}'";
+          env = {
+            BAT_THEME = "ansi";
+          };
         };
 
         keybindings = {
-          shortcut = "f2";
+          shortcut = "2";
           enter = "actions:edit";
         };
 
@@ -138,10 +149,19 @@
         preview = {
           command = "bat -n --color=always '{strip_ansi|split:\\::0}'";
           offset = "'{strip_ansi|split:\::1}'";
+          env = {
+            BAT_THEME = "ansi";
+          };
+        };
+
+        ui = {
+          preview_panel = {
+            header = "{strip_ansi|split:\\::..2}";
+          };
         };
 
         keybindings = {
-          shortcut = "f1";
+          shortcut = "3";
         };
       };
     };
