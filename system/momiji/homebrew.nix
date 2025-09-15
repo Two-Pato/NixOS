@@ -14,7 +14,7 @@
     global.brewfile = true;
 
     casks = [
-      #"handbrake"
+      "handbrake"
       #"iina"
       #"opera"
       #"parsec"
