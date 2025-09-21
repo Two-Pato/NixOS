@@ -105,7 +105,7 @@ in
 
       clock = {
         tooltip = false;
-        format = "{:%H:%M %a}";
+        format = "{:%H:%M %a %d %b}";
         on-click = "uwsm app -- kitty calcure";
       };
 
