@@ -4,7 +4,6 @@
   # Imports
   imports = [
     ./darwin.nix
-    ./homebrew.nix
     ./networking.nix
 
     # Configuration
