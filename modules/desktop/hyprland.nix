@@ -129,11 +129,10 @@ in
         "$mainMod, V, exec, pkill -x clipse || uwsm app -- kitty --class clipse -e clipse"
         "$mainMod, N, exec, pkill -x nvim || uwsm app -- kitty -d ~/Documents --class nvim -e nvim"
         "$mainMod, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv text"
-        "$mainMod SHIFT, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv"
 
         # Screenshots
-        "$mainMod, print, exec, grim $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')"
-        "$mainMod SHIFT, print, exec, grim -g \"$(slurp)\" $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')"
+        "$mainMod, print, exec, grim $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
+        "$mainMod SHIFT, print, exec, grim -g \"$(slurp)\" $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
 
         # Windows
         "$mainMod, Q, killactive"
@@ -218,7 +217,7 @@ in
         "float,class:(tv)"
         "size 75% 75%,class:(tv)"
         # Sushi
-        "float, class:^(org.gnome.NautilusPreviewer)"
+        "float, class:(org.gnome.NautilusPreviewer)"
         "size 35% 75%,class:(org.gnome.NautilusPreviewer)"
       ];
     };
