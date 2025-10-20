@@ -17,7 +17,6 @@
     ../../modules/server/kavita.nix
     #../../modules/server/sonarr.nix
     ../../modules/server/stirling-pdf.nix
-    #../../modules/server/uptime-kuma.nix
   ];
 
   # Nix Settings

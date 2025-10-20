@@ -52,6 +52,10 @@
           url = "https://www.zeit.de/";
         }
         {
+          name = "Stirling PDF";
+          url = "https://stirling.nexuinque.de/";
+        }
+        {
           name = "JLearn";
           url = "https://jlearn.net/";
         }
@@ -91,7 +95,6 @@
         "browser.translations.enable" = false;
 
         "browser.uitour.enabled" = false;
-        "identity.fxaccounts.enabled" = false;
 
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
@@ -158,6 +161,7 @@
 
     policies = {
       DisableTelemetry = true;
+      DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
       DisablePocket = true;
       DontCheckDefaultBrowser = true;
