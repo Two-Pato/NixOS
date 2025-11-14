@@ -19,8 +19,7 @@
     (lib.mkIf (config.networking.hostName == "mihari") {
       rebuild-mihari = "sudo nixos-rebuild switch --flake /etc/nixos/.#mihari";
 
-      manga-convert = "nix-shell -p python3 --run 'python \"/home/laurent/Programs/Manga-Converter/converter.py\"' && exit";
-      manga-unzip = "nix-shell -p python3 --run 'python \"/home/laurent/Programs/Manga-Converter/unziper.py\"' && exit";
+      manga-convert = "nix-shell -p python3 python3Packages.lxml --run 'python \"/home/laurent/Programs/Manga-Converter/converter.py\"' && exit";
     })
 
     (lib.mkIf (config.networking.hostName == "mahiro") {
