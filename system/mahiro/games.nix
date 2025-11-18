@@ -13,6 +13,7 @@
       mgba # Game Boy Advance
       melonds # Nintendo DS
       dolphin # Nintendo GameCube / Wii
+      pcsx2 # Playstation 2
     ]))
   ];
 }

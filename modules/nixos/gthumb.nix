@@ -16,30 +16,23 @@ with lib.hm.gvariant;
     "org/gnome/gthumb/general" = {
       active-extensions = [
         "resize_images"
-        "image_print"
         "search"
         "list_tools"
         "convert_format"
-        "exiv2_tools"
         "edit_metadata"
         "find_duplicates"
         "rename_series"
-        "photo_importer"
         "raw_files"
         "gstreamer_tools"
         "catalogs"
-        "desktop_background"
         "change_date"
         "contact_sheet"
-        "image_rotation"
         "selections"
         "bookmarks"
         "terminal"
         "file_manager"
         "red_eye_removal"
-        "comments"
-        "slideshow"
-      ];
+        "slideshow" ];
 
       store-metadata-in-files = false;
     };
