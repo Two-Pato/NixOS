@@ -39,6 +39,7 @@
 
     # Extra
     ../../modules/nixos-extra/mpv.nix
+    ../../modules/nixos-extra/vscode.nix
     ../../modules/nixos-extra/yt-dlp.nix
   ];
 
@@ -49,13 +50,11 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    blueman
     imagemagick
     mkvtoolnix
     ncdu
     parsec-bin
     solaar
-    vscode
   ];
 
   # Home Version

@@ -41,8 +41,9 @@
   };
 
   # Services
-  services.openssh.enable = true;
+  services.blueman.enable = true;
   services.gvfs.enable = true;
+  services.openssh.enable = true;
 
   # Packages
   environment.systemPackages = with pkgs; [

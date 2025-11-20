@@ -45,7 +45,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    blueman
     discord
     ncdu
     solaar
