@@ -50,6 +50,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    handbrake
     imagemagick
     mkvtoolnix
     ncdu

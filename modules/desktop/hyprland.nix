@@ -131,8 +131,8 @@ in
         "$mainMod, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv text"
 
         # Screenshots
-        "$mainMod, print, exec, grim $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
-        "$mainMod SHIFT, print, exec, grim -g \"$(slurp)\" $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
+        ", print, exec, grim $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
+        "SHIFT, print, exec, grim -g \"$(slurp)\" $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
 
         # Windows
         "$mainMod, Q, killactive"
