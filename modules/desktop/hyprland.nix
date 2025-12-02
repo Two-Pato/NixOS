@@ -220,6 +220,11 @@ in
         "float, class:(org.gnome.NautilusPreviewer)"
         "size 35% 75%,class:(org.gnome.NautilusPreviewer)"
       ];
+
+      # Miscellaneous
+      misc = {
+        enable_anr_dialog = false;
+      };
     };
   };
 
