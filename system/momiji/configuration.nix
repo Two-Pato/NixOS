@@ -15,6 +15,7 @@
   nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
+  nix.optimise.automatic = true;
 
   # Users and Permissions
   users.users.laurent = {

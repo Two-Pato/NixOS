@@ -15,7 +15,6 @@
     ../../modules/server/caddy.nix
     ../../modules/server/jellyfin.nix
     ../../modules/server/kavita.nix
-    #../../modules/server/sonarr.nix
     ../../modules/server/stirling-pdf.nix
   ];
 
@@ -23,6 +22,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
+  nix.optimise.automatic = true;
 
   # Bootloader
   boot.loader.grub.enable = true;

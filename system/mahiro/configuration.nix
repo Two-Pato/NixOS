@@ -22,6 +22,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.download-buffer-size = 500000000; # 500 MB
   nixpkgs.config.allowUnfree = true;
+  nix.optimise.automatic = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
