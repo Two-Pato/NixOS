@@ -130,9 +130,11 @@ in
         "$mainMod, N, exec, pkill -x nvim || uwsm app -- kitty -d ~/Documents --class nvim -e nvim"
         "$mainMod, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv text"
 
-        # Screenshots
+        # Special Keys
         ", print, exec, grim $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
         "SHIFT, print, exec, grim -g \"$(slurp)\" $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
+
+        "$mainMod, L, exec, uwsm app -- hyprlock"
 
         # Windows
         "$mainMod, Q, killactive"
