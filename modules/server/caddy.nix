@@ -9,6 +9,21 @@
       hash = "sha256-aVSE8y9Bt+XS7+M27Ua+ewxRIcX51PuFu4+mqKbWFwo=";
     };
 
+    virtualHosts."adguard.nexuinque.de".extraConfig = ''
+      reverse_proxy https://10.0.20.21:80 {
+        transport http {
+          tls_insecure_skip_verify
+        }
+      }
+
+      tls {
+        dns porkbun {
+          api_key {$APIKEY}
+          api_secret_key {$APISECRETKEY}
+        }
+      }
+    '';
+
     virtualHosts."jellyfin.nexuinque.de".extraConfig = ''
       reverse_proxy http://localhost:8096
       tls {

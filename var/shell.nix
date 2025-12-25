@@ -30,6 +30,10 @@
       rebuild-kaede = "sudo nixos-rebuild switch --flake /etc/nixos/.#kaede";
     })
 
+    (lib.mkIf (config.networking.hostName == "asahi") {
+      rebuild-kaede = "sudo nixos-rebuild switch --flake /etc/nixos/.#asahi";
+    })
+
     (lib.mkIf (config.networking.hostName == "momiji") {
       rebuild-momiji = "sudo darwin-rebuild switch --flake ./NixOS/.#momiji";
     })
