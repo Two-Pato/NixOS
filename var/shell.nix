@@ -31,7 +31,7 @@
     })
 
     (lib.mkIf (config.networking.hostName == "asahi") {
-      rebuild-kaede = "sudo nixos-rebuild switch --flake /etc/nixos/.#asahi";
+      rebuild-asahi = "sudo nixos-rebuild switch --flake /etc/nixos/.#asahi";
     })
 
     (lib.mkIf (config.networking.hostName == "momiji") {
