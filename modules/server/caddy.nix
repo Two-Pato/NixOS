@@ -10,12 +10,7 @@
     };
 
     virtualHosts."adguard.nexuinque.de".extraConfig = ''
-      reverse_proxy https://10.0.20.21:80 {
-        transport http {
-          tls_insecure_skip_verify
-        }
-      }
-
+      reverse_proxy http://10.0.20.21:80
       tls {
         dns porkbun {
           api_key {$APIKEY}
