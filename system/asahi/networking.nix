@@ -19,6 +19,13 @@
     };
   };
 
+  services.resolved = {
+    enable = true;
+    extraConfig = ''
+      DNSStubListener=no
+    '';
+  };
+
   networking.hostName = "asahi";
   networking.useNetworkd = true;
   networking.firewall = {
