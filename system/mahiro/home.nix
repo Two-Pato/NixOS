@@ -27,7 +27,6 @@
     # NixOS
     ../../modules/nixos/bash.nix
     ../../modules/nixos/btop.nix
-    ../../modules/nixos/calcure.nix
     ../../modules/nixos/firefox.nix
     ../../modules/nixos/gthumb.nix
     ../../modules/nixos/kitty.nix
