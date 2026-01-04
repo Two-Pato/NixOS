@@ -3,8 +3,8 @@
 {
   programs.television = {
     enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
+    enableBashIntegration = false;
+    enableZshIntegration = false;
 
     settings = {
       tick_rate = 50;
