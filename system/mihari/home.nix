@@ -41,6 +41,7 @@
     ../../modules/nixos-extra/mpv.nix
     ../../modules/nixos-extra/vscode.nix
     ../../modules/nixos-extra/yt-dlp.nix
+    ../../modules/nixos-extra/zathura.nix
   ];
 
   home.username = "laurent";
