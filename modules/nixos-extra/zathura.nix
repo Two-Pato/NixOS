@@ -5,8 +5,9 @@
     enable = true;
 
     package = pkgs.zathura.override {
-      plugins = [
-        pkgs.zathuraPkgs.zathura_cb
+      plugins = with pkgs.zathuraPkgs; [
+        zathura_pdf_mupdf
+        zathura_cb
       ];
     };
 

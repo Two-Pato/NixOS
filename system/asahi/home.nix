@@ -25,10 +25,6 @@
   # Packages
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
-
-  ];
-
   # Home Version
   home.stateVersion = "25.05";
 }

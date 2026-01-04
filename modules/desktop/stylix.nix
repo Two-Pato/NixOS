@@ -19,6 +19,7 @@ in
       mpv.enable = true;
       rofi.enable = true;
       yazi.enable = true;
+      zathura.enable = true;
     };
 
     image = ../../assets/hyprland_wallpaper_1.png;
