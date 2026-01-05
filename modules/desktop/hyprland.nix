@@ -204,23 +204,36 @@ in
       ];
 
       # Window Rules
-      windowrulev2 = [
+      windowrule = [
         # General
-        "suppressevent maximize, class:.*" # Ignore maximize requests from apps. You'll probably like this.
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0" # Fix some dragging issues with XWayland
+        "suppress_event maximize, match:class .*"
+
         # Clipse
-        "float,class:(clipse)"
-        "size 622 652,class:(clipse)"
-        "stayfocused,class:(clipse)"
+        "float on, match:class clipse"
+        "center on, match:class clipse"
+        "size 622 652, match:class clipse"
+        "stay_focused on, match:class clipse"
+
         # Nvim
-        "float,class:(nvim)"
-        "size 75% 75%,class:(nvim)"
-        # Tv
-        "float,class:(tv)"
-        "size 75% 75%,class:(tv)"
+        "float on, match:class nvim"
+        "center on, match:class nvim"
+        "size monitor_w*0.75 monitor_h*0.75, match:class nvim"
+
+        # Picture in Picture
+        "float on, match:title Picture-in-Picture"
+        "pin on, match:title Picture-in-Picture"
+        "size monitor_w*0.25 monitor_h*0.25, match:title Picture-in-Picture"
+        "move monitor_w*0.75-25 monitor_h*0.75-25, match:title Picture-in-Picture"
+
         # Sushi
-        "float, class:(org.gnome.NautilusPreviewer)"
-        "size 35% 75%,class:(org.gnome.NautilusPreviewer)"
+        "float on, match:class org.gnome.NautilusPreviewer"
+        "center on, match:class org.gnome.NautilusPreviewer"
+        "size monitor_w*0.35 monitor_h*0.75, match:class org.gnome.NautilusPreviewer"
+
+        # Tv
+        "float on, match:class tv"
+        "center on, match:class tv"
+        "size monitor_w*0.75 monitor_h*0.75, match:class tv"
       ];
 
       # Miscellaneous

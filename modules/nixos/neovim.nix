@@ -17,31 +17,6 @@ in
         registers = "unnamedplus";
       };
 
-      # Language Server Protocol
-      lsp = {
-        enable = true;
-        formatOnSave = true;
-        trouble.enable = true;
-        lightbulb.enable = true;
-      };
-
-      languages = {
-        enableFormat = true;
-        enableTreesitter = true;
-        enableExtraDiagnostics = true;
-
-        nix.enable = true;
-        html.enable = true;
-        css.enable = true;
-        bash.enable = true;
-        python.enable = true;
-
-        markdown = {
-          enable = true;
-          extensions.render-markdown-nvim.enable = true;
-        };
-      };
-
       # Options
       options = {
         cursorline = true;
@@ -75,8 +50,6 @@ in
       };
 
       ui = {
-        breadcrumbs.enable = true;
-        colorizer.enable = true;
         noice.enable = true;
       };
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hostName, ... }:
 
 let
   color = import ../../var/color.nix;
@@ -8,19 +8,24 @@ in
     enable = true;
     autoEnable = false;
 
-    targets = {
-      bat.enable = true;
-      btop.enable = true;
-      dunst.enable = true;
-      hyprland.enable = true;
-      hyprlock.enable = true;
-      kitty.enable = true;
-      lazygit.enable = true;
-      mpv.enable = true;
-      rofi.enable = true;
-      yazi.enable = true;
-      zathura.enable = true;
-    };
+    targets = lib.mkMerge [
+      {
+        bat.enable = true;
+        btop.enable = true;
+        dunst.enable = true;
+        hyprland.enable = true;
+        hyprlock.enable = true;
+        kitty.enable = true;
+        lazygit.enable = true;
+        rofi.enable = true;
+        yazi.enable = true;
+      }
+      
+      (lib.optionalAttrs (hostName == "mihari") {
+        mpv.enable = true;
+        zathura.enable = true;
+      })
+    ];
 
     image = ../../assets/hyprland_wallpaper_1.png;
 

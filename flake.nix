@@ -54,7 +54,7 @@
       system = "x86_64-linux";
       modules = [
         ./system/mahiro/configuration.nix
-        ./var/environment-nvidia.nix
+        ./var/environment.nix
         ./var/shell.nix
 
         home-manager.nixosModules.home-manager

@@ -14,8 +14,13 @@ in
     enable = true;
 
     settings = {
-      preload = [ "${wallpaper_host}" ];
-      wallpaper = [ ",${wallpaper_host}" ];
+      wallpaper = [
+        {
+          monitor = "";
+          path = "${wallpaper_host}";
+          fit_mode = "cover";
+        }
+      ];
     };
   };
 }
