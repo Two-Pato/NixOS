@@ -9,14 +9,33 @@
       };
     };
 
+    NSGlobalDomain = {
+      "com.apple.swipescrolldirection" = false;
+    };
+
+    trackpad = {
+      Clicking = true;
+      TrackpadCornerSecondaryClick = 2;
+    };
+
     dock = {
       autohide = false;
       show-recents = false;
+
+      wvous-bl-corner = 2;
+      wvous-br-corner = 4;
     };
 
-    #finder = {
-    #  AppleShowAllExtensions = true;
-    #  FXPreferredViewStyle = "Nlsv";
-    #};
+    WindowManager = {
+      StandardHideWidgets = true;
+    };
+
+    finder = {
+      AppleShowAllExtensions = true;
+      FXPreferredViewStyle = "Nlsv";
+      NewWindowTarget = "Home";
+      ShowPathbar = true;
+      _FXSortFoldersFirst = true;
+    };
   };
 }

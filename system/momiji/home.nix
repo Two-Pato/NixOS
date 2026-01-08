@@ -13,7 +13,6 @@
     ../../modules/core/television.nix
 
     # MacOS
-    #../../modules/macos/ghostty.nix
     ../../modules/macos/zsh.nix
   ];
 

@@ -207,6 +207,7 @@ in
       windowrule = [
         # General
         "suppress_event maximize, match:class .*"
+        "no_focus on, match:class ^$, match:title ^$, match:float true, match:fullscreen false, match:pin false, match:xwayland true"
 
         # Clipse
         "float on, match:class clipse"
