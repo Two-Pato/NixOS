@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  color = import ../../var/color.nix;
+in
 {
   programs.zathura = {
     enable = true;
@@ -13,6 +16,9 @@
 
     options = {
       font = "JetBrainsMono Nerd Font 14";
+      default-bg = lib.mkForce "rgba(${color.base00-rgba})";
+
+      statusbar-basename = true;
     };
   };
 }

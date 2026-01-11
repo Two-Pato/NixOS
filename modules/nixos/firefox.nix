@@ -94,6 +94,10 @@
         "browser.translations.automaticallyPopup" = false;
         "browser.translations.enable" = false;
 
+        "browser.ml.enabled" = false;
+        "browser.ml.chat.enabled" = false;
+        "browser.ml.linkPreview.enabled" = false;
+
         "browser.uitour.enabled" = false;
 
         "browser.newtabpage.activity-stream.showSponsored" = false;
