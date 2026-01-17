@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hostName, ... }:
 
 with lib.hm.gvariant;
 
@@ -48,6 +48,7 @@ with lib.hm.gvariant;
     file:///home/laurent/Downloads Downloads
     file:///home/laurent/Pictures Pictures
     file:///home/laurent/Videos Videos
-    file:///mnt/media Media
+    ${lib.strings.optionalString (hostName == "mihari") "file:///mnt/media Media"}
+    ${lib.strings.optionalString (hostName == "mahiro") "file:///mnt/videogames Games"}
   '';
 }
