@@ -21,9 +21,9 @@
 
   services.resolved = {
     enable = true;
-    extraConfig = ''
-      DNSStubListener=no
-    '';
+    settings.Resolve = {
+      DNSStubListener = false;
+    };
   };
 
   networking.hostName = "asahi";
