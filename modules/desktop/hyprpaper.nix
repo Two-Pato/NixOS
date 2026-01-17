@@ -14,6 +14,7 @@ in
     enable = true;
 
     settings = {
+      splash = false;
       wallpaper = [
         {
           monitor = "";

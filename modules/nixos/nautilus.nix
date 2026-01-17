@@ -47,6 +47,7 @@ with lib.hm.gvariant;
     file:///home/laurent/Documents Documents
     file:///home/laurent/Downloads Downloads
     file:///home/laurent/Pictures Pictures
+    file:///home/laurent/Videos Videos
     file:///mnt/media Media
   '';
 }

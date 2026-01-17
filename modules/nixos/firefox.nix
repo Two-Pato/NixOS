@@ -44,12 +44,12 @@
           url = "https://www.reddit.com/";
         }
         {
-          name = "Heise";
-          url = "https://www.heise.de/";
+          name = "Jellyfin";
+          url = "https://jellyfin.nexuinque.de/";
         }
         {
-          name = "Zeit";
-          url = "https://www.zeit.de/";
+          name = "The Movie Database";
+          url = "https://www.themoviedb.org/";
         }
         {
           name = "Stirling PDF";
