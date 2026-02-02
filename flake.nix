@@ -28,7 +28,6 @@
   outputs = { self, nixpkgs, nix-darwin, home-manager, stylix, nvf, ... }: {
     # NixOS
     nixosConfigurations.mihari = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       modules = [
         ./system/mihari/configuration.nix
         ./var/environment.nix
@@ -51,7 +50,6 @@
     };
 
     nixosConfigurations.mahiro = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       modules = [
         ./system/mahiro/configuration.nix
         ./var/environment.nix
@@ -75,7 +73,6 @@
 
     # MacOS
     darwinConfigurations.momiji = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
       modules = [
         ./system/momiji/configuration.nix
         ./var/shell.nix
@@ -92,7 +89,6 @@
 
     # Server
     nixosConfigurations.kaede = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       modules = [
         ./system/kaede/configuration.nix
         ./var/shell.nix
@@ -108,7 +104,6 @@
     };
 
     nixosConfigurations.asahi = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       modules = [
         ./system/asahi/configuration.nix
         ./var/shell.nix

@@ -13,9 +13,9 @@
   # Nix Settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.download-buffer-size = 500000000; # 500 MB
+  nix.optimise.automatic = true;
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
-  nix.optimise.automatic = true;
 
   # Users and Permissions
   users.users.laurent = {
