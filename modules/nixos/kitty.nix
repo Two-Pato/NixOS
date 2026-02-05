@@ -29,6 +29,7 @@ in
       hide_window_decorations = "yes";
 
       # Cursor Settings
+      cursor_shape = "block";
       cursor_blink_interval = "0.5";
       cursor_stop_blinking_after = "5";
 

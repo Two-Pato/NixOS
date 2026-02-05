@@ -56,6 +56,8 @@
     ncdu
     parsec-bin
     solaar
+    tinymist
+    typst
   ];
 
   # Home Version

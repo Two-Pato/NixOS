@@ -24,6 +24,8 @@
 
   home.packages = with pkgs; [
     ncdu
+    tinymist
+    typst
   ];
 
   # Home Version
