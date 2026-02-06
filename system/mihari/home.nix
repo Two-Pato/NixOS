@@ -58,6 +58,7 @@
     solaar
     tinymist
     typst
+    upscayl
   ];
 
   # Home Version
