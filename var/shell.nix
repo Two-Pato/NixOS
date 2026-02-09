@@ -40,6 +40,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    (import ./scripts/mkvconvert.nix { inherit pkgs; })
+    (import ./scripts/mkv-convert.nix { inherit pkgs; })
+    (import ./scripts/magick-cut.nix { inherit pkgs; })
+    (import ./scripts/magick-merge.nix { inherit pkgs; })
   ];
 }
