@@ -5,7 +5,6 @@ with lib.hm.gvariant;
 {
   home.packages = with pkgs; [
     nautilus
-    xdg-user-dirs
   ];
 
   dconf.settings = {
@@ -21,25 +20,6 @@ with lib.hm.gvariant;
       search-filter-time-type = "last_modified";
       show-image-thumbnails = "always";
       thumbnail-limit = 10;
-    };
-  };
-
-  xdg.userDirs = {
-    enable = true;
-
-    createDirectories = true;
-  };
-
-  xdg.mimeApps = {
-    enable = true;
-
-    defaultApplications = {
-      "text/plain" = [ "org.gnome.TextEditor.desktop" ];
-      "image/avif" = [ "org.gnome.gThumb.desktop" ];
-      "video/x-matroska" = [ "mpv.desktop" ];
-      "application/xml" = [ "org.gnome.TextEditor.desktop" ];
-      "application/zip" = [ "org.gnome.Nautilus.desktop" ];
-      "application/pdf" = [ "zathura.desktop" ];
     };
   };
 
