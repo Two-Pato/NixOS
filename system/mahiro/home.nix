@@ -34,6 +34,7 @@
     ../../modules/nixos/nautilus.nix
     ../../modules/nixos/neovim.nix
     ../../modules/nixos/texteditor.nix
+    ../../modules/nixos/xdg.nix
     ../../modules/nixos/yazi.nix
   ];
 
