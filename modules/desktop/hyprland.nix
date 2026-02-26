@@ -238,6 +238,9 @@ in
         "float on, match:class tv"
         "center on, match:class tv"
         "size monitor_w*0.75 monitor_h*0.75, match:class tv"
+
+        # Upscayl
+        "tile on, match:class Upscayl"
       ];
 
       # Miscellaneous

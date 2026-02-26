@@ -39,7 +39,7 @@ in
       # Modules
       "custom/appmenu" = {
         tooltip = false;
-        format = "󱄅 Apps";
+        format = "󱄅";
         on-click = "sleep 0.2; uwsm app -- rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\"";
       };
 
@@ -110,7 +110,7 @@ in
 
       "custom/hypridle" = {
         tooltip = false;
-        format = " Log Out";
+        format = "  ";
         return-type = "json";
         escape = true;
         exec-on-event = true;
@@ -119,7 +119,7 @@ in
 
       "custom/exit" = {
         tooltip = false;
-        format = " Laurent";
+        format = " ";
         on-click = "uwsm app -- wlogout";
       };
     }];
@@ -132,17 +132,17 @@ in
       }
 
       #waybar {
-          background: transparent;
-          border-bottom: 0px solid #${color.base07-hex};
+          background: rgba(255, 252, 249, 0.5);
+          border-radius: 15px 15px 15px 15px;
           transition-property: background-color;
           transition-duration: 0.5s;
       }
 
       #custom-appmenu {
-          margin: 5px 10px;
+          margin: 0px 0px 0px 0px;
           padding: 0px 15px;
-          border-radius: 15px;
-          font-size: 16px;
+          border-radius: 15px 0px 0px 15px;
+          font-size: 20px;
           font-weight: bolder;
           color: #${color.base00-hex};
           background-color: #${color.base07-hex};
@@ -154,9 +154,9 @@ in
       }
 
       #custom-tray {
-          margin: 5px 0px 5px 10px;
-          padding: 0px 0px 0px 15px;
-          border-radius: 15px 0px 0px 15px;
+          margin: 0px 0px 0px 0px;
+          padding: 0px 15px;
+          border-radius: 0px;
           font-size: 16px;
           font-weight: bold;
           color: #${color.base00-hex};
@@ -169,14 +169,14 @@ in
       }
 
       #taskbar {
-          margin: 5px 10px 5px 0px;
+          margin: 0px 10px 0px 0px;
           padding: 0px 10px;
-          border-radius: 0px 15px 15px 0px;
+          border-radius: 0px 0px 0px 0px;
           background: #${color.base07-hex};
       }
 
       #taskbar button {
-          margin: 5px;
+          margin: 10px 5px 10px 5px;
           border-radius: 15px;
           padding: 0px 5px;
       }
@@ -219,6 +219,11 @@ in
           color: #${color.base07-hex};
           background: #${color.base12-hex};
           transition: all 0.3s ease-in-out;
+      }
+
+      #workspaces button.empty {
+          color: #${color.base07-hex};
+          background: #${color.base05-hex};
       }
 
       #workspaces button.active,
@@ -288,10 +293,10 @@ in
       }
 
       #custom-hypridle {
-          margin: 5px 10px;
+          margin: 0px 0px 0px 10px;
           padding: 0px 15px;
-          border-radius: 15px;
-          font-size: 16px;
+          border-radius: 0px 0px 0px 0px;
+          font-size: 20px;
           font-weight: bolder;
           color: #${color.base00-hex};
           background-color: #${color.base07-hex};
@@ -303,10 +308,10 @@ in
       }
 
       #custom-exit {
-          margin: 5px 10px;
+          margin: 0px 0px 0px 0px;
           padding: 0px 15px;
-          border-radius: 15px;
-          font-size: 16px;
+          border-radius: 0px 15px 15px 0px;
+          font-size: 20px;
           font-weight: bolder;
           color: #${color.base00-hex};
           background-color: #${color.base07-hex};
