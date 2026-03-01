@@ -7,6 +7,7 @@
     config = {
       # General
       keep-open = true;
+      target-colorspace-hint = false;
       
       # Audio
       volume = 100;
