@@ -15,7 +15,7 @@
     ../../modules/server/caddy.nix
     ../../modules/server/jellyfin.nix
     ../../modules/server/kavita.nix
-    #../../modules/server/stirling-pdf.nix
+    ../../modules/server/stirling-pdf.nix
   ];
 
   # Nix Settings
