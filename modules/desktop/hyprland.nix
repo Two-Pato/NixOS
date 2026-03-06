@@ -142,8 +142,8 @@ in
         "$mainMod, Q, killactive"
         "$mainMod, F, fullscreen"
         "$mainMod, T, togglefloating"
-        "$mainMod, Y, togglesplit"
-        "$mainMod, X, swapsplit"
+        "$mainMod, Y, layoutmsg, togglesplit"
+        "$mainMod, X, layoutmsg, swapsplit"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
