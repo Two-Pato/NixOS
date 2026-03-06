@@ -19,7 +19,6 @@ in
 {
   wayland.windowManager.hyprland = lib.mkIf (workspace1_host != null || workspace2_host != null) {
     enable = true;
-    xwayland.enable = true;
     systemd.enable = false;
 
     package = null;
