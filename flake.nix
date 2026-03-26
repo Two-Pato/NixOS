@@ -40,7 +40,7 @@
           home-manager.backupFileExtension = "backup";
           home-manager.users.laurent = {
             imports = [
-              ./system/mihari/hosts.nix
+              ./hosts/mihari/home.nix
               stylix.homeModules.stylix
               nvf.homeManagerModules.default
             ];
@@ -62,7 +62,7 @@
           home-manager.backupFileExtension = "backup";
           home-manager.users.laurent = {
             imports = [
-              ./system/mahiro/home.nix
+              ./hosts/mahiro/home.nix
               stylix.homeModules.stylix
               nvf.homeManagerModules.default
             ];
