@@ -2,20 +2,20 @@
 
 {
   imports = [
-    # Core
-    ../../modules/core/bat.nix
-    ../../modules/core/eza.nix
-    ../../modules/core/fastfetch.nix
-    ../../modules/core/fd.nix
-    ../../modules/core/git.nix
-    ../../modules/core/ripgrep.nix
-    ../../modules/core/starship.nix
-    ../../modules/core/television.nix
+    # Cli
+    ../../modules/cli/bat.nix
+    ../../modules/cli/eza.nix
+    ../../modules/cli/fastfetch.nix
+    ../../modules/cli/fd.nix
+    ../../modules/cli/git.nix
+    ../../modules/cli/lazygit.nix
+    ../../modules/cli/ripgrep.nix
+    ../../modules/cli/starship.nix
+    ../../modules/cli/television.nix
 
     # NixOS
     ../../modules/nixos/bash.nix
     ../../modules/nixos/btop.nix
-    ../../modules/nixos/lazygit.nix
     ../../modules/nixos/yazi.nix
   ];
 

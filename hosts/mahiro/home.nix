@@ -2,15 +2,16 @@
 
 {
   imports = [
-    # Core
-    ../../modules/core/bat.nix
-    ../../modules/core/eza.nix
-    ../../modules/core/fastfetch.nix
-    ../../modules/core/fd.nix
-    ../../modules/core/git.nix
-    ../../modules/core/ripgrep.nix
-    ../../modules/core/starship.nix
-    ../../modules/core/television.nix
+    # Cli
+    ../../modules/cli/bat.nix
+    ../../modules/cli/eza.nix
+    ../../modules/cli/fastfetch.nix
+    ../../modules/cli/fd.nix
+    ../../modules/cli/git.nix
+    ../../modules/cli/lazygit.nix
+    ../../modules/cli/ripgrep.nix
+    ../../modules/cli/starship.nix
+    ../../modules/cli/television.nix
 
     # Desktop
     ../../modules/desktop/clipse.nix
@@ -23,6 +24,7 @@
     ../../modules/desktop/stylix.nix
     ../../modules/desktop/waybar.nix
     ../../modules/desktop/wlogout.nix
+    ../../modules/desktop/xdg.nix
 
     # NixOS
     ../../modules/nixos/bash.nix
@@ -30,18 +32,10 @@
     ../../modules/nixos/firefox.nix
     ../../modules/nixos/gthumb.nix
     ../../modules/nixos/kitty.nix
-    ../../modules/nixos/lazygit.nix
     ../../modules/nixos/nautilus.nix
     ../../modules/nixos/neovim.nix
     ../../modules/nixos/texteditor.nix
-    ../../modules/nixos/xdg.nix
     ../../modules/nixos/yazi.nix
-
-    # Extra
-    ../../modules/nixos-extra/mpv.nix
-    ../../modules/nixos-extra/vscode.nix
-    ../../modules/nixos-extra/yt-dlp.nix
-    ../../modules/nixos-extra/zathura.nix
   ];
 
   home.username = "laurent";
@@ -51,15 +45,9 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    handbrake
-    imagemagick
-    mkvtoolnix
+    discord
     ncdu
-    parsec-bin
     solaar
-    tinymist
-    typst
-    upscayl
   ];
 
   # Home Version

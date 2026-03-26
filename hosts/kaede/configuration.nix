@@ -6,10 +6,11 @@
     ./hardware-configuration.nix
     ./networking.nix
 
-    # Configuration
-    ../../configuration/filesystems.nix
-    ../../configuration/locale.nix
-    ../../configuration/user.nix
+    # Core
+    ../../settings/core/filesystems.nix
+    ../../settings/core/locale.nix
+    ../../settings/core/nix.nix
+    ../../settings/core/user.nix
 
     # Server
     ../../modules/server/caddy.nix
@@ -17,13 +18,6 @@
     ../../modules/server/kavita.nix
     ../../modules/server/stirling-pdf.nix
   ];
-
-  # Nix Settings
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.download-buffer-size = 500000000; # 500 MB
-  nix.optimise.automatic = true;
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.hostPlatform = "x86_64-linux";
 
   # Bootloader
   boot.loader.grub.enable = true;
@@ -35,11 +29,11 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    cifs-utils
     curl
     wget
   ];
 
   # System Version
+  nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "25.05";
 }

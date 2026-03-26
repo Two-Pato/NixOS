@@ -16,4 +16,8 @@
       TimeoutStopSec = 10;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    polkit_gnome
+  ];
 }

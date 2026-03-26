@@ -29,7 +29,7 @@
     # NixOS
     nixosConfigurations.mihari = nixpkgs.lib.nixosSystem {
       modules = [
-        ./system/mihari/configuration.nix
+        ./hosts/mihari/configuration.nix
         ./var/environment.nix
         ./var/shell.nix
 
@@ -40,7 +40,7 @@
           home-manager.backupFileExtension = "backup";
           home-manager.users.laurent = {
             imports = [
-              ./system/mihari/home.nix
+              ./system/mihari/hosts.nix
               stylix.homeModules.stylix
               nvf.homeManagerModules.default
             ];
@@ -51,7 +51,7 @@
 
     nixosConfigurations.mahiro = nixpkgs.lib.nixosSystem {
       modules = [
-        ./system/mahiro/configuration.nix
+        ./hosts/mahiro/configuration.nix
         ./var/environment.nix
         ./var/shell.nix
 
@@ -74,7 +74,7 @@
     # MacOS
     darwinConfigurations.momiji = nix-darwin.lib.darwinSystem {
       modules = [
-        ./system/momiji/configuration.nix
+        ./hosts/momiji/configuration.nix
         ./var/shell.nix
 
         home-manager.darwinModules.home-manager
@@ -82,7 +82,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./system/momiji/home.nix;
+          home-manager.users.laurent = import ./hosts/momiji/home.nix;
         }
       ];
     };
@@ -90,7 +90,7 @@
     # Server
     nixosConfigurations.kaede = nixpkgs.lib.nixosSystem {
       modules = [
-        ./system/kaede/configuration.nix
+        ./hosts/kaede/configuration.nix
         ./var/shell.nix
 
         home-manager.nixosModules.home-manager
@@ -98,14 +98,14 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./system/kaede/home.nix;
+          home-manager.users.laurent = import ./hosts/kaede/home.nix;
         }
       ];
     };
 
     nixosConfigurations.asahi = nixpkgs.lib.nixosSystem {
       modules = [
-        ./system/asahi/configuration.nix
+        ./hosts/asahi/configuration.nix
         ./var/shell.nix
 
         home-manager.nixosModules.home-manager
@@ -113,7 +113,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.laurent = import ./system/asahi/home.nix;
+          home-manager.users.laurent = import ./hosts/asahi/home.nix;
         }
       ];
     };

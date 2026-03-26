@@ -6,16 +6,12 @@
     ./darwin.nix
     ./networking.nix
 
-    # Configuration
-    ../../configuration/fonts.nix
-  ];
+    # Core
+    ../../settings/core/nix.nix
 
-  # Nix Settings
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.download-buffer-size = 500000000; # 500 MB
-  nix.optimise.automatic = true;
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.hostPlatform = "aarch64-darwin";
+    # Desktop
+    ../../settings/desktop/fonts.nix
+  ];
 
   # Users and Permissions
   users.users.laurent = {
@@ -31,5 +27,6 @@
   ];
 
   # System Version
+  nixpkgs.hostPlatform = "aarch64-darwin";
   system.stateVersion = 6;
 }

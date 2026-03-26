@@ -1,10 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    xdg-user-dirs
-  ];
-
   xdg = {
     userDirs = {
       enable = true;
@@ -25,4 +21,8 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    xdg-user-dirs
+  ];
 }
