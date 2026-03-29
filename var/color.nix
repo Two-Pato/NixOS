@@ -23,7 +23,7 @@
   base15-hex = "95D7E7"; # Bright Cyan / Cornflower
   base16-hex = "B4D3EB"; # Bright Blue / Tropical Blue
   base17-hex = "DED2E7"; # Bright Magenta / Blue Chalk
-  
+
   base00-hexs = "4A4D57FF"; # Background / Tuna
   base01-hexs = "616472FF"; # Black / Comet
   base02-hexs = "787C8CFF"; # Bright Black / Storm Grey

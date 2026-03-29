@@ -10,6 +10,7 @@
     ../../settings/core/filesystems.nix
     ../../settings/core/locale.nix
     ../../settings/core/nix.nix
+    ../../settings/core/ssh.nix
     ../../settings/core/user.nix
 
     # Server
@@ -23,9 +24,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
-
-  # Services
-  services.openssh.enable = true;
 
   # Packages
   environment.systemPackages = with pkgs; [
