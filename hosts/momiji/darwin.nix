@@ -27,6 +27,7 @@
       show-recents = false;
       wvous-bl-corner = 2;
       wvous-br-corner = 4;
+      mru-spaces = false;
     };
 
     finder = {
