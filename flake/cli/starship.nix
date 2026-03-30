@@ -1,5 +1,5 @@
 { config, ... }: {
-  flake.homeModules.starship = { ... }: {
+  flake.homeModules.cli = { ... }: {
     programs.starship = {
       enable = true;
       enableBashIntegration = true;
@@ -7,22 +7,22 @@
 
       settings = {
         format = builtins.concatStringsSep "" [
-          "[](fg:#${config.colors.base08-hex})"
+          "[](fg:#${config.colors.base08-hex})"
           "$username"
-          "[](fg:#${config.colors.base08-hex} bg:#${config.colors.base09-hex})"
+          "[](fg:#${config.colors.base08-hex} bg:#${config.colors.base09-hex})"
           "$hostname"
-          "[](fg:#${config.colors.base09-hex} bg:#${config.colors.base0B-hex})"
+          "[](fg:#${config.colors.base09-hex} bg:#${config.colors.base0B-hex})"
           "$directory"
-          "[](fg:#${config.colors.base0B-hex} bg:#${config.colors.base0D-hex})"
+          "[](fg:#${config.colors.base0B-hex} bg:#${config.colors.base0D-hex})"
           "$git_branch$git_status"
-          "[ ](fg:#${config.colors.base0D-hex})"
+          "[ ](fg:#${config.colors.base0D-hex})"
           "$line_break$character"
         ];
 
         username = {
           disabled = false;
           show_always = true;
-          format = "[ $user  ]($style)";
+          format = "[ $user  ]($style)";
           style_user = "fg:#${config.colors.base06-hex} bg:#${config.colors.base08-hex}";
           style_root = "fg:#${config.colors.base06-hex} bg:#${config.colors.base08-hex}";
         };
@@ -45,7 +45,7 @@
 
         git_branch = {
           disabled = false;
-          symbol = "";
+          symbol = "";
           format = "[ $symbol $branch ]($style)";
           style = "fg:#${config.colors.base06-hex} bg:#${config.colors.base0D-hex}";
         };
@@ -56,11 +56,14 @@
           style = "fg:#${config.colors.base06-hex} bg:#${config.colors.base0D-hex}";
         };
 
-        line_break.disabled = false;
+        line_break = {
+          disabled = false;
+        };
+
         character = {
           disabled = false;
-          success_symbol = "[](bold fg:#${config.colors.base0B-hex})";
-          error_symbol = "[](bold fg:#${config.colors.base08-hex})";
+          success_symbol = "[](bold fg:#${config.colors.base0B-hex})";
+          error_symbol = "[](bold fg:#${config.colors.base08-hex})";
         };
       };
     };
