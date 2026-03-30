@@ -1,7 +1,6 @@
 {
   flake.nixosModules.mahiro = { config, pkgs, ... }: {
     imports = [
-      ../../../hosts/mahiro/hardware-configuration.nix
       ../../../hosts/mahiro/games.nix
       ../../../hosts/mahiro/networking.nix
     ];

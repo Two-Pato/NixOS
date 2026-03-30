@@ -4,6 +4,7 @@
       config.flake.darwinModules.momiji
       config.flake.darwinModules.desktop
       config.flake.darwinModules.core
+      config.flake.darwinModules.macos
       inputs.home-manager.darwinModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

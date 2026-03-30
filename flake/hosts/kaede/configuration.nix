@@ -1,7 +1,6 @@
 {
   flake.nixosModules.kaede = { config, pkgs, ... }: {
     imports = [
-      ../../../hosts/kaede/hardware-configuration.nix
       ../../../hosts/kaede/networking.nix
     ];
 

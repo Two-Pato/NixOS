@@ -1,7 +1,6 @@
 {
   flake.nixosModules.asahi = { config, pkgs, ... }: {
     imports = [
-      ../../../hosts/asahi/hardware-configuration.nix
       ../../../hosts/asahi/networking.nix
     ];
 

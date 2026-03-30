@@ -6,6 +6,7 @@
       config.flake.nixosModules.nvidia
       config.flake.nixosModules.core
       config.flake.nixosModules.nixos-base
+      config.flake.nixosModules.games
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

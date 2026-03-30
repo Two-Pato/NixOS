@@ -1,7 +1,6 @@
 {
   flake.darwinModules.momiji = { config, pkgs, ... }: {
     imports = [
-      ../../../hosts/momiji/darwin.nix
       ../../../hosts/momiji/networking.nix
     ];
 
