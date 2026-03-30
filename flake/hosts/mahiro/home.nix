@@ -1,10 +1,5 @@
 {
   flake.homeModules.mahiro = { config, lib, pkgs, ... }: {
-    imports = [
-      # Desktop
-      ../../../modules/desktop/hyprland.nix
-    ];
-
     home.username = "laurent";
     home.homeDirectory = "/home/laurent";
 
