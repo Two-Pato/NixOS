@@ -1,0 +1,44 @@
+{
+  flake.nixosModules.asahi = {
+    systemd.network.enable = true;
+
+    systemd.network.networks."10-wan" = {
+      matchConfig = {
+        Name = [ "en*" "eth*" ];
+      };
+
+      linkConfig = {
+        RequiredForOnline = "routable";
+      };
+
+      networkConfig = {
+        Address = [ "10.0.20.21/24" ];
+        Gateway = "10.0.20.1";
+        DNS = [ "10.0.20.1" ];
+      };
+    };
+
+    services.resolved = {
+      enable = true;
+      settings.Resolve = {
+        DNSStubListener = false;
+      };
+    };
+
+    networking.hostName = "asahi";
+    networking.useNetworkd = true;
+
+    networking.firewall = {
+      enable = true;
+
+      allowedTCPPorts = [
+        80
+        443
+      ];
+
+      allowedUDPPorts = [
+        53 # DNS server
+      ];
+    };
+  };
+}

@@ -1,9 +1,5 @@
 {
   flake.darwinModules.momiji = { config, pkgs, ... }: {
-    imports = [
-      ../../../hosts/momiji/networking.nix
-    ];
-
     users.users.laurent = {
       home = "/Users/laurent";
       shell = pkgs.zsh;

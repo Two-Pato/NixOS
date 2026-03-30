@@ -1,9 +1,5 @@
 {
   flake.nixosModules.asahi = { config, pkgs, ... }: {
-    imports = [
-      ../../../hosts/asahi/networking.nix
-    ];
-
     boot.loader.grub.enable = true;
     boot.loader.grub.device = "/dev/sda";
     boot.loader.grub.useOSProber = true;

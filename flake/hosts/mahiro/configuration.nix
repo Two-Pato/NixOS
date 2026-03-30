@@ -1,10 +1,5 @@
 {
   flake.nixosModules.mahiro = { config, pkgs, ... }: {
-    imports = [
-      ../../../hosts/mahiro/games.nix
-      ../../../hosts/mahiro/networking.nix
-    ];
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 

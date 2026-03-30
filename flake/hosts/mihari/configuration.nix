@@ -1,9 +1,5 @@
 {
   flake.nixosModules.mihari = { config, pkgs, ... }: {
-    imports = [
-      ../../../hosts/mihari/networking.nix
-    ];
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
