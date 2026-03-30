@@ -9,7 +9,11 @@
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.backupFileExtension = "backup";
-        home-manager.users.laurent = import config.flake.homeModules.asahi;
+        home-manager.users.laurent = {
+          imports = [
+            config.flake.homeModules.asahi
+          ];
+        };
       }
     ];
   };
