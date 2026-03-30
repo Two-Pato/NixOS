@@ -3,9 +3,6 @@
     imports = [
       ../../../hosts/asahi/hardware-configuration.nix
       ../../../hosts/asahi/networking.nix
-
-      # Server
-      ../../../modules/server/adguard.nix
     ];
 
     boot.loader.grub.enable = true;

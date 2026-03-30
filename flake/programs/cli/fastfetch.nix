@@ -2,26 +2,30 @@
   flake.homeModules.cli = {
     programs.fastfetch = {
       enable = true;
+
       settings = {
         logo = {
           type = "kitty";
-          source = "${../../assets/fastfetch_avatar.png}";
+          source = "${../../../assets/fastfetch_avatar.png}";
           height = 25;
         };
+
         display = {
           separator = "  ➜  ";
         };
+
         modules = [
           "break" "break" "break"
+
           # Operating System Section
           {
             type = "os";
             key = "OS   ";
-            keyColor = "38;2;240;141;169";
+            keyColor = "38;2;240;141;169"; # Red / Mauvelous
           }
           {
             type = "kernel";
-            key = " ├  ";
+            key = " ├  ";
             keyColor = "38;2;240;141;169";
           }
           {
@@ -31,15 +35,17 @@
           }
           {
             type = "shell";
-            key = " └  ";
+            key = " └  ";
             keyColor = "38;2;240;141;169";
           }
+
           "break"
+
           # Appearance Section
           {
             type = "wm";
             key = "WM   ";
-            keyColor = "38;2;107;199;222";
+            keyColor = "38;2;107;199;222"; # Cyan / Malibu
           }
           {
             type = "wmtheme";
@@ -53,31 +59,33 @@
           }
           {
             type = "cursor";
-            key = " ├  ";
+            key = " ├  ";
             keyColor = "38;2;107;199;222";
           }
           {
             type = "terminal";
-            key = " ├  ";
+            key = " ├  ";
             keyColor = "38;2;107;199;222";
           }
           {
             type = "terminalfont";
-            key = " └  ";
+            key = " └  ";
             keyColor = "38;2;107;199;222";
           }
+
           "break"
+
           # Hardware Information Section
           {
             type = "host";
             format = "{5} {1} Type {2}";
             key = "PC   ";
-            keyColor = "38;2;198;176;214";
+            keyColor = "38;2;198;176;214"; # Magenta / Moon Raker
           }
           {
             type = "cpu";
             format = "{1} ({3}) @ {7} GHz";
-            key = " ├  ";
+            key = " ├  ";
             keyColor = "38;2;198;176;214";
           }
           {
@@ -88,7 +96,7 @@
           }
           {
             type = "memory";
-            key = " ├  ";
+            key = " ├  ";
             keyColor = "38;2;198;176;214";
           }
           {
@@ -103,9 +111,10 @@
           }
           {
             type = "monitor";
-            key = " └  ";
+            key = " └  ";
             keyColor = "38;2;198;176;214";
           }
+
           "break" "break"
         ];
       };

@@ -3,6 +3,7 @@
     modules = [
       config.flake.nixosModules.kaede
       config.flake.nixosModules.core
+      config.flake.nixosModules.nixos-server-kaede
       ../../../var/shell.nix
       inputs.home-manager.nixosModules.home-manager
       {
