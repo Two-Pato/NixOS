@@ -3,7 +3,6 @@
     imports = [
       # Desktop
       ../../../modules/desktop/hyprland.nix
-      ../../../modules/desktop/hyprlock.nix
     ];
 
     home.username = "laurent";
