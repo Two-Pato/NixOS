@@ -4,7 +4,6 @@
       config.flake.nixosModules.asahi
       config.flake.nixosModules.core
       config.flake.nixosModules.nixos-server-asahi
-      config.flake.nixosModules.shell
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

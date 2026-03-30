@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.shell = { config, lib, pkgs, ... }: {
+  flake.nixosModules.core = { config, lib, pkgs, ... }: {
     environment.shellAliases = lib.mkMerge [
       {
         # System
@@ -42,5 +42,11 @@
       (import ../../../scripts/magick-cut.nix { inherit pkgs; })
       (import ../../../scripts/magick-merge.nix { inherit pkgs; })
     ];
+  };
+
+  flake.darwinModules.core = { config, lib, pkgs, ... }: {
+    environment.shellAliases = {
+      rebuild-momiji = "sudo darwin-rebuild switch --flake ./NixOS/.#momiji";
+    };
   };
 }
