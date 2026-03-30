@@ -5,7 +5,7 @@
       config.flake.nixosModules.desktop
       config.flake.nixosModules.nvidia
       config.flake.nixosModules.core
-      ../../../var/shell.nix
+      config.flake.nixosModules.shell
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

@@ -4,7 +4,7 @@
       config.flake.nixosModules.kaede
       config.flake.nixosModules.core
       config.flake.nixosModules.nixos-server-kaede
-      ../../../var/shell.nix
+      config.flake.nixosModules.shell
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

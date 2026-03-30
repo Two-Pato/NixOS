@@ -4,7 +4,7 @@
       config.flake.darwinModules.momiji
       config.flake.darwinModules.desktop
       config.flake.darwinModules.core
-      ../../../var/shell.nix
+      config.flake.nixosModules.shell
       inputs.home-manager.darwinModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
