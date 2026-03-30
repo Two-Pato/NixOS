@@ -14,6 +14,7 @@
         home-manager.users.laurent = {
           imports = [
             config.flake.homeModules.mihari
+            config.flake.homeModules.cli
             inputs.stylix.homeModules.stylix
             inputs.nvf.homeManagerModules.default
           ];

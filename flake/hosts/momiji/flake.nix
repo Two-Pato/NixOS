@@ -13,6 +13,7 @@
         home-manager.users.laurent = {
           imports = [
             config.flake.homeModules.momiji
+            config.flake.homeModules.cli
           ];
         };
       }

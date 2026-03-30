@@ -12,6 +12,7 @@
         home-manager.users.laurent = {
           imports = [
             config.flake.homeModules.kaede
+            config.flake.homeModules.cli
           ];
         };
       }

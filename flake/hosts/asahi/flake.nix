@@ -12,6 +12,7 @@
         home-manager.users.laurent = {
           imports = [
             config.flake.homeModules.asahi
+            config.flake.homeModules.cli
           ];
         };
       }
