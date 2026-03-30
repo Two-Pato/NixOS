@@ -1,5 +1,5 @@
 {
-  flake.darwinModules.momiji = {
+  flake.darwinModules.momiji-network = {
     networking.hostName = "momiji";
   };
 }

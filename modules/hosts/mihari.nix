@@ -1,18 +1,20 @@
 { inputs, config, ... }: {
   flake.nixosConfigurations.mihari = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      config.flake.nixosModules.mihari
-      config.flake.nixosModules.desktop
-      config.flake.nixosModules.core
-      config.flake.nixosModules.nixos-base
-      config.flake.nixosModules.boot-efi
-      config.flake.nixosModules.home-manager
+    modules = with config.flake.nixosModules; [
+      mihari
+      mihari-hardware
+      mihari-network
+      boot-efi
+      core
+      desktop
+      nixos-base
     ];
   };
 
   flake.nixosModules.mihari = { pkgs, ... }: {
     home-manager.users.laurent.imports = [
       config.flake.homeModules.mihari
+
       config.flake.homeModules.cli
       config.flake.homeModules.core
       config.flake.homeModules.nixos-core

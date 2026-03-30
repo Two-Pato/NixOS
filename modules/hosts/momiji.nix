@@ -1,11 +1,11 @@
 { inputs, config, ... }: {
   flake.darwinConfigurations.momiji = inputs.nix-darwin.lib.darwinSystem {
-    modules = [
-      config.flake.darwinModules.momiji
-      config.flake.darwinModules.desktop
-      config.flake.darwinModules.core
-      config.flake.darwinModules.macos
-      config.flake.darwinModules.home-manager
+    modules = with config.flake.darwinModules; [
+      momiji
+      momiji-network
+      desktop
+      core
+      macos
     ];
   };
 

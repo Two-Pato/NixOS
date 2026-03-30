@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.asahi = { config, lib, pkgs, modulesPath, ... }: {
+  flake.nixosModules.asahi-hardware = { config, lib, pkgs, modulesPath, ... }: {
     imports =
       [ (modulesPath + "/profiles/qemu-guest.nix")
       ];

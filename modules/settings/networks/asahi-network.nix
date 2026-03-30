@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.asahi = {
+  flake.nixosModules.asahi-network = {
     systemd.network.enable = true;
 
     systemd.network.networks."10-wan" = {

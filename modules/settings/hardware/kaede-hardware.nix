@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.kaede = { config, lib, pkgs, modulesPath, ... }: {
+  flake.nixosModules.kaede-hardware = { config, lib, pkgs, modulesPath, ... }: {
     imports =
       [ (modulesPath + "/profiles/qemu-guest.nix")
       ];

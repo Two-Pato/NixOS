@@ -1,11 +1,12 @@
 { inputs, config, ... }: {
   flake.nixosConfigurations.asahi = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      config.flake.nixosModules.asahi
-      config.flake.nixosModules.core
-      config.flake.nixosModules.boot-grub
-      config.flake.nixosModules.nixos-server-asahi
-      config.flake.nixosModules.home-manager
+    modules = with config.flake.nixosModules; [
+      asahi
+      asahi-hardware
+      asahi-network
+      boot-grub
+      core
+      nixos-server-asahi
     ];
   };
 

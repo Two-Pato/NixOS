@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.mihari = {
+  flake.nixosModules.mahiro-network = {
     systemd.network.enable = true;
 
     systemd.network.networks."10-wan" = {
@@ -12,13 +12,13 @@
       };
 
       networkConfig = {
-        Address = [ "10.0.10.11/24" ];
+        Address = [ "10.0.10.12/24" ];
         Gateway = "10.0.10.1";
         DNS = [ "10.0.10.1" ];
       };
     };
 
-    networking.hostName = "mihari";
+    networking.hostName = "mahiro";
     networking.useNetworkd = true;
     networking.firewall.enable = true;
   };

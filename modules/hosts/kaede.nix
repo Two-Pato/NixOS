@@ -1,11 +1,12 @@
 { inputs, config, ... }: {
   flake.nixosConfigurations.kaede = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      config.flake.nixosModules.kaede
-      config.flake.nixosModules.core
-      config.flake.nixosModules.boot-grub
-      config.flake.nixosModules.nixos-server-kaede
-      config.flake.nixosModules.home-manager
+    modules = with config.flake.nixosModules; [
+      kaede
+      kaede-hardware
+      kaede-network
+      boot-grub
+      core
+      nixos-server-kaede
     ];
   };
 

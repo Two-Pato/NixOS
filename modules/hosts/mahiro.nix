@@ -1,14 +1,15 @@
 { inputs, config, ... }: {
   flake.nixosConfigurations.mahiro = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      config.flake.nixosModules.mahiro
-      config.flake.nixosModules.desktop
-      config.flake.nixosModules.nvidia
-      config.flake.nixosModules.core
-      config.flake.nixosModules.nixos-base
-      config.flake.nixosModules.games
-      config.flake.nixosModules.boot-efi
-      config.flake.nixosModules.home-manager
+    modules = with config.flake.nixosModules; [
+      mahiro
+      mahiro-hardware
+      mahiro-network
+      boot-efi
+      core
+      desktop
+      nvidia
+      nixos-base
+      games
     ];
   };
 
