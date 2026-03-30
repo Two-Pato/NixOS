@@ -14,6 +14,7 @@
           imports = [
             config.flake.homeModules.momiji
             config.flake.homeModules.cli
+            config.flake.homeModules.macos-core
           ];
         };
       }

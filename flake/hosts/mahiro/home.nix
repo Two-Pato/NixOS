@@ -13,17 +13,6 @@
       ../../../modules/desktop/waybar.nix
       ../../../modules/desktop/wlogout.nix
       ../../../modules/desktop/xdg.nix
-
-      # NixOS
-      ../../../modules/nixos/bash.nix
-      ../../../modules/nixos/btop.nix
-      ../../../modules/nixos/firefox.nix
-      ../../../modules/nixos/gthumb.nix
-      ../../../modules/nixos/kitty.nix
-      ../../../modules/nixos/nautilus.nix
-      ../../../modules/nixos/neovim.nix
-      ../../../modules/nixos/texteditor.nix
-      ../../../modules/nixos/yazi.nix
     ];
 
     home.username = "laurent";

@@ -1,12 +1,5 @@
 {
   flake.homeModules.asahi = { config, lib, pkgs, ... }: {
-    imports = [
-      # NixOS
-      ../../../modules/nixos/bash.nix
-      ../../../modules/nixos/btop.nix
-      ../../../modules/nixos/yazi.nix
-    ];
-
     home.username = "laurent";
     home.homeDirectory = "/home/laurent";
 

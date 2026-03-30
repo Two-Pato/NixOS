@@ -1,10 +1,5 @@
 {
   flake.homeModules.momiji = { config, lib, pkgs, ... }: {
-    imports = [
-      # MacOS
-      ../../../modules/macos/zsh.nix
-    ];
-
     home.username = "laurent";
     home.homeDirectory = "/Users/laurent";
 

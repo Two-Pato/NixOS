@@ -16,6 +16,8 @@
           imports = [
             config.flake.homeModules.mahiro
             config.flake.homeModules.cli
+            config.flake.homeModules.nixos-core
+            config.flake.homeModules.nixos-base
             inputs.stylix.homeModules.stylix
             inputs.nvf.homeManagerModules.default
           ];

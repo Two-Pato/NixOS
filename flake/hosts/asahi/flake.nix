@@ -13,6 +13,7 @@
           imports = [
             config.flake.homeModules.asahi
             config.flake.homeModules.cli
+            config.flake.homeModules.nixos-core
           ];
         };
       }
