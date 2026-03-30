@@ -13,7 +13,7 @@
         home-manager.backupFileExtension = "backup";
         home-manager.users.laurent = {
           imports = [
-            ../../../hosts/mihari/home.nix
+            config.flake.homeModules.mihari
             inputs.stylix.homeModules.stylix
             inputs.nvf.homeManagerModules.default
           ];
