@@ -32,6 +32,7 @@
           "custom/exit"
         ];
 
+        # Modules
         "custom/appmenu" = {
           tooltip = false;
           format = "󱄅";
@@ -75,24 +76,24 @@
 
         network = {
           tooltip = false;
-          format-wifi = "  {essid}";
-          format-ethernet = " ";
-          format-linked = "  Linked (No IP)";
-          format-disconnected = "  Disconnected";
+          format-wifi = "  {essid}";
+          format-ethernet = " ";
+          format-linked = "  Linked (No IP)";
+          format-disconnected = "  Disconnected";
         };
 
         bluetooth = {
-          format-connected-battery = " {device_alias} {device_battery_percentage}%";
+          format-connected-battery = " {device_alias} {device_battery_percentage}%";
           on-click = "uwsm app -- blueman-manager";
         };
 
         pulseaudio = {
           tooltip = false;
           format = "<span>{icon}</span>  {volume}%";
-          format-muted = " muted";
+          format-muted = " muted";
           format-icons = {
-            headphone = "";
-            default = [ "" "" "󰕾" "" ];
+            headphone = "";
+            default = [ "" "" "󰕾" "" ];
           };
           scroll-step = 5;
           on-click = "uwsm app -- pwvucontrol";
@@ -105,7 +106,7 @@
 
         "custom/hypridle" = {
           tooltip = false;
-          format = "  ";
+          format = "  ";
           return-type = "json";
           escape = true;
           exec-on-event = true;
@@ -114,7 +115,7 @@
 
         "custom/exit" = {
           tooltip = false;
-          format = " ";
+          format = " ";
           on-click = "uwsm app -- wlogout";
         };
       }];

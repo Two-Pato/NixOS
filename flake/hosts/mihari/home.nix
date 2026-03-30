@@ -4,7 +4,6 @@
       # Desktop
       ../../../modules/desktop/hyprland.nix
       ../../../modules/desktop/hyprlock.nix
-      ../../../modules/desktop/hyprpaper.nix
     ];
 
     home.username = "laurent";
