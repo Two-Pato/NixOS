@@ -12,7 +12,7 @@
       ../../../settings/core/user.nix
 
       # Desktop
-      ../../../settings/desktop/audio.nix
+      config.flake.nixosModules.audio
       ../../../settings/desktop/bluetooth.nix
       ../../../settings/desktop/desktop-environment.nix
       ../../../settings/desktop/fonts.nix

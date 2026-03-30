@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, config, ... }: {
   flake.darwinConfigurations.momiji = inputs.nix-darwin.lib.darwinSystem {
     modules = [
       config.flake.darwinModules.momiji
