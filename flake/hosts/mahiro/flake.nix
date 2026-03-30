@@ -16,6 +16,7 @@
             config.flake.homeModules.cli
             config.flake.homeModules.nixos-core
             config.flake.homeModules.nixos-base
+            config.flake.homeModules.nixos-desktop
             inputs.stylix.homeModules.stylix
             inputs.nvf.homeManagerModules.default
           ];
