@@ -1,5 +1,5 @@
 {
-  flake.homeModules.nixos-core = {
+  flake.homeModules.bash = {
     programs.bash = {
       enable = true;
       historyControl = [

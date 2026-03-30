@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.desktop = {
+  flake.nixosModules.desktop-settings = {
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;

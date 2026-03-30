@@ -5,18 +5,17 @@
       kaede-hardware
       kaede-network
       boot-grub
-      core
+      core-settings
       nixos-server-kaede
     ];
   };
 
   flake.nixosModules.kaede = { pkgs, ... }: {
-    home-manager.users.laurent.imports = [
-      config.flake.homeModules.kaede
-      config.flake.homeModules.core
-      config.flake.homeModules.cli
-      config.flake.homeModules.nixos-core
-      config.flake.homeModules.home-manager
+    home-manager.users.laurent.imports = with config.flake.homeModules; [
+      kaede
+      core
+      cli
+      bash
     ];
 
     environment.systemPackages = with pkgs; [

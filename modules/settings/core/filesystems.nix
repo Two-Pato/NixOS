@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.core = { config, lib, pkgs, ... }:
+  flake.nixosModules.core-settings = { config, lib, pkgs, ... }:
   let
     cifsOptions = [
       "_netdev"

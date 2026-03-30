@@ -5,18 +5,17 @@
       asahi-hardware
       asahi-network
       boot-grub
-      core
+      core-settings
       nixos-server-asahi
     ];
   };
 
   flake.nixosModules.asahi = { pkgs, ... }: {
-    home-manager.users.laurent.imports = [
-      config.flake.homeModules.asahi
-      config.flake.homeModules.core
-      config.flake.homeModules.cli
-      config.flake.homeModules.nixos-core
-      config.flake.homeModules.home-manager
+    home-manager.users.laurent.imports = with config.flake.homeModules; [
+      asahi
+      core
+      cli
+      bash
     ];
 
     environment.systemPackages = with pkgs; [

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.desktop = { pkgs, ... }: {
+  flake.nixosModules.desktop-settings = { pkgs, ... }: {
     services.greetd = {
       enable = true;
       settings = {

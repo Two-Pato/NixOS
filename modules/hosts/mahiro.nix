@@ -5,8 +5,8 @@
       mahiro-hardware
       mahiro-network
       boot-efi
-      core
-      desktop
+      core-settings
+      desktop-settings
       nvidia
       nixos-base
       games
@@ -14,14 +14,13 @@
   };
 
   flake.nixosModules.mahiro = { pkgs, ... }: {
-    home-manager.users.laurent.imports = [
-      config.flake.homeModules.mahiro
-      config.flake.homeModules.cli
-      config.flake.homeModules.core
-      config.flake.homeModules.nixos-core
-      config.flake.homeModules.nixos-base
-      config.flake.homeModules.nixos-desktop
-      config.flake.homeModules.home-manager
+    home-manager.users.laurent.imports = with config.flake.homeModules; [
+      mahiro
+      core
+      cli
+      bash
+      nixos-base
+      nixos-desktop
       inputs.stylix.homeModules.stylix
       inputs.nvf.homeManagerModules.default
     ];

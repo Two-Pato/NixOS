@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.desktop = { config, lib, ... }: {
+  flake.nixosModules.desktop-settings = { config, lib, ... }: {
     environment.variables = lib.mkMerge [
       {
         XCURSOR_THEME = "Adwaita";

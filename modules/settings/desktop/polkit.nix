@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.desktop = { pkgs, ... }: {
+  flake.nixosModules.desktop-settings = { pkgs, ... }: {
     security.polkit.enable = true;
 
     systemd.user.services.polkit-gnome-authentication-agent-1 = {

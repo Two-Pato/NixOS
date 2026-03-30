@@ -1,5 +1,5 @@
 {
-  flake.homeModules.nixos-core = {
+  flake.homeModules.cli = {
     programs.yazi = {
       enable = true;
 

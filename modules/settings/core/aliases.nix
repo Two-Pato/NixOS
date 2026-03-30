@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.core = { config, lib, pkgs, ... }: {
+  flake.nixosModules.core-settings = { config, lib, pkgs, ... }: {
     environment.shellAliases = lib.mkMerge [
       {
         # System
@@ -44,7 +44,7 @@
     ];
   };
 
-  flake.darwinModules.core = { config, lib, pkgs, ... }: {
+  flake.darwinModules.core-settings = { config, lib, pkgs, ... }: {
     environment.shellAliases = {
       rebuild-momiji = "sudo darwin-rebuild switch --flake ./NixOS/.#momiji";
     };

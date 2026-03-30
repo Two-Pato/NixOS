@@ -1,5 +1,5 @@
 {
-  flake.homeModules.macos-core = {
+  flake.homeModules.zsh = {
     programs.zsh = {
       enable = true;
 

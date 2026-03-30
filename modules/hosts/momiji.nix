@@ -3,19 +3,18 @@
     modules = with config.flake.darwinModules; [
       momiji
       momiji-network
-      desktop
-      core
+      desktop-settings
+      core-settings
       macos
     ];
   };
 
   flake.darwinModules.momiji = { pkgs, ... }: {
-    home-manager.users.laurent.imports = [
-      config.flake.homeModules.momiji
-      config.flake.homeModules.core
-      config.flake.homeModules.cli
-      config.flake.homeModules.macos-core
-      config.flake.homeModules.home-manager
+    home-manager.users.laurent.imports = with config.flake.homeModules; [
+      momiji
+      core
+      cli
+      zsh
     ];
   };
 

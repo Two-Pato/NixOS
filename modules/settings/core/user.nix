@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.core = { pkgs, ... }: {
+  flake.nixosModules.core-settings = { pkgs, ... }: {
     users.users.laurent = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
@@ -9,7 +9,7 @@
     security.sudo.enable = true;
   };
 
-  flake.darwinModules.core = { pkgs, ... }: {
+  flake.darwinModules.core-settings = { pkgs, ... }: {
     users.users.laurent = {
       home = "/Users/laurent";
       shell = pkgs.zsh;

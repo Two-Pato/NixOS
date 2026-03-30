@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.nvidia = {
+  flake.nixosModules.desktop-nvidia = {
     hardware.graphics.enable = true;
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.nvidia = {

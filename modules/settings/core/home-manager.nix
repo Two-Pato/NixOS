@@ -1,12 +1,12 @@
 { inputs, ... }: {
-  flake.nixosModules.core = {
+  flake.nixosModules.core-settings = {
     imports = [ inputs.home-manager.nixosModules.home-manager ];
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
     home-manager.backupFileExtension = "backup";
   };
 
-  flake.darwinModules.core = {
+  flake.darwinModules.core-settings = {
     imports = [ inputs.home-manager.darwinModules.home-manager ];
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;

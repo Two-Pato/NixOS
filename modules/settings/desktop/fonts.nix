@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.desktop = { pkgs, ... }: {
+  flake.nixosModules.desktop-settings = { pkgs, ... }: {
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
@@ -8,7 +8,7 @@
     ];
   };
 
-  flake.darwinModules.desktop = { pkgs, ... }: {
+  flake.darwinModules.desktop-settings = { pkgs, ... }: {
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
