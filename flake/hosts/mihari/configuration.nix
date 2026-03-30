@@ -12,11 +12,7 @@
       ../../../settings/core/user.nix
 
       # Desktop
-      ../../../settings/desktop/bluetooth.nix
       ../../../settings/desktop/desktop-environment.nix
-      ../../../settings/desktop/fonts.nix
-      ../../../settings/desktop/login.nix
-      ../../../settings/desktop/polkit.nix
     ];
 
     boot.loader.systemd-boot.enable = true;
