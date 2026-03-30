@@ -1,9 +1,9 @@
-{ inputs, ... }: {
+{ inputs, config, ... }: {
   flake.nixosConfigurations.mihari = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      ../hosts/mihari/configuration.nix
-      ../var/environment.nix
-      ../var/shell.nix
+      config.flake.nixosModules.mihari
+      ../../var/environment.nix
+      ../../var/shell.nix
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -11,7 +11,7 @@
         home-manager.backupFileExtension = "backup";
         home-manager.users.laurent = {
           imports = [
-            ../hosts/mihari/home.nix
+            ../../hosts/mihari/home.nix
             inputs.stylix.homeModules.stylix
             inputs.nvf.homeManagerModules.default
           ];
