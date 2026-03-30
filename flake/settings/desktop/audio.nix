@@ -1,5 +1,5 @@
-{ ... }: {
-  flake.nixosModules.audio = { config, pkgs, ... }: {
+{
+  flake.nixosModules.desktop = { config, pkgs, ... }: {
     security.rtkit.enable = true;
 
     services.pipewire = {

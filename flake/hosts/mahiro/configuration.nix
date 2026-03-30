@@ -1,17 +1,18 @@
-{ ... }: {
+{
   flake.nixosModules.mahiro = { config, pkgs, ... }: {
     imports = [
       ../../../hosts/mahiro/hardware-configuration.nix
       ../../../hosts/mahiro/games.nix
       ../../../hosts/mahiro/networking.nix
+
       # Core
       ../../../settings/core/filesystems.nix
       ../../../settings/core/locale.nix
       ../../../settings/core/nix.nix
       ../../../settings/core/ssh.nix
       ../../../settings/core/user.nix
+
       # Desktop
-      config.flake.nixosModules.audio
       ../../../settings/desktop/bluetooth.nix
       ../../../settings/desktop/desktop-environment.nix
       ../../../settings/desktop/fonts.nix

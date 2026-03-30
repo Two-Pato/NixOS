@@ -2,6 +2,7 @@
   flake.nixosConfigurations.mahiro = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       config.flake.nixosModules.mahiro
+      config.flake.nixosModules.desktop
       ../../../var/environment.nix
       ../../../var/shell.nix
       inputs.home-manager.nixosModules.home-manager

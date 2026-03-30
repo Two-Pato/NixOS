@@ -1,4 +1,4 @@
-{ ... }: {
+{
   flake.nixosModules.mihari = { config, pkgs, ... }: {
     imports = [
       ../../../hosts/mihari/hardware-configuration.nix
@@ -12,7 +12,6 @@
       ../../../settings/core/user.nix
 
       # Desktop
-      config.flake.nixosModules.audio
       ../../../settings/desktop/bluetooth.nix
       ../../../settings/desktop/desktop-environment.nix
       ../../../settings/desktop/fonts.nix
