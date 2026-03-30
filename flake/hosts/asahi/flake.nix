@@ -2,6 +2,7 @@
   flake.nixosConfigurations.asahi = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       config.flake.nixosModules.asahi
+      config.flake.nixosModules.core
       ../../../var/shell.nix
       inputs.home-manager.nixosModules.home-manager
       {

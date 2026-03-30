@@ -2,6 +2,7 @@
   flake.nixosConfigurations.kaede = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       config.flake.nixosModules.kaede
+      config.flake.nixosModules.core
       ../../../var/shell.nix
       inputs.home-manager.nixosModules.home-manager
       {

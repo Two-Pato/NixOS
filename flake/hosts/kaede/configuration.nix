@@ -5,10 +5,6 @@
       ../../../hosts/kaede/networking.nix
       # Core
       ../../../settings/core/filesystems.nix
-      ../../../settings/core/locale.nix
-      ../../../settings/core/nix.nix
-      ../../../settings/core/ssh.nix
-      ../../../settings/core/user.nix
       # Server
       ../../../modules/server/caddy.nix
       ../../../modules/server/jellyfin.nix

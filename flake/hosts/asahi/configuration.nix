@@ -3,11 +3,7 @@
     imports = [
       ../../../hosts/asahi/hardware-configuration.nix
       ../../../hosts/asahi/networking.nix
-      # Core
-      ../../../settings/core/locale.nix
-      ../../../settings/core/nix.nix
-      ../../../settings/core/ssh.nix
-      ../../../settings/core/user.nix
+
       # Server
       ../../../modules/server/adguard.nix
     ];

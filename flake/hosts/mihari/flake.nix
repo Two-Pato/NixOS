@@ -3,6 +3,7 @@
     modules = [
       config.flake.nixosModules.mihari
       config.flake.nixosModules.desktop
+      config.flake.nixosModules.core
       ../../../var/environment.nix
       ../../../var/shell.nix
       inputs.home-manager.nixosModules.home-manager

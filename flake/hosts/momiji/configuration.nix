@@ -3,10 +3,6 @@
     imports = [
       ../../../hosts/momiji/darwin.nix
       ../../../hosts/momiji/networking.nix
-      # Core
-      ../../../settings/core/nix.nix
-      # Desktop
-      ../../../settings/desktop/fonts.nix
     ];
 
     users.users.laurent = {

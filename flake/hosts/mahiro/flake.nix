@@ -4,6 +4,7 @@
       config.flake.nixosModules.mahiro
       config.flake.nixosModules.desktop
       config.flake.nixosModules.nvidia
+      config.flake.nixosModules.core
       ../../../var/environment.nix
       ../../../var/shell.nix
       inputs.home-manager.nixosModules.home-manager
