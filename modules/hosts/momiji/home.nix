@@ -11,8 +11,5 @@
       tinymist
       typst
     ];
-
-    # Home Version
-    home.stateVersion = "25.05";
   };
 }

@@ -11,8 +11,5 @@
       ncdu
       solaar
     ];
-
-    # Home Version
-    home.stateVersion = "25.05";
   };
 }

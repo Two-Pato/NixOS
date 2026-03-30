@@ -5,6 +5,7 @@
       terminal = "kitty";
     };
 
+    services.gvfs.enable = true;
     services.gnome.sushi.enable = true;
   };
 

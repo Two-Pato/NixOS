@@ -13,6 +13,7 @@
         home-manager.users.laurent = {
           imports = [
             config.flake.homeModules.momiji
+            config.flake.homeModules.core
             config.flake.homeModules.cli
             config.flake.homeModules.macos-core
           ];

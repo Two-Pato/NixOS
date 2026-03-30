@@ -5,8 +5,5 @@
 
     # Packages
     programs.home-manager.enable = true;
-
-    # Home Version
-    home.stateVersion = "25.05";
   };
 }

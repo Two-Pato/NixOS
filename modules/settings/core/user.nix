@@ -9,7 +9,7 @@
     security.sudo.enable = true;
   };
 
-  flake.darwinModules.core = {
+  flake.darwinModules.core = { pkgs, ... }: {
     users.users.laurent = {
       home = "/Users/laurent";
       shell = pkgs.zsh;

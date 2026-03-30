@@ -5,6 +5,7 @@
       config.flake.nixosModules.desktop
       config.flake.nixosModules.core
       config.flake.nixosModules.nixos-base
+      config.flake.nixosModules.boot-efi
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -14,6 +15,7 @@
           imports = [
             config.flake.homeModules.mihari
             config.flake.homeModules.cli
+            config.flake.homeModules.core
             config.flake.homeModules.nixos-core
             config.flake.homeModules.nixos-base
             config.flake.homeModules.nixos-extra
