@@ -5,20 +5,21 @@
       config.flake.nixosModules.core
       config.flake.nixosModules.boot-grub
       config.flake.nixosModules.nixos-server-kaede
-      inputs.home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "backup";
-        home-manager.users.laurent = {
-          imports = [
-            config.flake.homeModules.kaede
-            config.flake.homeModules.core
-            config.flake.homeModules.cli
-            config.flake.homeModules.nixos-core
-          ];
-        };
-      }
+      config.flake.nixosModules.home-manager
+    ];
+  };
+
+  flake.nixosModules.kaede = { pkgs, ... }: {
+    home-manager.users.laurent.imports = [
+      config.flake.homeModules.kaede
+      config.flake.homeModules.core
+      config.flake.homeModules.cli
+      config.flake.homeModules.nixos-core
+    ];
+
+    environment.systemPackages = with pkgs; [
+      curl
+      wget
     ];
   };
 }
