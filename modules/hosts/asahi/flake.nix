@@ -15,6 +15,7 @@
       config.flake.homeModules.core
       config.flake.homeModules.cli
       config.flake.homeModules.nixos-core
+      config.flake.homeModules.home-manager
     ];
 
     environment.systemPackages = with pkgs; [

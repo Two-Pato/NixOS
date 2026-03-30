@@ -15,6 +15,15 @@
       config.flake.homeModules.core
       config.flake.homeModules.cli
       config.flake.homeModules.macos-core
+      config.flake.homeModules.home-manager
+    ];
+  };
+
+  flake.homeModules.momiji = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      ncdu
+      tinymist
+      typst
     ];
   };
 }

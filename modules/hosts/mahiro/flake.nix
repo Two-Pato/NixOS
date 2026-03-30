@@ -20,6 +20,7 @@
       config.flake.homeModules.nixos-core
       config.flake.homeModules.nixos-base
       config.flake.homeModules.nixos-desktop
+      config.flake.homeModules.home-manager
       inputs.stylix.homeModules.stylix
       inputs.nvf.homeManagerModules.default
     ];
@@ -30,6 +31,14 @@
       tray-tui
       usbutils
       wget
+    ];
+  };
+
+  flake.homeModules.mahiro = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      discord
+      ncdu
+      solaar
     ];
   };
 }

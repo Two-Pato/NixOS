@@ -19,6 +19,7 @@
       config.flake.homeModules.nixos-base
       config.flake.homeModules.nixos-extra
       config.flake.homeModules.nixos-desktop
+      config.flake.homeModules.home-manager
       inputs.stylix.homeModules.stylix
       inputs.nvf.homeManagerModules.default
     ];
@@ -29,6 +30,20 @@
       tray-tui
       usbutils
       wget
+    ];
+  };
+
+  flake.homeModules.mihari = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      handbrake
+      imagemagick
+      mkvtoolnix
+      ncdu
+      parsec-bin
+      solaar
+      tinymist
+      typst
+      upscayl
     ];
   };
 }
