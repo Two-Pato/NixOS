@@ -14,7 +14,7 @@
         home-manager.backupFileExtension = "backup";
         home-manager.users.laurent = {
           imports = [
-            ../../../hosts/mahiro/home.nix
+            config.flake.homeModules.mahiro
             inputs.stylix.homeModules.stylix
             inputs.nvf.homeManagerModules.default
           ];
