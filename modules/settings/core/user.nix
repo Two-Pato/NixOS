@@ -8,4 +8,13 @@
 
     security.sudo.enable = true;
   };
+
+  flake.darwinModules.core = {
+    users.users.laurent = {
+      home = "/Users/laurent";
+      shell = pkgs.zsh;
+    };
+
+    system.primaryUser = "laurent";
+  };
 }
