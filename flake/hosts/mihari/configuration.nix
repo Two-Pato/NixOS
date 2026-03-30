@@ -6,9 +6,6 @@
 
       # Core
       ../../../settings/core/filesystems.nix
-
-      # Desktop
-      ../../../settings/desktop/desktop-environment.nix
     ];
 
     boot.loader.systemd-boot.enable = true;

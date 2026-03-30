@@ -1,4 +1,13 @@
 {
+  flake.nixosModules.nixos-base = {
+    programs.nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "kitty";
+    };
+
+    services.gnome.sushi.enable = true;
+  };
+
   flake.homeModules.nixos-base = { lib, pkgs, osConfig, ... }: with lib.hm.gvariant; {
     dconf.settings = {
       "org/gnome/nautilus/icon-view" = {

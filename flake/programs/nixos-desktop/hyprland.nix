@@ -1,4 +1,12 @@
 {
+  flake.nixosModules.desktop = {
+    programs.hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      withUWSM = true;
+    };
+  };
+
   flake.homeModules.nixos-desktop = { lib, pkgs, osConfig, ... }:
   let
     workspace1 = {
