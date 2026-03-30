@@ -1,22 +1,22 @@
 { ... }: {
-  flake.nixosModules.mihari = { config, pkgs, ... }: {
+  flake.nixosModules.mahiro = { config, pkgs, ... }: {
     imports = [
-      ../../../hosts/mihari/hardware-configuration.nix
-      ../../../hosts/mihari/networking.nix
-
+      ../../../hosts/mahiro/hardware-configuration.nix
+      ../../../hosts/mahiro/games.nix
+      ../../../hosts/mahiro/networking.nix
       # Core
       ../../../settings/core/filesystems.nix
       ../../../settings/core/locale.nix
       ../../../settings/core/nix.nix
       ../../../settings/core/ssh.nix
       ../../../settings/core/user.nix
-
       # Desktop
       ../../../settings/desktop/audio.nix
       ../../../settings/desktop/bluetooth.nix
       ../../../settings/desktop/desktop-environment.nix
       ../../../settings/desktop/fonts.nix
       ../../../settings/desktop/login.nix
+      ../../../settings/desktop/nvidia.nix
       ../../../settings/desktop/polkit.nix
     ];
 
