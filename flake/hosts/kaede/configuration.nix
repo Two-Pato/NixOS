@@ -3,8 +3,6 @@
     imports = [
       ../../../hosts/kaede/hardware-configuration.nix
       ../../../hosts/kaede/networking.nix
-      # Core
-      ../../../settings/core/filesystems.nix
     ];
 
     boot.loader.grub.enable = true;

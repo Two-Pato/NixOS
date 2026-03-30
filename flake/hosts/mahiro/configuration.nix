@@ -4,9 +4,6 @@
       ../../../hosts/mahiro/hardware-configuration.nix
       ../../../hosts/mahiro/games.nix
       ../../../hosts/mahiro/networking.nix
-
-      # Core
-      ../../../settings/core/filesystems.nix
     ];
 
     boot.loader.systemd-boot.enable = true;

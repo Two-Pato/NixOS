@@ -1,11 +1,7 @@
 {
   flake.nixosModules.mihari = { config, pkgs, ... }: {
     imports = [
-      ../../../hosts/mihari/hardware-configuration.nix
       ../../../hosts/mihari/networking.nix
-
-      # Core
-      ../../../settings/core/filesystems.nix
     ];
 
     boot.loader.systemd-boot.enable = true;
