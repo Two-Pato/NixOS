@@ -12,8 +12,7 @@
 
   flake.nixosModules.asahi = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
-      asahi
-      core
+      core-settings
       cli
       bash
     ];

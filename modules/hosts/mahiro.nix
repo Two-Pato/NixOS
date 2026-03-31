@@ -7,7 +7,7 @@
       boot-efi
       core-settings
       desktop-settings
-      nvidia
+      desktop-nvidia
       nixos-base
       games
     ];
@@ -16,7 +16,7 @@
   flake.nixosModules.mahiro = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
       mahiro
-      core
+      core-settings
       cli
       bash
       nixos-base

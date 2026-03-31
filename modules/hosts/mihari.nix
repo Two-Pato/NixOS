@@ -14,7 +14,7 @@
   flake.nixosModules.mihari = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
       mihari
-      core
+      core-settings
       cli
       bash
       nixos-base

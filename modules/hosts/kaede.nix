@@ -12,8 +12,7 @@
 
   flake.nixosModules.kaede = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
-      kaede
-      core
+      core-settings
       cli
       bash
     ];

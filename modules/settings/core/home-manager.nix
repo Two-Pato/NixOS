@@ -13,7 +13,7 @@
     home-manager.backupFileExtension = "backup";
   };
 
-  flake.homeModules.core = { osConfig, ... }: {
+  flake.homeModules.core-settings = { osConfig, ... }: {
     programs.home-manager.enable = true;
 
     home.username = "laurent";

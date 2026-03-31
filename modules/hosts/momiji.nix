@@ -12,7 +12,7 @@
   flake.darwinModules.momiji = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
       momiji
-      core
+      core-settings
       cli
       zsh
     ];
