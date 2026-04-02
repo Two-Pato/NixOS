@@ -1,5 +1,5 @@
 { config, ... }: {
-  flake.homeModules.nixos-desktop = { ... }: {
+  flake.homeModules.nixos-desktop = {
     programs.waybar = {
       enable = true;
 

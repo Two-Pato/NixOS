@@ -13,6 +13,7 @@
         display-drun = "";
         drun-display-format = "{name}";
       };
+
       theme = {
         window = {
           transparency = "real";
@@ -25,6 +26,7 @@
           border-radius = 15;
           cursor = mkLiteral "default";
         };
+
         mainbox = {
           spacing = 0;
           background-color = mkLiteral "transparent";
@@ -34,6 +36,7 @@
           border-radius = 15;
           border-color = mkLiteral "#${config.colors.base08-hex}";
         };
+
         imagebox = {
           padding = 20;
           background-color = mkLiteral "transparent";
@@ -41,6 +44,7 @@
           orientation = "vertical";
           children = [ "inputbar" ];
         };
+        
         listbox = {
           spacing = 20;
           padding = 20;
@@ -48,21 +52,25 @@
           orientation = "vertical";
           children = [ "message" "listview" ];
         };
+
         inputbar = {
           spacing = 10;
           padding = 15;
           border-radius = 10;
           children = [ "textbox-prompt-colon" "entry" ];
         };
+
         textbox-prompt-colon = {
           expand = false;
           str = " ";
           font = "JetBrainsMono Nerd Font 12";
         };
+
         entry = {
           cursor = "text";
           placeholder = "Search...";
         };
+
         listview = {
           columns = 1;
           lines = 8;
@@ -76,19 +84,23 @@
           spacing = 10;
           background-color = mkLiteral "transparent";
         };
+
         element = {
           spacing = 15;
           padding = 8;
           border-radius = 10;
           background-color = mkLiteral "transparent";
         };
+
         element-icon = {
           size = 32;
         };
+
         element-text = {
           vertical-align = mkLiteral "0.5";
           horizontal-align = 0;
         };
+
         message = {
           padding = 10;
         };

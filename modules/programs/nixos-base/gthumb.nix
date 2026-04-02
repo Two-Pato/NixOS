@@ -3,6 +3,7 @@
     dconf.settings = {
       "org/gnome/gthumb/browser" = {
         statusbar-visible = false;
+        thumbnail-list-visible = true;
         sort-type = "file::name";
       };
 

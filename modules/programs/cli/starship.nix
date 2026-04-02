@@ -1,5 +1,5 @@
 { config, ... }: {
-  flake.homeModules.cli = { ... }: {
+  flake.homeModules.cli = {
     programs.starship = {
       enable = true;
       enableBashIntegration = true;

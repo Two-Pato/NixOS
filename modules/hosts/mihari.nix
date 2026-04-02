@@ -40,6 +40,7 @@
       mkvtoolnix
       ncdu
       parsec-bin
+      pinta
       solaar
       tinymist
       typst
