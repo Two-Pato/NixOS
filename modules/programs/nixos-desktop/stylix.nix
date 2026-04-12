@@ -9,6 +9,7 @@
           bat.enable = true;
           btop.enable = true;
           dunst.enable = true;
+          gnome-text-editor.enable = true;
           hyprland.enable = true;
           hyprlock.enable = true;
           kitty.enable = true;

@@ -9,6 +9,7 @@ pkgs.writeShellScriptBin "magick-fix" ''
   # Step 1: Crop bottom 30px from all images in folder 2
   echo "==> Processing images in $FOLDER2 ..."
   cd "$FOLDER2"
+  mkdir -p temp
 
   mapfile -t sources < <(find . -maxdepth 1 \( -iname "*.jpg" -o -iname "*.webp" -o -iname "*.avif" \) | sort)
 
@@ -17,24 +18,21 @@ pkgs.writeShellScriptBin "magick-fix" ''
     exit 1
   fi
 
-  tmpdir=$(mktemp -d)
   for src in "''${sources[@]}"; do
     src="''${src#./}"
     echo "  Cropping: $src"
-    ${pkgs.imagemagick}/bin/magick "$src" -gravity South -crop x30+0+0 +repage "$tmpdir/''${src%.*}_cropped.png"
+    ${pkgs.imagemagick}/bin/magick "$src" -gravity South -crop x30+0+0 +repage "temp/''${src%.*}_cropped.png"
   done
 
   # Step 2: Rename cropped PNGs to 001.png, 002.png, ...
   echo "==> Renaming cropped PNGs ..."
 
-  mapfile -t cropped < <(find "$tmpdir" -maxdepth 1 -iname "*_cropped.png" | sort)
+  mapfile -t cropped < <(find temp -maxdepth 1 -iname "*_cropped.png" | sort)
 
   counter=1
-  renamed=()
   for f in "''${cropped[@]}"; do
     newname=$(printf "%03d.png" "$counter")
-    mv "$f" "$tmpdir/$newname"
-    renamed+=("$tmpdir/$newname")
+    mv "$f" "temp/$newname"
     echo "  $f  ->  $newname"
     (( counter++ ))
   done
@@ -42,8 +40,9 @@ pkgs.writeShellScriptBin "magick-fix" ''
   # Step 3: Copy renamed PNGs to folder 1
   cd - > /dev/null
   echo "==> Copying PNGs to $FOLDER1 ..."
-  cp "''${renamed[@]}" "$FOLDER1/"
-  rm -rf "$tmpdir"
+  mkdir -p "$FOLDER1/temp"
+  cp "$FOLDER2"/temp/*.png "$FOLDER1/temp/"
+  rm -rf "$FOLDER2/temp"
 
   # Step 4: Merge JPGs with matching PNGs in folder 1
   echo "==> Merging in $FOLDER1 ..."
@@ -52,14 +51,15 @@ pkgs.writeShellScriptBin "magick-fix" ''
 
   for f in *.jpg; do
     base="''${f%.jpg}"
-    if [ -f "$base.png" ]; then
-      echo "  Merging: $f + $base.png -> merged/$base.png"
-      ${pkgs.imagemagick}/bin/magick "$f" "$base.png" -gravity south -compose over -composite "merged/$base.png"
+    if [ -f "temp/$base.png" ]; then
+      echo "  Merging: $f + temp/$base.png -> merged/$base.png"
+      ${pkgs.imagemagick}/bin/magick "$f" "temp/$base.png" -gravity south -compose over -composite "merged/$base.png"
     else
       echo "  Skipping $base.png (not found)"
     fi
   done
 
+  rm -rf temp
   echo ""
   echo "Done! Merged files are in $FOLDER1/merged/"
 ''

@@ -41,6 +41,7 @@
       (import ../../../scripts/mkv-convert.nix { inherit pkgs; })
       (import ../../../scripts/magick-cut.nix { inherit pkgs; })
       (import ../../../scripts/magick-merge.nix { inherit pkgs; })
+      (import ../../../scripts/magick-fix.nix { inherit pkgs; })
     ];
   };
 
