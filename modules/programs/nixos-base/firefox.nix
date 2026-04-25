@@ -1,7 +1,9 @@
 {
-  flake.homeModules.nixos-base = { lib, osConfig, ... }: {
+  flake.homeModules.nixos-base = { config, lib, osConfig, ... }: {
     programs.firefox = {
       enable = true;
+
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
 
       profiles.default = {
         id = 0;

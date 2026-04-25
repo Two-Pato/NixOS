@@ -31,10 +31,6 @@
       (lib.mkIf (config.networking.hostName == "asahi") {
         rebuild-asahi = "sudo nixos-rebuild switch --flake /etc/nixos/.#asahi";
       })
-
-      (lib.mkIf (config.networking.hostName == "momiji") {
-        rebuild-momiji = "sudo darwin-rebuild switch --flake ./NixOS/.#momiji";
-      })
     ];
 
     environment.systemPackages = with pkgs; [
@@ -48,6 +44,7 @@
   flake.darwinModules.core-settings = { config, lib, pkgs, ... }: {
     environment.shellAliases = {
       rebuild-momiji = "sudo darwin-rebuild switch --flake ./NixOS/.#momiji";
+      garbage = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
     };
   };
 }
