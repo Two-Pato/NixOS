@@ -1,5 +1,7 @@
 {
   flake.nixosModules.core-settings = {
-    services.openssh.enable = true;
+    services.openssh = {
+      enable = true;
+    };
   };
 }

@@ -2,6 +2,7 @@
   flake.homeModules.nixos-extra = { config, ... }: {
     programs.yt-dlp = {
       enable = true;
+
       settings = {
         paths = "${config.home.homeDirectory}/Downloads";
         merge-output-format = "mkv";

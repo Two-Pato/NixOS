@@ -4,8 +4,10 @@
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
+
       colors = "always";
       icons = "always";
+
       extraOptions = [
         "--oneline"
         "--level=1"

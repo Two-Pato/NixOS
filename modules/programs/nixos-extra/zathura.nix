@@ -14,7 +14,13 @@
         font = "JetBrainsMono Nerd Font 14";
         default-bg = lib.mkForce "rgba(${config.colors.base00-rgba})";
         statusbar-basename = true;
+        selection-clipboard = "clipboard";
       };
+
+      extraConfig = ''
+        map <Right> navigate next
+        map <Left> navigate previous
+      '';
     };
   };
 }

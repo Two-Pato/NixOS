@@ -6,6 +6,7 @@
   in {
     programs.rofi = {
       enable = true;
+
       extraConfig = {
         modi = "drun";
         font = "JetBrains Mono Nerd Font 12";

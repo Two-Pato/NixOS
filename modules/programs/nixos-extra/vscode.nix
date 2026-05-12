@@ -1,5 +1,7 @@
 {
   flake.homeModules.nixos-extra = {
-    programs.vscode.enable = true;
+    programs.vscode = {
+      enable = true;
+    };
   };
 }
