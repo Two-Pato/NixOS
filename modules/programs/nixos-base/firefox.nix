@@ -14,7 +14,7 @@
         bookmarks.settings = [
           { name = "Google"; url = "https://www.google.com/"; }
           { name = "YouTube"; url = "https://www.youtube.com/"; }
-          { name = "ChatGPT"; url = "https://chatgpt.com/"; }
+          { name = "Claude"; url = "https://claude.ai/"; }
           { name = "GitHub"; url = "https://github.com/"; }
           { name = "Convert Case"; url = "https://convertcase.net/"; }
           { name = "Kavita"; url = "https://kavita.nexuinque.de/home/"; }
@@ -143,11 +143,15 @@
               installation_mode = "force_installed";
             };
             "{f558e0b7-ded4-4803-a06f-3dcc5a8cc37e}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/file/4522550/easy_speed_dial/latest.xpi";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/easy-speed-dial/latest.xpi";
               installation_mode = "force_installed";
             };
           }
           (lib.optionalAttrs (osConfig.networking.hostName == "mihari") {
+            "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
+              installation_mode = "force_installed";
+            };
             "jid1-xUfzOsOFlzSOXg@jetpack" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/reddit-enhancement-suite/latest.xpi";
               installation_mode = "force_installed";

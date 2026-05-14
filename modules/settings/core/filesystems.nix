@@ -15,6 +15,10 @@
       "gid=100"
     ];
   in {
+    systemd.tmpfiles.rules = [
+      "d /home/laurent/.cache 0755 laurent users - -"
+    ];
+
     fileSystems = lib.mkMerge [
       {
         "/home/laurent/.cache/thumbnails" = {
