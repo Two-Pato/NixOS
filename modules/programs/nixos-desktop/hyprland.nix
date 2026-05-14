@@ -233,6 +233,9 @@
           "size monitor_w*0.25 monitor_h*0.25, match:title Picture-in-Picture"
           "move monitor_w*0.75-25 monitor_h*0.75-25, match:title Picture-in-Picture"
 
+          # Steam
+          "workspace 1, match:class steam"
+
           # Sushi
           "float on, match:class org.gnome.NautilusPreviewer"
           "center on, match:class org.gnome.NautilusPreviewer"
