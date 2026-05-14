@@ -1,18 +1,11 @@
 {
   flake.nixosModules.games = { pkgs, ... }: {
-    programs.steam.enable = true;
-
-    #Fix for bottles delete if not needed anymore
-    nixpkgs.overlays = [
-      (_: prev: {
-        openldap = prev.openldap.overrideAttrs {
-          doCheck = !prev.stdenv.hostPlatform.isi686;
-        };
-      })
-    ];
+    programs.steam = {
+      enable = true;
+    };
 
     environment.systemPackages = with pkgs; [
-      (bottles.override { removeWarningPopup = true; })
+      faugus-launcher
 
       (retroarch.withCores (cores: with cores; [
         snes9x  # Nintendo SNES

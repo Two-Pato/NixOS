@@ -15,7 +15,7 @@
     };
     workspace2 = {
       mihari = "[ workspace 2 silent ] uwsm app -- nautilus";
-      mahiro = "[ workspace 2 silent ] uwsm app -- bottles";
+      mahiro = "[ workspace 2 silent ] uwsm app -- faugus-launcher";
     };
 
     hostName = osConfig.networking.hostName;
