@@ -2,6 +2,7 @@
   flake.nixosModules.nixos-base = {
     programs.nautilus-open-any-terminal = {
       enable = true;
+
       terminal = "kitty";
     };
 
@@ -18,6 +19,8 @@
 
       "org/gnome/nautilus/preferences" = {
         default-folder-viewer = "icon-view";
+        default-sort-order = "name";
+        default-sort-in-reverse-order = false;
         executable-text-activation = "ask";
         migrated-gtk-settings = true;
         search-filter-time-type = "last_modified";

@@ -2,64 +2,52 @@
 
 pkgs.writeShellScriptBin "magick-fix" ''
   set -euo pipefail
+  shopt -s nullglob nocaseglob
 
   FOLDER1="1"
   FOLDER2="2"
+  EXTS=(jpg jpeg png webp avif tiff tif bmp gif)
+  MAGICK="${pkgs.imagemagick}/bin/magick"
 
-  # Step 1: Crop bottom 30px from all images in folder 2
-  echo "==> Processing images in $FOLDER2 ..."
-  cd "$FOLDER2"
-  mkdir -p temp
+  # Crop bottom 30px from each image in FOLDER2, save as numbered PNGs
+  echo "==> Cropping $FOLDER2 ..."
+  mkdir -p "$FOLDER2/temp"
 
-  mapfile -t sources < <(find . -maxdepth 1 \( -iname "*.jpg" -o -iname "*.webp" -o -iname "*.avif" \) | sort)
+  srcs=()
+  for ext in "''${EXTS[@]}"; do srcs+=("$FOLDER2"/*."$ext"); done
+  [[ ''${#srcs[@]} -eq 0 ]] && { echo "No images in $FOLDER2."; exit 1; }
 
-  if [ ''${#sources[@]} -eq 0 ]; then
-    echo "No .jpg/.webp/.avif files found in $FOLDER2. Exiting."
-    exit 1
-  fi
-
-  for src in "''${sources[@]}"; do
-    src="''${src#./}"
-    echo "  Cropping: $src"
-    ${pkgs.imagemagick}/bin/magick "$src" -gravity South -crop x30+0+0 +repage "temp/''${src%.*}_cropped.png"
+  i=1
+  for src in "''${srcs[@]}"; do
+    out=$(printf '%s/temp/%03d.png' "$FOLDER2" $i)
+    echo "  $src -> $out"
+    "$MAGICK" "$src" -gravity South -crop x30+0+0 +repage "$out"
+    (( i++ ))
   done
 
-  # Step 2: Rename cropped PNGs to 001.png, 002.png, ...
-  echo "==> Renaming cropped PNGs ..."
+  # Merge each FOLDER1 image with its numbered overlay
+  echo "==> Merging into $FOLDER1/merged ..."
+  mkdir -p "$FOLDER1/merged"
 
-  mapfile -t cropped < <(find temp -maxdepth 1 -iname "*_cropped.png" | sort)
+  bases=()
+  for ext in "''${EXTS[@]}"; do bases+=("$FOLDER1"/*."$ext"); done
+  [[ ''${#bases[@]} -eq 0 ]] && { echo "No images in $FOLDER1."; exit 1; }
 
-  counter=1
-  for f in "''${cropped[@]}"; do
-    newname=$(printf "%03d.png" "$counter")
-    mv "$f" "temp/$newname"
-    echo "  $f  ->  $newname"
-    (( counter++ ))
-  done
-
-  # Step 3: Copy renamed PNGs to folder 1
-  cd - > /dev/null
-  echo "==> Copying PNGs to $FOLDER1 ..."
-  mkdir -p "$FOLDER1/temp"
-  cp "$FOLDER2"/temp/*.png "$FOLDER1/temp/"
-  rm -rf "$FOLDER2/temp"
-
-  # Step 4: Merge JPGs with matching PNGs in folder 1
-  echo "==> Merging in $FOLDER1 ..."
-  cd "$FOLDER1"
-  mkdir -p merged
-
-  for f in *.jpg; do
-    base="''${f%.jpg}"
-    if [ -f "temp/$base.png" ]; then
-      echo "  Merging: $f + temp/$base.png -> merged/$base.png"
-      ${pkgs.imagemagick}/bin/magick "$f" "temp/$base.png" -gravity south -compose over -composite "merged/$base.png"
+  i=1
+  for base in "''${bases[@]}"; do
+    stem=$(basename "''${base%.*}")
+    overlay=$(printf '%s/temp/%03d.png' "$FOLDER2" $i)
+    out="$FOLDER1/merged/$stem.png"
+    if [[ -f "$overlay" ]]; then
+      echo "  $base + $overlay -> $out"
+      "$MAGICK" "$base" "$overlay" -gravity South -compose Over -composite "$out"
     else
-      echo "  Skipping $base.png (not found)"
+      echo "  $base -> $out (no overlay)"
+      "$MAGICK" "$base" "$out"
     fi
+    (( i++ ))
   done
 
-  rm -rf temp
-  echo ""
+  rm -rf "$FOLDER2/temp"
   echo "Done! Merged files are in $FOLDER1/merged/"
 ''

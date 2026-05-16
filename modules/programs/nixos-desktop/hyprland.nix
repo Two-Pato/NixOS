@@ -30,6 +30,8 @@
       package = null;
       portalPackage = null;
 
+      configType = "hyprlang";
+
       settings = {
         # Monitor
         monitor = [ ",preferred,auto,auto" ];
@@ -222,6 +224,9 @@
           "size 622 652, match:class clipse"
           "stay_focused on, match:class clipse"
 
+          #Gthumb
+          "tile on, match:class org.gnome.gThumb"
+
           # Nvim
           "float on, match:class nvim"
           "center on, match:class nvim"
@@ -234,7 +239,9 @@
           "move monitor_w*0.75-25 monitor_h*0.75-25, match:title Picture-in-Picture"
 
           # Steam
-          "workspace 1, match:class steam"
+          "workspace 1 silent, match:class steam"
+          "float on, match:class steam_app_0"
+          "center on, match:class steam_app_0"
 
           # Sushi
           "float on, match:class org.gnome.NautilusPreviewer"

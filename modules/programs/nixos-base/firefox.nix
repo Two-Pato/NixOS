@@ -11,23 +11,31 @@
         isDefault = true;
 
         bookmarks.force = true;
-        bookmarks.settings = [
-          { name = "Google"; url = "https://www.google.com/"; }
-          { name = "YouTube"; url = "https://www.youtube.com/"; }
-          { name = "Claude"; url = "https://claude.ai/"; }
-          { name = "GitHub"; url = "https://github.com/"; }
-          { name = "Convert Case"; url = "https://convertcase.net/"; }
-          { name = "Kavita"; url = "https://kavita.nexuinque.de/home/"; }
-          { name = "Proxmox"; url = "https://proxmox.nexuinque.de/"; }
-          { name = "Reddit"; url = "https://www.reddit.com/"; }
-          { name = "Jellyfin"; url = "https://jellyfin.nexuinque.de/"; }
-          { name = "The Movie Database"; url = "https://www.themoviedb.org/"; }
-          { name = "Stirling PDF"; url = "https://stirling.nexuinque.de/"; }
-          { name = "JLearn"; url = "https://jlearn.net/"; }
-          { name = "MyNixOS"; url = "https://mynixos.com/"; }
-          { name = "Proton Mail"; url = "https://account.proton.me/mail/"; }
-          { name = "SimpleLogin"; url = "https://app.simplelogin.io/dashboard/"; }
-        ];
+        bookmarks.settings =
+          [
+            { name = "Google"; url = "https://www.google.com/"; }
+            { name = "YouTube"; url = "https://www.youtube.com/"; }
+          ]
+          ++ lib.optionals (osConfig.networking.hostName == "mihari") [
+            { name = "Claude"; url = "https://claude.ai/"; }
+            { name = "GitHub"; url = "https://github.com/"; }
+            { name = "Convert Case"; url = "https://convertcase.net/"; }
+            { name = "Kavita"; url = "https://kavita.nexuinque.de/home/"; }
+            { name = "Proxmox"; url = "https://proxmox.nexuinque.de/"; }
+            { name = "Reddit"; url = "https://www.reddit.com/"; }
+            { name = "Jellyfin"; url = "https://jellyfin.nexuinque.de/"; }
+            { name = "The Movie Database"; url = "https://www.themoviedb.org/"; }
+            { name = "Stirling PDF"; url = "https://stirling.nexuinque.de/"; }
+            { name = "JLearn"; url = "https://jlearn.net/"; }
+            { name = "MyNixOS"; url = "https://mynixos.com/"; }
+            { name = "Proton Mail"; url = "https://account.proton.me/mail/"; }
+            { name = "SimpleLogin"; url = "https://app.simplelogin.io/dashboard/"; }
+          ]
+          ++ lib.optionals (osConfig.networking.hostName == "mahiro") [
+            { name = "ProtonDB"; url = "https://www.protondb.com/"; }
+            { name = "SteamGridDB"; url = "https://www.steamgriddb.com/"; }
+            { name = "Visual Novel Database"; url = "https://vndb.org/"; }
+          ];
 
         settings = {
           "font.default.x-western" = "serif";
