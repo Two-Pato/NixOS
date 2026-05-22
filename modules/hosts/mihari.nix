@@ -43,6 +43,7 @@
       solaar
       tinymist
       typst
+      unzip
       upscayl
     ];
   };

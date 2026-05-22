@@ -14,7 +14,7 @@
           "[](fg:#${config.colors.base09-hex} bg:#${config.colors.base0B-hex})"
           "$directory"
           "[](fg:#${config.colors.base0B-hex} bg:#${config.colors.base0D-hex})"
-          "$git_branch$git_status"
+          "$git_branch$git_status$nix_shell"
           "[ ](fg:#${config.colors.base0D-hex})"
           "$line_break$character"
         ];
@@ -53,6 +53,12 @@
         git_status = {
           disabled = false;
           format = "[($all_status$ahead_behind)]($style)";
+          style = "fg:#${config.colors.base06-hex} bg:#${config.colors.base0D-hex}";
+        };
+
+        nix_shell = {
+          disabled = false;
+          format = "[ $symbol$name ]($style)";
           style = "fg:#${config.colors.base06-hex} bg:#${config.colors.base0D-hex}";
         };
 

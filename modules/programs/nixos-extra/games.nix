@@ -6,6 +6,7 @@
 
     environment.systemPackages = with pkgs; [
       faugus-launcher
+      protonup-qt
 
       (retroarch.withCores (cores: with cores; [
         snes9x  # Nintendo SNES

@@ -18,12 +18,29 @@
         };
 
         preview = {
+          wrap = "yes";
           tab_size = 2;
           max_width = 2000;
           max_height = 3000;
-          cache_dir = "";
           image_filter = "lanczos3";
           image_quality = 90;
+        };
+
+        opener = {
+          comic = [
+            { run = ''zathura "$@"''; block = false; desc = "Zathura"; }
+          ];
+
+          nvim = [
+            { run = ''nvim "$@"''; block = true; desc = "Neovim"; }
+          ];
+        };
+
+        open = {
+          prepend_rules = [
+            { name = "*.cbz"; use = [ "comic" "nvim" ]; }
+            { mime = "application/zip"; use = [ "comic" "nvim" ]; }
+          ];
         };
       };
     };

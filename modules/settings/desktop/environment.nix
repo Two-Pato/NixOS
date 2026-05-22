@@ -6,6 +6,7 @@
         XCURSOR_SIZE = "24";
         HYPRCURSOR_THEME = "Adwaita";
         HYPRCURSOR_SIZE = "24";
+        NIXOS_OZONE_WL = 1;
         OZONE_PLATFORM = "wayland";
         ELECTRON_OZONE_PLATFORM_HINT = "wayland";
         GDK_BACKEND = "wayland";

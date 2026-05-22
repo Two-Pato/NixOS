@@ -4,8 +4,9 @@
       "org/gnome/TextEditor" = {
         custom-font = "JetBrainsMono Nerd Font 11";
         restore-session = false;
-        right-margin-position = mkUint32 80;
         use-system-font = false;
+        indent-style = "space";
+        tab-width = mkUint32 2;
       };
     };
 

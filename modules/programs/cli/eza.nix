@@ -5,12 +5,11 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
 
-      colors = "always";
-      icons = "always";
+      colors = "auto";
+      icons = "auto";
 
       extraOptions = [
         "--oneline"
-        "--level=1"
         "--group-directories-first"
         "--no-permissions"
         "--no-user"

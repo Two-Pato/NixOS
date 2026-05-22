@@ -78,19 +78,19 @@
           # Hardware Information Section
           {
             type = "host";
-            format = "{5} {1} Type {2}";
+            format = "{vendor} {family} Type {name}";
             key = "PC   ";
             keyColor = "38;2;198;176;214"; # Magenta / Moon Raker
           }
           {
             type = "cpu";
-            format = "{1} ({3}) @ {7} GHz";
+            format = "{name} ({cores-physical}) @ {freq-max}";
             key = " ├  ";
             keyColor = "38;2;198;176;214";
           }
           {
             type = "gpu";
-            format = "{1} {2} @ {12} GHz";
+            format = "{vendor} {name} @ {frequency} GHz";
             key = " ├ 󰢮 ";
             keyColor = "38;2;198;176;214";
           }

@@ -12,7 +12,6 @@
         enable = true;
         defaultApplications = {
           "text/plain" = [ "org.gnome.TextEditor.desktop" ];
-          "image/jpg" = [ "org.gnome.gThumb.desktop" ];
           "image/jpeg" = [ "org.gnome.gThumb.desktop" ];
           "image/png" = [ "org.gnome.gThumb.desktop" ];
           "image/avif" = [ "org.gnome.gThumb.desktop" ];

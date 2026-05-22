@@ -55,7 +55,6 @@
             enabled = true;
             size = 6;
             passes = 2;
-            new_optimizations = true;
             ignore_opacity = true;
             xray = true;
           };
@@ -76,6 +75,7 @@
             "winOut, 0.3, -0.3, 0, 1"
             "liner, 1, 1, 1, 1"
           ];
+
           animation = [
             "windows, 1, 6, wind, slide"
             "windowsIn, 1, 6, winIn, slide"

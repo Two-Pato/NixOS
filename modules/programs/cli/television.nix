@@ -10,6 +10,7 @@
         ui = {
           ui_scale = 100;
           orientation = "landscape";
+
           input_bar = {
             position = "bottom";
           };
@@ -33,6 +34,7 @@
             description = "A channel to select from your bash history";
             requirements = [ "bash" ];
           };
+
           source = {
             command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.bash_history}";
           };
@@ -159,6 +161,13 @@
 
           keybindings = {
             shortcut = "3";
+            enter = "actions:edit";
+          };
+
+          actions.edit = {
+            description = "Opens the selected entry with neovim at the matching line";
+            command = "nvim +'{strip_ansi|split:\\::1}' '{strip_ansi|split:\\::0}'";
+            mode = "execute";
           };
         };
       };

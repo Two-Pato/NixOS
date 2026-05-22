@@ -4,7 +4,7 @@
       enable = true;
 
       font = {
-        name = lib.mkForce "JetBrains Mono Nerd Font";
+        name = lib.mkForce "JetBrainsMono Nerd Font";
         size = lib.mkForce 14;
       };
 

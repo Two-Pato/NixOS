@@ -7,6 +7,7 @@
         viAlias = false;
         vimAlias = true;
         preventJunkFiles = true;
+
         clipboard = {
           enable = true;
           registers = "unnamedplus";
@@ -37,7 +38,9 @@
           nvim-web-devicons.enable = true;
         };
 
-        statusline.lualine.enable = true;
+        statusline = {
+          lualine.enable = true;
+        };
 
         notify.nvim-notify = {
           enable = true;
@@ -59,6 +62,11 @@
         binds = {
           whichKey.enable = true;
           cheatsheet.enable = true;
+        };
+
+        utility.images.image-nvim = {
+          enable = true;
+          setupOpts.backend = "kitty";
         };
 
         # Keymaps
@@ -93,6 +101,23 @@
             silent = true;
             action = "<cmd>NvimTreeRefresh<CR>";
             desc = "Refresh file explorer";
+          }
+
+          # Clipboard
+          {
+            key = "<leader>p";
+            mode = "n";
+            silent = true;
+            action = "o<Esc>p";
+            desc = "Paste clipboard in new line below";
+          }
+        ];
+
+        autocmds = [
+          {
+            event = [ "BufReadCmd" ];
+            pattern = [ "*.cbz" ];
+            command = "call zip#Browse(expand('<amatch>'))";
           }
         ];
       };

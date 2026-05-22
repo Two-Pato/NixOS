@@ -23,6 +23,7 @@
           path = lib.mkForce "${wallpaper_host}";
           blur_passes = 3;
         };
+
         label = [
           # Time Display
           {

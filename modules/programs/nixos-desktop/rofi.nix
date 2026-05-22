@@ -9,7 +9,7 @@
 
       extraConfig = {
         modi = "drun";
-        font = "JetBrains Mono Nerd Font 12";
+        font = "JetBrainsMono Nerd Font 12";
         show-icons = true;
         display-drun = "";
         drun-display-format = "{name}";

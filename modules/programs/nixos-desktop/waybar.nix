@@ -63,12 +63,6 @@
           on-click = "activate";
           active-only = false;
           all-outputs = true;
-          format = "{}";
-          format-icons = {
-            urgent = "";
-            active = "";
-            default = "";
-          };
           persistent-workspaces = {
             "*" = 5;
           };
@@ -89,7 +83,7 @@
 
         pulseaudio = {
           tooltip = false;
-          format = "<span>{icon}</span>  {volume}%";
+          format = "{icon}  {volume}%";
           format-muted = " muted";
           format-icons = {
             headphone = "";
