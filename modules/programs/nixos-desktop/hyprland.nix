@@ -255,6 +255,9 @@
 
           # Upscayl
           "tile on, match:class Upscayl"
+
+          # Xdg
+          "tile on, match:class xdg-desktop-portal-gtk"
         ];
 
         # Miscellaneous
