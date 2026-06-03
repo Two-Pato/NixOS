@@ -38,7 +38,7 @@
 
         open = {
           prepend_rules = [
-            { name = "*.cbz"; use = [ "comic" "nvim" ]; }
+            { url = "*.cbz"; use = [ "comic" "nvim" ]; }
             { mime = "application/zip"; use = [ "comic" "nvim" ]; }
           ];
         };

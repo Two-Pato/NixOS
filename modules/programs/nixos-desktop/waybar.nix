@@ -89,6 +89,7 @@
             headphone = "";
             default = [ "" "" "󰕾" "" ];
           };
+
           scroll-step = 5;
           on-click = "uwsm app -- pwvucontrol";
         };

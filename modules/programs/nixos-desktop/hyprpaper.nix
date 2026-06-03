@@ -13,13 +13,11 @@
 
       settings = {
         splash = false;
-        wallpaper = [
-          {
-            monitor = "";
-            path = "${wallpaper_host}";
-            fit_mode = "cover";
-          }
-        ];
+        wallpaper = [{
+          monitor = "";
+          path = "${wallpaper_host}";
+          fit_mode = "cover";
+        }];
       };
     };
   };

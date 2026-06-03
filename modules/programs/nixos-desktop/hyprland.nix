@@ -7,263 +7,232 @@
     };
   };
 
-  flake.homeModules.nixos-desktop = { lib, pkgs, osConfig, ... }:
-  let
-    workspace1 = {
-      mihari = "[ workspace 1 silent ] uwsm app -- firefox";
-      mahiro = "[ workspace 1 silent ] uwsm app -- steam";
-    };
-    workspace2 = {
-      mihari = "[ workspace 2 silent ] uwsm app -- nautilus";
-      mahiro = "[ workspace 2 silent ] uwsm app -- faugus-launcher";
-    };
-
-    hostName = osConfig.networking.hostName;
-
-    workspace1_host = workspace1.${hostName} or null;
-    workspace2_host = workspace2.${hostName} or null;
-  in {
-    wayland.windowManager.hyprland = lib.mkIf (workspace1_host != null || workspace2_host != null) {
+  flake.homeModules.nixos-desktop = { lib, pkgs, osConfig, ... }: {
+    wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = false;
 
       package = null;
       portalPackage = null;
 
-      configType = "hyprlang";
+      configType = "lua";
 
       settings = {
         # Monitor
-        monitor = [ ",preferred,auto,auto" ];
-        xwayland.force_zero_scaling = true;
+        monitor = [{
+          output = "";
+          mode = "preferred";
+          position = "auto";
+          scale = "auto";
+        }];
 
         # Autostart
-        exec-once = [
-          "uwsm app -- waybar"
-          workspace1_host
-          workspace2_host
-        ];
+        on = {
+          _args = [
+            "hyprland.start"
+            (lib.generators.mkLuaInline ''
+              function()
+                hl.exec_cmd("uwsm app -- waybar")
+                ${lib.optionalString (osConfig.networking.hostName == "mihari") ''
+                  hl.exec_cmd("[ workspace 1 silent ] uwsm app -- firefox")
+                  hl.exec_cmd("[ workspace 2 silent ] uwsm app -- nautilus")
+                ''}
+                ${lib.optionalString (osConfig.networking.hostName == "mahiro") ''
+                  hl.exec_cmd("[ workspace 1 silent ] uwsm app -- steam")
+                  hl.exec_cmd("[ workspace 2 silent ] uwsm app -- faugus-launcher")
+                ''}
+              end
+            '')
+          ];
+        };
 
-        # General Window Decoration
-        decoration = {
-          rounding = 10;
-          active_opacity = 1.0;
-          inactive_opacity = 1.0;
-          fullscreen_opacity = 1.0;
-
-          blur = {
-            enabled = true;
-            size = 6;
-            passes = 2;
-            ignore_opacity = true;
-            xray = true;
+        config = {
+          # Keyboard Layout
+          input = {
+            kb_layout = "de";
+            numlock_by_default = true;
+            follow_mouse = 1;
+            sensitivity = 0;
+            touchpad.natural_scroll = false;
           };
 
-          shadow = {
-            enabled = false;
-            range = 30;
-            render_power = 3;
+          cursor.no_warps = true;
+
+          # Layout Settings
+          general = {
+            gaps_in = 5;
+            gaps_out = 10;
+            border_size = 2;
+            layout = "dwindle";
+            resize_on_border = true;
+            allow_tearing = false;
+          };
+
+          dwindle = {
+            preserve_split = true;
+          };
+
+          binds = {
+            workspace_back_and_forth = true;
+            allow_workspace_cycles = true;
+            pass_mouse_when_bound = false;
+          };
+
+          # General Window Decoration
+          decoration = {
+            rounding = 10;
+            active_opacity = 1.0;
+            inactive_opacity = 1.0;
+            fullscreen_opacity = 1.0;
+
+            blur = {
+              enabled = true;
+              size = 6;
+              passes = 2;
+              ignore_opacity = true;
+              xray = true;
+            };
+
+            shadow = {
+              enabled = false;
+            };
+          };
+
+          # Miscellaneous
+          xwayland.force_zero_scaling = true;
+
+          misc = {
+            enable_anr_dialog = false;
           };
         };
 
         # Animations
-        animations = {
-          enabled = true;
+        curve = [
+          { _args = [ "wind" (lib.generators.mkLuaInline ''{ type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } }'') ]; }
+          { _args = [ "winIn" (lib.generators.mkLuaInline ''{ type = "bezier", points = { { 0.1, 1.1 }, { 0.1, 1.1 } } }'') ]; }
+          { _args = [ "winOut" (lib.generators.mkLuaInline ''{ type = "bezier", points = { { 0.3, -0.3 }, { 0, 1 } } }'') ]; }
+          { _args = [ "liner" (lib.generators.mkLuaInline ''{ type = "bezier", points = { { 1, 1 }, { 1, 1 } } }'') ]; }
+        ];
 
-          bezier = [
-            "wind, 0.05, 0.9, 0.1, 1.05"
-            "winIn, 0.1, 1.1, 0.1, 1.1"
-            "winOut, 0.3, -0.3, 0, 1"
-            "liner, 1, 1, 1, 1"
-          ];
-
-          animation = [
-            "windows, 1, 6, wind, slide"
-            "windowsIn, 1, 6, winIn, slide"
-            "windowsOut, 1, 5, winOut, slide"
-            "windowsMove, 1, 5, wind, slide"
-            "border, 1, 1, liner"
-            "borderangle, 1, 30, liner, once"
-            "fade, 1, 10, default"
-            "workspaces, 1, 5, wind"
-          ];
-        };
-
-        # Layout Settings
-        general = {
-          gaps_in = 5;
-          gaps_out = 10;
-          border_size = 2;
-          layout = "dwindle";
-          resize_on_border = true;
-          allow_tearing = false;
-        };
-
-        dwindle = {
-          preserve_split = true;
-        };
-
-        binds = {
-          workspace_back_and_forth = true;
-          allow_workspace_cycles = true;
-          pass_mouse_when_bound = false;
-        };
-
-        # Keyboard Layout
-        input = {
-          kb_layout = "de";
-          numlock_by_default = true;
-          follow_mouse = 1;
-          sensitivity = 0;
-          touchpad.natural_scroll = false;
-        };
-
-        cursor.no_warps = true;
+         animation = [
+           { leaf = "windows"; enabled = true; speed = 6; bezier = "wind"; style = "slide"; }
+           { leaf = "windowsIn"; enabled = true; speed = 6; bezier = "winIn"; style = "slide"; }
+           { leaf = "windowsOut"; enabled = true; speed = 5; bezier = "winOut"; style = "slide"; }
+           { leaf = "windowsMove"; enabled = true; speed = 5; bezier = "wind"; style = "slide"; }
+           { leaf = "border"; enabled = true; speed = 1; bezier = "liner"; }
+           { leaf = "borderangle"; enabled = true; speed = 30; bezier = "liner"; style = "once"; }
+           { leaf = "fade"; enabled = true; speed = 10; bezier = "default"; }
+           { leaf = "workspaces"; enabled = true; speed = 5; bezier = "wind"; }
+         ];
 
         # Keybindings
-        "$mainMod" = "SUPER";
+        mod._var = "SUPER";
 
         bind = [
-          # Important
-          "$mainMod CTRL, ESCAPE, exit"
-          "$mainMod, R, exec, pkill -SIGUSR1 waybar"
+          # Session
+          { _args = [ "SUPER + CTRL + Escape" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("uwsm stop")'') ]; }
+          { _args = [ "SUPER + R" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("pkill -SIGUSR1 waybar")'') ]; }
 
           # Applications
-          "$mainMod, RETURN, exec, uwsm app -- kitty"
-          "$mainMod, B, exec, uwsm app -- firefox"
-          "$mainMod ALT, B, exec, uwsm app -- firefox --private-window"
-          "$mainMod, E, exec, uwsm app -- nautilus -w"
-          "$mainMod SHIFT, E, exec, uwsm app -- kitty --class yazi -e yazi"
-          "$mainMod, SPACE, exec, pkill -x rofi || uwsm app -- rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\""
-          "$mainMod, V, exec, pkill -x clipse || uwsm app -- kitty --class clipse -e clipse"
-          "$mainMod, N, exec, pkill -x nvim || uwsm app -- kitty -d ~/Documents --class nvim -e nvim"
-          "$mainMod, S, exec, pkill -x tv || uwsm app -- kitty --class tv -e tv text"
+          { _args = [ "SUPER + Return" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- kitty")'') ]; }
+          { _args = [ "SUPER + B" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- firefox")'') ]; }
+          { _args = [ "SUPER + ALT + B" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- firefox --private-window")'') ]; }
+          { _args = [ "SUPER + E" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- nautilus -w")'') ]; }
+          { _args = [ "SUPER + SHIFT + E" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- kitty --class yazi -e yazi")'') ]; }
+          { _args = [ "SUPER + Space" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("pkill -x rofi || uwsm app -- rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\"")'') ]; }
+          { _args = [ "SUPER + V" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("pkill -x clipse || uwsm app -- kitty --class clipse -e clipse")'') ]; }
+          { _args = [ "SUPER + N" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("pkill -x nvim || uwsm app -- kitty -d ~/Documents --class nvim -e nvim")'') ]; }
+          { _args = [ "SUPER + S" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("pkill -x tv || uwsm app -- kitty --class tv -e tv text")'') ]; }
 
           # Special Keys
-          ", print, exec, grim $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
-          "SHIFT, print, exec, grim -g \"$(slurp)\" $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')"
+          { _args = [ "Print" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("grim $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')")'') ]; }
+          { _args = [ "SHIFT + Print" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("grim -g \"$(slurp)\" $(xdg-user-dir PICTURES)/$(date +'%s_screenshot.png')")'') ]; }
+          { _args = [ "SUPER + L" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("uwsm app -- hyprlock")'') ]; }
 
-          "$mainMod, L, exec, uwsm app -- hyprlock"
+          # Window Management
+          { _args = [ "SUPER + Q" (lib.generators.mkLuaInline ''hl.dsp.window.close()'') ]; }
+          { _args = [ "SUPER + F" (lib.generators.mkLuaInline ''hl.dsp.window.fullscreen()'') ]; }
+          { _args = [ "SUPER + T" (lib.generators.mkLuaInline ''hl.dsp.window.float({ action = "toggle" })'') ]; }
+          { _args = [ "SUPER + Y" (lib.generators.mkLuaInline ''hl.dsp.layout("togglesplit")'') ]; }
+          { _args = [ "SUPER + X" (lib.generators.mkLuaInline ''hl.dsp.layout("swapsplit")'') ]; }
 
-          # Windows
-          "$mainMod, Q, killactive"
-          "$mainMod, F, fullscreen"
-          "$mainMod, T, togglefloating"
-          "$mainMod, Y, layoutmsg, togglesplit"
-          "$mainMod, X, layoutmsg, swapsplit"
+          # Window Focus
+          { _args = [ "SUPER + left" (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "l" })'') ]; }
+          { _args = [ "SUPER + right" (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "r" })'') ]; }
+          { _args = [ "SUPER + up" (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "u" })'') ]; }
+          { _args = [ "SUPER + down" (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "d" })'') ]; }
 
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
+          # Window Move
+          { _args = [ "SUPER + SHIFT + left" (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "l" })'') ]; }
+          { _args = [ "SUPER + SHIFT + right" (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "r" })'') ]; }
+          { _args = [ "SUPER + SHIFT + up" (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "u" })'') ]; }
+          { _args = [ "SUPER + SHIFT + down" (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "d" })'') ]; }
 
-          "$mainMod SHIFT, left, movewindow, l"
-          "$mainMod SHIFT, right, movewindow, r"
-          "$mainMod SHIFT, up, movewindow, u"
-          "$mainMod SHIFT, down, movewindow, d"
+          # Workspace Cycling
+          { _args = [ "SUPER + Tab" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "m+1" })'') ]; }
+          { _args = [ "SUPER + SHIFT + Tab" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "m-1" })'') ]; }
+          { _args = [ "SUPER + CTRL + Tab" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "empty" })'') ]; }
+          { _args = [ "SUPER + mouse_down" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "e+1" })'') ]; }
+          { _args = [ "SUPER + mouse_up" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "e-1" })'') ]; }
 
-          "$mainMod CTRL, right, resizeactive, 100 0"
-          "$mainMod CTRL, left, resizeactive, -100 0"
-          "$mainMod CTRL, down, resizeactive, 0 100"
-          "$mainMod CTRL, up, resizeactive, 0 -100"
+          # Workspaces Switch
+          { _args = [ "SUPER + 1" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = 1 })'') ]; }
+          { _args = [ "SUPER + 2" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = 2 })'') ]; }
+          { _args = [ "SUPER + 3" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = 3 })'') ]; }
+          { _args = [ "SUPER + 4" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = 4 })'') ]; }
+          { _args = [ "SUPER + 5" (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = 5 })'') ]; }
 
-          # Workspaces
-          "$mainMod, 1, workspace, 1"
-          "$mainMod, 2, workspace, 2"
-          "$mainMod, 3, workspace, 3"
-          "$mainMod, 4, workspace, 4"
-          "$mainMod, 5, workspace, 5"
-          "$mainMod, 6, workspace, 6"
-          "$mainMod, 7, workspace, 7"
-          "$mainMod, 8, workspace, 8"
-          "$mainMod, 9, workspace, 9"
-          "$mainMod, 0, workspace, 10"
+          # Workspaces Move Window
+          { _args = [ "SUPER + SHIFT + 1" (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = 1 })'') ]; }
+          { _args = [ "SUPER + SHIFT + 2" (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = 2 })'') ]; }
+          { _args = [ "SUPER + SHIFT + 3" (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = 3 })'') ]; }
+          { _args = [ "SUPER + SHIFT + 4" (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = 4 })'') ]; }
+          { _args = [ "SUPER + SHIFT + 5" (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = 5 })'') ]; }
 
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-          "$mainMod SHIFT, 5, movetoworkspace, 5"
-          "$mainMod SHIFT, 6, movetoworkspace, 6"
-          "$mainMod SHIFT, 7, movetoworkspace, 7"
-          "$mainMod SHIFT, 8, movetoworkspace, 8"
-          "$mainMod SHIFT, 9, movetoworkspace, 9"
-          "$mainMod SHIFT, 0, movetoworkspace, 10"
+          # Mouse
+          { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline ''hl.dsp.window.drag()'') { mouse = true; } ]; }
+          { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline ''hl.dsp.window.resize()'') { mouse = true; } ]; }
 
-          "$mainMod, Tab, workspace, m+1"
-          "$mainMod SHIFT, Tab, workspace, m-1"
-          "$mainMod CTRL, Tab, workspace, empty"
-
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
-        ];
-
-        bindm = [
-          "$mainMod, mouse:272, movewindow"
-          "$mainMod, mouse:273, resizewindow"
-        ];
-
-        bindl = [
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ];
-
-        bindel = [
-          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        # Media
+          { _args = [ "XF86AudioMute" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")'') { locked = true; } ]; }
+          { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")'') { locked = true; repeating = true; } ]; }
+          { _args = [ "XF86AudioRaiseVolume" (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")'') { locked = true; repeating = true; } ]; }
         ];
 
         # Window Rules
-        windowrule = [
+        window_rule = [
           # General
-          "suppress_event maximize, match:class .*"
-          "no_focus on, match:class ^$, match:title ^$, match:float true, match:fullscreen false, match:pin false, match:xwayland true"
+          { match = { class = ".*"; }; suppress_event = "maximize"; }
+          { match = { class = "^$"; title = "^$"; float = true; fullscreen = false; pin = false; xwayland = true; }; no_focus = true; }
 
           # Clipse
-          "float on, match:class clipse"
-          "center on, match:class clipse"
-          "size 622 652, match:class clipse"
-          "stay_focused on, match:class clipse"
+          { match = { class = "clipse"; }; float = true; center = true; size = "622 652"; stay_focused = true; }
 
-          #Gthumb
-          "tile on, match:class org.gnome.gThumb"
+          # gThumb
+          { match = { class = "org.gnome.gThumb"; }; tile = true; }
 
           # Nvim
-          "float on, match:class nvim"
-          "center on, match:class nvim"
-          "size monitor_w*0.75 monitor_h*0.75, match:class nvim"
+          { match = { class = "nvim"; }; float = true; center = true; size = "monitor_w*0.75 monitor_h*0.75"; }
 
-          # Picture in Picture
-          "float on, match:title Picture-in-Picture"
-          "pin on, match:title Picture-in-Picture"
-          "size monitor_w*0.25 monitor_h*0.25, match:title Picture-in-Picture"
-          "move monitor_w*0.75-25 monitor_h*0.75-25, match:title Picture-in-Picture"
+          # Picture-in-Picture
+          { match = { title = "Picture-in-Picture"; }; float = true; pin = true; size = "monitor_w*0.25 monitor_h*0.25"; move = "monitor_w*0.75-25 monitor_h*0.75-25"; }
 
           # Steam
-          "workspace 1 silent, match:class steam"
-          "float on, match:class steam_app_0"
-          "center on, match:class steam_app_0"
+          { match = { class = "steam"; }; workspace = "1 silent"; }
+          { match = { class = "steam_app_0"; }; float = true; center = true; }
 
           # Sushi
-          "float on, match:class org.gnome.NautilusPreviewer"
-          "center on, match:class org.gnome.NautilusPreviewer"
-          "size monitor_w*0.35 monitor_h*0.75, match:class org.gnome.NautilusPreviewer"
+          { match = { class = "org.gnome.NautilusPreviewer"; }; float = true; center = true; size = "monitor_w*0.35 monitor_h*0.75"; }
 
           # Tv
-          "float on, match:class tv"
-          "center on, match:class tv"
-          "size monitor_w*0.75 monitor_h*0.75, match:class tv"
+          { match = { class = "tv"; }; float = true; center = true; size = "monitor_w*0.75 monitor_h*0.75"; }
 
           # Upscayl
-          "tile on, match:class Upscayl"
+          { match = { class = "Upscayl"; }; tile = true; }
 
           # Xdg
-          "tile on, match:class xdg-desktop-portal-gtk"
+          { match = { class = "xdg-desktop-portal-gtk"; }; tile = true; }
         ];
-
-        # Miscellaneous
-        misc = {
-          enable_anr_dialog = false;
-        };
       };
     };
 
