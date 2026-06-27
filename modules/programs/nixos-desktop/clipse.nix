@@ -37,7 +37,7 @@
       };
 
       theme = {
-        useCustomTheme = true;
+        UseCustom = true;
         TitleFore = "#${config.colors.base0E-hex}";
         NormalTitle = "#${config.colors.base00-hex}";
         SelectedTitle = "#${config.colors.base08-hex}";
