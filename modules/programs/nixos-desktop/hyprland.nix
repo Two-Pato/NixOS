@@ -21,9 +21,9 @@
         # Monitor
         monitor = [{
           output = "";
-          mode = "preferred";
+          mode = "3840x2160@120";
           position = "auto";
-          scale = "auto";
+          scale = 1.5;
         }];
 
         # Autostart

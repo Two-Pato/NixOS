@@ -78,7 +78,7 @@
           # Hardware Information Section
           {
             type = "host";
-            format = "{vendor} {family} Type {name}";
+            format = "{name}";
             key = "PC   ";
             keyColor = "38;2;198;176;214"; # Magenta / Moon Raker
           }
@@ -90,7 +90,7 @@
           }
           {
             type = "gpu";
-            format = "{vendor} {name} @ {frequency} GHz";
+            format = "{name}";
             key = " ├ 󰢮 ";
             keyColor = "38;2;198;176;214";
           }
@@ -111,6 +111,7 @@
           }
           {
             type = "monitor";
+            format = "{width}x{height} @ {refresh-rate} Hz";
             key = " └  ";
             keyColor = "38;2;198;176;214";
           }
