@@ -5,7 +5,7 @@
 
       package = pkgs.caddy.withPlugins {
         plugins = [ "github.com/caddy-dns/porkbun@v0.3.1" ];
-        hash = "sha256-CjL8dMdnsiawaPiQGRvL3he4Ydd3nIbQs6tBWMwUbaw=";
+        hash = "sha256-iFuoa6k2r3jUPazHHujhB4bBq3Fz0Mv0Tjsr+gxMYQQ=";
       };
 
       virtualHosts."adguard.nexuinque.de".extraConfig = ''
