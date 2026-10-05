@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.mihari-network = {
+  flake.nixosModules.mihari-network = { pkgs, ... }: {
     systemd.network.enable = true;
 
     systemd.network.networks."10-wan" = {
@@ -20,6 +20,13 @@
 
     networking.hostName = "mihari";
     networking.useNetworkd = true;
-    networking.firewall.enable = true;
+    networking.firewall = {
+      enable = true;
+      checkReversePath = "loose";
+    };
+
+    environment.systemPackages = with pkgs; [
+      wireguard-tools
+    ];
   };
 }

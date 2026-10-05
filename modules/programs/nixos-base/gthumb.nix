@@ -32,6 +32,10 @@
         store-metadata-in-files = false;
       };
 
+      "org/gnome/gthumb/image-viewer" = {
+        show-frame = false;
+      };
+
       "org/gnome/gthumb/pixbuf-savers/jpeg" = {
         default-ext = "jpeg";
         optimize = true;

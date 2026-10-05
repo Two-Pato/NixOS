@@ -7,7 +7,7 @@
     programs.rofi = {
       enable = true;
 
-      extraConfig = {
+      settings = {
         modi = "drun";
         font = "JetBrainsMono Nerd Font 12";
         show-icons = true;
