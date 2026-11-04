@@ -40,10 +40,8 @@
         settings = {
           "font.default.x-western" = "serif";
           "font.name.serif.x-western" = "Noto Serif";
-          "font.minimum-size.x-western" = 0;
           "toolkit.zoomManager.zoomValues" = ".25,.5,.75,1,1.25,1.5,1.75,2";
 
-          "browser.onboarding.enabled" = false;
           "browser.startup.page" = 3;
           "browser.tabs.closeWindowWithLastTab" = false;
           "browser.toolbars.bookmarks.visibility" = "never";
@@ -57,13 +55,6 @@
 
           "browser.translations.automaticallyPopup" = false;
           "browser.translations.enable" = false;
-
-          "browser.ai.control.default" = "blocked";
-          "browser.ai.control.linkPreviewKeyPoints" = "blocked";
-          "browser.ai.control.pdfjsAltText" = "blocked";
-          "browser.ai.control.sidebarChatbot" = "blocked";
-          "browser.ai.control.smartTabGroups" = "blocked";
-          "browser.ai.control.translations" = "blocked";
 
           "browser.ml.enabled" = false;
           "browser.ml.chat.enabled" = false;
@@ -113,7 +104,6 @@
               ]
             },
             "seen": [
-              "save-to-pocket-button",
               "developer-button",
               "ublock0_raymondhill_net-browser-action",
               "_f8e12521-acde-4a17-9f1f-c10a32d053e2_-browser-action",
@@ -138,11 +128,16 @@
         DisableTelemetry = true;
         DisableFirefoxAccounts = true;
         DisableFirefoxStudies = true;
-        DisablePocket = true;
         DontCheckDefaultBrowser = true;
         PasswordManagerEnabled = false;
         AutofillAddressEnabled = false;
         AutofillCreditCardEnabled = false;
+
+        AIControls.Default = {
+          Value = "blocked";
+          Locked = true;
+        };
+
 
         ExtensionSettings = lib.mkMerge [
           {
