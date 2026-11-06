@@ -1,47 +1,9 @@
 {
   flake.homeModules.nixos-base = { lib, pkgs, ... }: with lib.hm.gvariant; {
     dconf.settings = {
-      "org/gnome/gthumb/browser" = {
-        statusbar-visible = false;
-        thumbnail-list-visible = true;
+      "org/gnome/gthumb" = {
         sort-type = "file::name";
-      };
-
-      "org/gnome/gthumb/general" = {
-        active-extensions = [
-          "resize_images"
-          "search"
-          "list_tools"
-          "convert_format"
-          "edit_metadata"
-          "find_duplicates"
-          "rename_series"
-          "raw_files"
-          "gstreamer_tools"
-          "catalogs"
-          "change_date"
-          "contact_sheet"
-          "selections"
-          "bookmarks"
-          "terminal"
-          "file_manager"
-          "red_eye_removal"
-          "slideshow"
-        ];
-
-        store-metadata-in-files = false;
-      };
-
-      "org/gnome/gthumb/image-viewer" = {
-        show-frame = false;
-      };
-
-      "org/gnome/gthumb/pixbuf-savers/jpeg" = {
-        default-ext = "jpeg";
-        optimize = true;
-        progressive = false;
-        quality = 100;
-        smoothing = 0;
+        sort-inverse = false;
       };
     };
 
@@ -51,18 +13,23 @@
 
     home.file.".config/gthumb/shortcuts.xml".text = ''
       <?xml version="1.0" encoding="UTF-8"?>
-      <shortcuts>
-        <shortcut accelerator="Up" action="show-first-image"/>
-        <shortcut accelerator="Down" action="show-last-image"/>
-        <shortcut accelerator="Right" action="show-next-image"/>
-        <shortcut accelerator="Left" action="show-previous-image"/>
-        <shortcut accelerator="&lt;Primary&gt;Down" action="scroll-step-down"/>
-        <shortcut accelerator="&lt;Primary&gt;Left" action="scroll-step-left"/>
-        <shortcut accelerator="&lt;Primary&gt;Right" action="scroll-step-right"/>
-        <shortcut accelerator="&lt;Primary&gt;Up" action="scroll-step-up"/>
-        <shortcut accelerator="&lt;Shift&gt;c" action="edit-metadata"/>
-        <shortcut accelerator="c" action="file-tool-crop"/>
+      <shortcuts version="1.0">
+        <shortcut action="win.edit-metadata"/>
+        <shortcut accelerator="c" action="viewer.crop"/>
       </shortcuts>
+    '';
+
+    home.file.".local/share/applications/org.gnome.gThumb.desktop".text = ''
+      [Desktop Entry]
+      Name=Thumbnails
+      Categories=GNOME;GTK;Graphics;2DGraphics;Viewer;
+      Exec=gthumb --new-window %U
+      MimeType=image/jpeg;image/png;image/webp;image/gif;image/bmp;image/tiff;image/svg+xml;image/avif;image/heif;image/jxl;
+      Comment=Browse and view images
+      Icon=org.gnome.gThumb
+      StartupNotify=true
+      Terminal=false
+      Type=Application
     '';
   };
 }
