@@ -6,7 +6,12 @@
       settings = {
         allowDuplicates = false;
 
-        maxHistory = 100;
+        imageDisplay = {
+          heightCut = 2;
+          scaleX = 9;
+          scaleY = 9;
+          type = "basic";
+        };
 
         keyBindings = {
           choose = "enter";
@@ -30,25 +35,20 @@
           yankFilter = "ctrl+s";
         };
 
-        imageDisplay = {
-          type = "basic";
-          scaleX = 9;
-          scaleY = 9;
-          heightCut = 2;
-        };
+        maxHistory = 100;
       };
 
       theme = {
-        UseCustom = true;
-        TitleFore = "#${config.colors.base0E-hex}";
+        DividerDot = "#${config.colors.base0C-hex}";
         NormalTitle = "#${config.colors.base00-hex}";
-        SelectedTitle = "#${config.colors.base08-hex}";
+        PageActiveDot = "#${config.colors.base0C-hex}";
+        PinIndicatorColor = "#${config.colors.base0A-hex}";
         SelectedDesc = "#${config.colors.base12-hex}";
         SelectedDescBorder = "#${config.colors.base0C-hex}";
-        PageActiveDot = "#${config.colors.base0C-hex}";
-        DividerDot = "#${config.colors.base0C-hex}";
+        SelectedTitle = "#${config.colors.base08-hex}";
         StatusMsg = "#${config.colors.base0B-hex}";
-        PinIndicatorColor = "#${config.colors.base0A-hex}";
+        TitleFore = "#${config.colors.base0E-hex}";
+        UseCustom = true;
       };
     };
 

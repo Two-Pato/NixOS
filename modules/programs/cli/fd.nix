@@ -5,8 +5,8 @@
 
       hidden = true;
       ignores = [
-        ".git/"
         ".cache/"
+        ".git/"
       ];
     };
   };

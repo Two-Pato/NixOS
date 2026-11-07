@@ -5,10 +5,51 @@
 
       configPath = "${config.xdg.configHome}/mozilla/firefox";
 
+      policies = {
+        AIControls.Default = {
+          Locked = true;
+          Value = "blocked";
+        };
+        AutofillAddressEnabled = false;
+        AutofillCreditCardEnabled = false;
+        DisableFirefoxAccounts = true;
+        DisableFirefoxStudies = true;
+        DisableTelemetry = true;
+        DontCheckDefaultBrowser = true;
+        PasswordManagerEnabled = false;
+
+        ExtensionSettings = lib.mkMerge [
+          {
+            "uBlock0@raymondhill.net" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            "{f558e0b7-ded4-4803-a06f-3dcc5a8cc37e}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/easy-speed-dial/latest.xpi";
+              installation_mode = "force_installed";
+            };
+          }
+          (lib.optionalAttrs (osConfig.networking.hostName == "mihari") {
+            "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            "jid1-xUfzOsOFlzSOXg@jetpack" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/reddit-enhancement-suite/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            "{f8e12521-acde-4a17-9f1f-c10a32d053e2}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/file/3423739/save_all_tab_urls-0.1.4.xpi";
+              installation_mode = "force_installed";
+            };
+          })
+        ];
+      };
+
       profiles.default = {
         id = 0;
-        name = "default";
         isDefault = true;
+        name = "default";
 
         bookmarks.force = true;
         bookmarks.settings =
@@ -38,14 +79,17 @@
           ];
 
         settings = {
+          # Fonts and zoom
           "font.default.x-western" = "serif";
           "font.name.serif.x-western" = "Noto Serif";
           "toolkit.zoomManager.zoomValues" = ".25,.5,.75,1,1.25,1.5,1.75,2";
 
+          # Startup and tabs
           "browser.startup.page" = 3;
           "browser.tabs.closeWindowWithLastTab" = false;
           "browser.toolbars.bookmarks.visibility" = "never";
 
+          # Suggestions and recommendations
           "browser.search.suggest.enabled" = false;
           "browser.urlbar.suggest.engines" = false;
           "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
@@ -53,19 +97,22 @@
           "extensions.htmlaboutaddons.discover.enabled" = false;
           "extensions.htmlaboutaddons.recommendations.enabled" = false;
 
+          # Translations
           "browser.translations.automaticallyPopup" = false;
           "browser.translations.enable" = false;
 
-          "browser.ml.enabled" = false;
+          # Machine learning
           "browser.ml.chat.enabled" = false;
+          "browser.ml.enabled" = false;
           "browser.ml.linkPreview.enabled" = false;
 
-          "browser.uitour.enabled" = false;
-
+          # Annoyances
+          "browser.aboutConfig.showWarning" = false;
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-          "browser.aboutConfig.showWarning" = false;
+          "browser.uitour.enabled" = false;
 
+          # Toolbar layout
           "browser.uiCustomization.state" = ''{
             "placements": {
               "widget-overflow-fixed-list": [],
@@ -122,49 +169,6 @@
             "newElementCount": 3
           }'';
         };
-      };
-
-      policies = {
-        DisableTelemetry = true;
-        DisableFirefoxAccounts = true;
-        DisableFirefoxStudies = true;
-        DontCheckDefaultBrowser = true;
-        PasswordManagerEnabled = false;
-        AutofillAddressEnabled = false;
-        AutofillCreditCardEnabled = false;
-
-        AIControls.Default = {
-          Value = "blocked";
-          Locked = true;
-        };
-
-
-        ExtensionSettings = lib.mkMerge [
-          {
-            "uBlock0@raymondhill.net" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            "{f558e0b7-ded4-4803-a06f-3dcc5a8cc37e}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/easy-speed-dial/latest.xpi";
-              installation_mode = "force_installed";
-            };
-          }
-          (lib.optionalAttrs (osConfig.networking.hostName == "mihari") {
-            "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            "jid1-xUfzOsOFlzSOXg@jetpack" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/reddit-enhancement-suite/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            "{f8e12521-acde-4a17-9f1f-c10a32d053e2}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/file/3423739/save_all_tab_urls-0.1.4.xpi";
-              installation_mode = "force_installed";
-            };
-          })
-        ];
       };
     };
   };

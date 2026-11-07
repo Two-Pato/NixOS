@@ -4,6 +4,7 @@
       mihari
       mihari-hardware
       mihari-network
+
       boot-efi
       core-settings
       desktop-settings
@@ -14,12 +15,14 @@
   flake.nixosModules.mihari = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
       mihari
-      core-settings
-      cli
+      
       bash
+      cli
+      core-settings
       nixos-base
-      nixos-extra
       nixos-desktop
+      nixos-extra
+
       inputs.stylix.homeModules.stylix
       inputs.nvf.homeManagerModules.default
     ];

@@ -4,6 +4,7 @@
       miyo
       miyo-hardware
       miyo-network
+
       boot-grub
       core-settings
       desktop-nvidia
@@ -13,9 +14,9 @@
 
   flake.nixosModules.miyo = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
-      core-settings
-      cli
       bash
+      cli
+      core-settings
     ];
 
     environment.systemPackages = with pkgs; [

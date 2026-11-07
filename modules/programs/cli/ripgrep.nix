@@ -4,11 +4,11 @@
       enable = true;
 
       arguments = [
-        "--smart-case"
+        "--glob=!.git/"
         "--hidden"
         "--max-columns=150"
         "--max-columns-preview"
-        "--glob=!.git/"
+        "--smart-case"
       ];
     };
   };

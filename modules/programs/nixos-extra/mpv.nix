@@ -3,16 +3,16 @@
     programs.mpv = {
       enable = true;
 
+      bindings = {
+        DOWN = "add volume -5";
+        UP = "add volume 5";
+      };
+
       config = {
         keep-open = true;
         target-colorspace-hint = false;
         volume = 100;
         volume-max = 150;
-      };
-
-      bindings = {
-        UP = "add volume 5";
-        DOWN = "add volume -5";
       };
     };
   };

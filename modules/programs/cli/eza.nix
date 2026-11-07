@@ -9,10 +9,10 @@
       icons = "auto";
 
       extraOptions = [
-        "--oneline"
         "--group-directories-first"
         "--no-permissions"
         "--no-user"
+        "--oneline"
       ];
     };
   };

@@ -4,69 +4,77 @@
       enable = true;
 
       settings = {
+        experimental.per_monitor_dpi = false;
+
         global = {
-          monitor = 0;
+          # Position and size
           follow = "none";
-          origin = "top-right";
-          offset = "(15, 15)";
-          layer = "top";
-
-          width = 300;
-          height = "(0, 145)";
           gap_size = 8;
-          padding = 15;
+          height = "(0, 145)";
           horizontal_padding = 15;
-          text_icon_padding = 15;
+          layer = "top";
+          monitor = 0;
+          offset = "(15, 15)";
+          origin = "top-right";
+          padding = 15;
           separator_height = 2;
+          text_icon_padding = 15;
+          width = 300;
 
+          # Frame
           corner_radius = 15;
           frame_width = 2;
 
-          font = lib.mkForce "JetBrainsMono Nerd Font 10";
+          # Text
           alignment = "left";
-          vertical_alignment = "center";
-          line_height = 0;
-          format = "<b>%s</b>\\n%b";
-          word_wrap = "yes";
-          markup = "full";
           ellipsize = "middle";
+          font = lib.mkForce "JetBrainsMono Nerd Font 10";
+          format = "<b>%s</b>\\n%b";
+          line_height = 0;
+          markup = "full";
+          vertical_alignment = "center";
+          word_wrap = "yes";
 
+          # Icons
           icon_position = "left";
-          min_icon_size = 48;
           max_icon_size = 64;
+          min_icon_size = 48;
 
+          # Progress bar
           progress_bar = true;
-          progress_bar_height = 8;
           progress_bar_frame_width = 1;
-          progress_bar_min_width = 150;
+          progress_bar_height = 8;
           progress_bar_max_width = 300;
+          progress_bar_min_width = 150;
 
+          # History
           history_length = 20;
-          sticky_history = "yes";
           show_age_threshold = 60;
+          sticky_history = "yes";
 
+          # Behavior
+          hide_duplicate_count = false;
+          ignore_dbusclose = false;
+          ignore_newline = "no";
+          indicate_hidden = "yes";
           notification_limit = 0;
+          show_indicators = "no";
           sort = "yes";
           stack_duplicates = true;
-          hide_duplicate_count = false;
-          indicate_hidden = "yes";
-          show_indicators = "no";
-          ignore_newline = "no";
-          ignore_dbusclose = false;
 
+          # Mouse
           mouse_left_click = "do_action";
           mouse_middle_click = "close_all";
           mouse_right_click = "close_current";
 
-          force_xwayland = false;
+          # Compatibility
           force_xinerama = false;
+          force_xwayland = false;
         };
 
-        experimental.per_monitor_dpi = false;
-
+        urgency_critical.timeout = 0;
         urgency_low.timeout = 4;
         urgency_normal.timeout = 6;
-        urgency_critical.timeout = 0;
       };
     };
   };

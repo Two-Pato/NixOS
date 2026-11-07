@@ -19,14 +19,14 @@
       </shortcuts>
     '';
 
-    home.file.".local/share/applications/org.gnome.gThumb.desktop".text = ''
+    home.file.".local/share/applications/org.gnome.gthumb.desktop".text = ''
       [Desktop Entry]
       Name=Thumbnails
-      Categories=GNOME;GTK;Graphics;2DGraphics;Viewer;
+      Categories=GNOME;GTK;Graphics;Viewer;RasterGraphics;2DGraphics;Photography;
       Exec=gthumb --new-window %U
-      MimeType=image/jpeg;image/png;image/webp;image/gif;image/bmp;image/tiff;image/svg+xml;image/avif;image/heif;image/jxl;
-      Comment=Browse and view images
-      Icon=org.gnome.gThumb
+      MimeType=image/png;image/apng;image/jpeg;image/webp;image/svg+xml;image/jxl;image/heif;image/heic;image/avif;image/tiff;image/gif;
+      Comment=View and organize your images
+      Icon=org.gnome.gthumb
       StartupNotify=true
       Terminal=false
       Type=Application

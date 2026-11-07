@@ -10,18 +10,19 @@
 
       mimeApps = {
         enable = true;
+
         defaultApplications = {
-          "text/plain" = [ "org.gnome.TextEditor.desktop" ];
-          "image/jpeg" = [ "org.gnome.gthumb.desktop" ];
-          "image/png" = [ "org.gnome.gthumb.desktop" ];
-          "image/avif" = [ "org.gnome.gthumb.desktop" ];
-          "image/webp" = [ "org.gnome.gthumb.desktop" ];
-          "image/gif" = [ "org.gnome.gthumb.desktop" ];
-          "image/bmp" = [ "org.gnome.gthumb.desktop" ];
-          "video/x-matroska" = [ "mpv.desktop" ];
+          "application/pdf" = [ "zathura.desktop" ];
           "application/xml" = [ "org.gnome.TextEditor.desktop" ];
           "application/zip" = [ "org.gnome.Nautilus.desktop" ];
-          "application/pdf" = [ "zathura.desktop" ];
+          "image/avif" = [ "org.gnome.gthumb.desktop" ];
+          "image/bmp" = [ "org.gnome.gthumb.desktop" ];
+          "image/gif" = [ "org.gnome.gthumb.desktop" ];
+          "image/jpeg" = [ "org.gnome.gthumb.desktop" ];
+          "image/png" = [ "org.gnome.gthumb.desktop" ];
+          "image/webp" = [ "org.gnome.gthumb.desktop" ];
+          "text/plain" = [ "org.gnome.TextEditor.desktop" ];
+          "video/x-matroska" = [ "mpv.desktop" ];
         };
       };
     };

@@ -4,6 +4,7 @@
       kaede
       kaede-hardware
       kaede-network
+
       boot-grub
       core-settings
       nixos-server-kaede
@@ -12,9 +13,9 @@
 
   flake.nixosModules.kaede = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
-      core-settings
-      cli
       bash
+      cli
+      core-settings
     ];
 
     environment.systemPackages = with pkgs; [
