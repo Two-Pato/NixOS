@@ -61,6 +61,13 @@
 
           keybindings = {
             shortcut = "1";
+            enter = "actions:open";
+          };
+
+          actions.open = {
+            description = "Opens the selected directory in nautilus";
+            command = "uwsm app -- nautilus '{}'";
+            mode = "execute";
           };
         };
 
@@ -146,7 +153,7 @@
 
           preview = {
             command = "bat -n --color=always '{strip_ansi|split:\\::0}'";
-            offset = "'{strip_ansi|split:\::1}'";
+            offset = "{strip_ansi|split:\\::1}";
             env = {
               BAT_THEME = "ansi";
             };

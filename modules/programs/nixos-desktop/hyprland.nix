@@ -263,7 +263,7 @@
           {
             _args = [
               "SUPER + S"
-              (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("pkill -x tv || uwsm app -- kitty --class tv -e tv text")'')
+              (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("pkill -x .tv-wrapped || uwsm app -- kitty --class tv -e tv text")'')
             ];
           }
 

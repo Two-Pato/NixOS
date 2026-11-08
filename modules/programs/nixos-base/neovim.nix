@@ -39,8 +39,9 @@
           nvim-web-devicons.enable = true;
         };
 
-        statusline = {
-          lualine.enable = true;
+        statusline.lualine = {
+          enable = true;
+          setupOpts.options.globalstatus = true;
         };
 
         notify.nvim-notify = {
