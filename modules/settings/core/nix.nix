@@ -1,8 +1,11 @@
 {
   flake.nixosModules.core-settings = {
     nix.settings = {
-      experimental-features = [ "nix-command" "flakes" ];
       download-buffer-size = 500000000; # 500 MB
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       use-xdg-base-directories = true;
     };
 
@@ -12,8 +15,11 @@
 
   flake.darwinModules.core-settings = {
     nix.settings = {
-      experimental-features = [ "nix-command" "flakes" ];
       download-buffer-size = 500000000; # 500 MB
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
 
     nix.optimise.automatic = true;

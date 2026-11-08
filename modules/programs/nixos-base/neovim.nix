@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   flake.homeModules.nixos-base = {
     programs.nvf = {
       enable = true;
@@ -20,10 +21,10 @@
           undofile = true;
 
           # Tabs
-          tabstop = 2;
-          shiftwidth = 2;
-          expandtab = true;
           autoindent = true;
+          expandtab = true;
+          shiftwidth = 2;
+          tabstop = 2;
         };
 
         # Gui
@@ -60,8 +61,8 @@
         telescope.enable = true;
 
         binds = {
-          whichKey.enable = true;
           cheatsheet.enable = true;
+          whichKey.enable = true;
         };
 
         utility.images.image-nvim = {
@@ -75,6 +76,13 @@
         keymaps = [
           # Filetree
           {
+            key = "<leader>ec";
+            mode = "n";
+            silent = true;
+            action = "<cmd>NvimTreeCollapse<CR>";
+            desc = "Collapse file explorer";
+          }
+          {
             key = "<leader>ee";
             mode = "n";
             silent = true;
@@ -87,13 +95,6 @@
             silent = true;
             action = "<cmd>NvimTreeFindFileToggle<CR>";
             desc = "Toggle file explorer on current file";
-          }
-          {
-            key = "<leader>ec";
-            mode = "n";
-            silent = true;
-            action = "<cmd>NvimTreeCollapse<CR>";
-            desc = "Collapse file explorer";
           }
           {
             key = "<leader>er";

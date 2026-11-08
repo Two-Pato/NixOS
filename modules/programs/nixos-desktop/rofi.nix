@@ -1,70 +1,83 @@
-{ config, ... }: {
-  flake.homeModules.nixos-desktop = hmConfig: 
+{ config, ... }:
+{
+  flake.homeModules.nixos-desktop = hmConfig:
   let
     inherit (hmConfig.config.lib.formats.rasi) mkLiteral;
-    lib = hmConfig.lib;
-  in {
+  in
+  {
     programs.rofi = {
       enable = true;
 
       settings = {
-        modi = "drun";
-        font = "JetBrainsMono Nerd Font 12";
-        show-icons = true;
         display-drun = "";
         drun-display-format = "{name}";
+        font = "JetBrainsMono Nerd Font 12";
+        modi = "drun";
+        show-icons = true;
       };
 
       theme = {
         window = {
-          transparency = "real";
-          location = "center";
           anchor = "center";
+          border-radius = 15;
+          cursor = mkLiteral "default";
           fullscreen = false;
+          location = "center";
+          transparency = "real";
           width = 1000;
           x-offset = 0;
           y-offset = 0;
-          border-radius = 15;
-          cursor = mkLiteral "default";
         };
 
         mainbox = {
-          spacing = 0;
           background-color = mkLiteral "transparent";
-          orientation = mkLiteral "horizontal";
-          children = [ "imagebox" "listbox" ];
           border = 2;
-          border-radius = 15;
           border-color = mkLiteral "#${config.colors.base08-hex}";
+          border-radius = 15;
+          children = [
+            "imagebox"
+            "listbox"
+          ];
+
+          orientation = mkLiteral "horizontal";
+          spacing = 0;
         };
 
         imagebox = {
-          padding = 20;
           background-color = mkLiteral "transparent";
           background-image = mkLiteral "url(\"/etc/nixos/assets/rofi_wallpaper.png\", width)";
-          orientation = "vertical";
           children = [ "inputbar" ];
-        };
-        
-        listbox = {
-          spacing = 20;
-          padding = 20;
-          background-color = mkLiteral "transparent";
           orientation = "vertical";
-          children = [ "message" "listview" ];
+          padding = 20;
+        };
+
+        listbox = {
+          background-color = mkLiteral "transparent";
+          children = [
+            "message"
+            "listview"
+          ];
+
+          orientation = "vertical";
+          padding = 20;
+          spacing = 20;
         };
 
         inputbar = {
-          spacing = 10;
-          padding = 15;
           border-radius = 10;
-          children = [ "textbox-prompt-colon" "entry" ];
+          children = [
+            "textbox-prompt-colon"
+            "entry"
+          ];
+
+          padding = 15;
+          spacing = 10;
         };
 
         textbox-prompt-colon = {
           expand = false;
-          str = " ";
           font = "JetBrainsMono Nerd Font 12";
+          str = " ";
         };
 
         entry = {
@@ -73,24 +86,24 @@
         };
 
         listview = {
+          background-color = mkLiteral "transparent";
           columns = 1;
-          lines = 8;
           cycle = true;
           dynamic = true;
-          scrollbar = false;
-          layout = "vertical";
-          reverse = false;
-          fixed-height = true;
           fixed-columns = true;
+          fixed-height = true;
+          layout = "vertical";
+          lines = 8;
+          reverse = false;
+          scrollbar = false;
           spacing = 10;
-          background-color = mkLiteral "transparent";
         };
 
         element = {
-          spacing = 15;
-          padding = 8;
-          border-radius = 10;
           background-color = mkLiteral "transparent";
+          border-radius = 10;
+          padding = 8;
+          spacing = 15;
         };
 
         element-icon = {
@@ -98,8 +111,8 @@
         };
 
         element-text = {
-          vertical-align = mkLiteral "0.5";
           horizontal-align = 0;
+          vertical-align = mkLiteral "0.5";
         };
 
         message = {

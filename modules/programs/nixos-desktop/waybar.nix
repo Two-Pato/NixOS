@@ -1,119 +1,127 @@
-{ config, ... }: {
+{ config, ... }:
+{
   flake.homeModules.nixos-desktop = {
     programs.waybar = {
       enable = true;
 
-      settings = [{
-        layer = "bottom";
-        position = "top";
-        margin-top = 10;
-        margin-bottom = 0;
-        margin-left = 10;
-        margin-right = 10;
-        spacing = 0;
+      settings = [
+        {
+          layer = "bottom";
+          margin-bottom = 0;
+          margin-left = 10;
+          margin-right = 10;
+          margin-top = 10;
+          position = "top";
+          spacing = 0;
 
-        modules-left = [
-          "custom/appmenu"
-          "custom/tray"
-          "wlr/taskbar"
-          "hyprland/window"
-        ];
+          modules-left = [
+            "custom/appmenu"
+            "custom/tray"
+            "wlr/taskbar"
+            "hyprland/window"
+          ];
 
-        modules-center = [
-          "hyprland/workspaces"
-        ];
+          modules-center = [
+            "hyprland/workspaces"
+          ];
 
-        modules-right = [
-          "network"
-          "bluetooth"
-          "pulseaudio"
-          "clock"
-          "custom/hypridle"
-          "custom/exit"
-        ];
+          modules-right = [
+            "network"
+            "bluetooth"
+            "pulseaudio"
+            "clock"
+            "custom/hypridle"
+            "custom/exit"
+          ];
 
-        # Modules
-        "custom/appmenu" = {
-          tooltip = false;
-          format = "󱄅";
-          on-click = "sleep 0.2; uwsm app -- rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\"";
-        };
-
-        "custom/tray" = {
-          tooltip = false;
-          format = "󰙵 |";
-          on-click = "uwsm app -- kitty tray-tui";
-        };
-
-        "wlr/taskbar" = {
-          tooltip = false;
-          format = "{icon}";
-          icon-size = 16;
-          on-click = "activate";
-          on-click-middle = "close";
-        };
-
-        "hyprland/window" = {
-          tooltip = false;
-          format = "{}";
-          max-length = 60;
-        };
-
-        "hyprland/workspaces" = {
-          on-click = "activate";
-          active-only = false;
-          all-outputs = true;
-          persistent-workspaces = {
-            "*" = 5;
-          };
-        };
-
-        network = {
-          tooltip = false;
-          format-wifi = "  {essid}";
-          format-ethernet = " ";
-          format-linked = "  Linked (No IP)";
-          format-disconnected = "  Disconnected";
-        };
-
-        bluetooth = {
-          format-connected-battery = " {device_alias} {device_battery_percentage}%";
-          on-click = "uwsm app -- blueman-manager";
-        };
-
-        pulseaudio = {
-          tooltip = false;
-          format = "{icon}  {volume}%";
-          format-muted = " muted";
-          format-icons = {
-            headphone = "";
-            default = [ "" "" "󰕾" "" ];
+          # Modules
+          "custom/appmenu" = {
+            format = "󱄅";
+            on-click = "sleep 0.2; uwsm app -- rofi -show drun -replace -i -run-command \"uwsm app -- {cmd}\"";
+            tooltip = false;
           };
 
-          scroll-step = 5;
-          on-click = "uwsm app -- pwvucontrol";
-        };
+          "custom/tray" = {
+            format = "󰙵 |";
+            on-click = "uwsm app -- kitty tray-tui";
+            tooltip = false;
+          };
 
-        clock = {
-          tooltip = false;
-          format = "{:%H:%M %a %d %b}";
-        };
+          "wlr/taskbar" = {
+            format = "{icon}";
+            icon-size = 16;
+            on-click = "activate";
+            on-click-middle = "close";
+            tooltip = false;
+          };
 
-        "custom/hypridle" = {
-          tooltip = false;
-          format = "  ";
-          return-type = "json";
-          escape = true;
-          exec-on-event = true;
-          on-click = "uwsm app -- hyprlock";
-        };
+          "hyprland/window" = {
+            format = "{}";
+            max-length = 60;
+            tooltip = false;
+          };
 
-        "custom/exit" = {
-          tooltip = false;
-          format = " ";
-          on-click = "uwsm app -- wlogout";
-        };
-      }];
+          "hyprland/workspaces" = {
+            active-only = false;
+            all-outputs = true;
+            on-click = "activate";
+            persistent-workspaces = {
+              "*" = 5;
+            };
+          };
+
+          network = {
+            format-disconnected = "  Disconnected";
+            format-ethernet = " ";
+            format-linked = "  Linked (No IP)";
+            format-wifi = "  {essid}";
+            tooltip = false;
+          };
+
+          bluetooth = {
+            format-connected-battery = " {device_alias} {device_battery_percentage}%";
+            on-click = "uwsm app -- blueman-manager";
+          };
+
+          pulseaudio = {
+            format = "{icon}  {volume}%";
+            format-icons = {
+              headphone = "";
+              default = [
+                ""
+                ""
+                "󰕾"
+                ""
+              ];
+            };
+            format-muted = " muted";
+
+            on-click = "uwsm app -- pwvucontrol";
+            scroll-step = 5;
+            tooltip = false;
+          };
+
+          clock = {
+            format = "{:%H:%M %a %d %b}";
+            tooltip = false;
+          };
+
+          "custom/hypridle" = {
+            escape = true;
+            exec-on-event = true;
+            format = "  ";
+            on-click = "uwsm app -- hyprlock";
+            return-type = "json";
+            tooltip = false;
+          };
+
+          "custom/exit" = {
+            format = " ";
+            on-click = "uwsm app -- wlogout";
+            tooltip = false;
+          };
+        }
+      ];
 
       style = ''
         * {

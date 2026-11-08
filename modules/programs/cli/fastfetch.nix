@@ -15,7 +15,9 @@
         };
 
         modules = [
-          "break" "break" "break"
+          "break"
+          "break"
+          "break"
 
           # Operating System Section
           {
@@ -116,7 +118,8 @@
             keyColor = "38;2;198;176;214";
           }
 
-          "break" "break"
+          "break"
+          "break"
         ];
       };
     };

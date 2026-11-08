@@ -8,7 +8,11 @@
       settings = {
         mgr = {
           linemode = "none";
-          ratio = [ 1 4 3 ];
+          ratio = [
+            1
+            4
+            3
+          ];
           show_hidden = true;
           show_symlink = true;
           sort_by = "natural";
@@ -19,18 +23,38 @@
 
         open = {
           prepend_rules = [
-            { url = "*.cbz"; use = [ "comic" "nvim" ]; }
-            { mime = "application/zip"; use = [ "comic" "nvim" ]; }
+            {
+              url = "*.cbz";
+              use = [
+                "comic"
+                "nvim"
+              ];
+            }
+            {
+              mime = "application/zip";
+              use = [
+                "comic"
+                "nvim"
+              ];
+            }
           ];
         };
 
         opener = {
           comic = [
-            { block = false; desc = "Zathura"; run = ''zathura "$@"''; }
+            {
+              block = false;
+              desc = "Zathura";
+              run = ''zathura "$@"'';
+            }
           ];
 
           nvim = [
-            { block = true; desc = "Neovim"; run = ''nvim "$@"''; }
+            {
+              block = true;
+              desc = "Neovim";
+              run = ''nvim "$@"'';
+            }
           ];
         };
 

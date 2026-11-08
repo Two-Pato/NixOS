@@ -1,26 +1,27 @@
-{ config, ... }: {
+{ config, ... }:
+{
   flake.homeModules.nixos-desktop = {
     programs.wlogout = {
       enable = true;
 
       layout = [
         {
-          label = "lock";
           action = "hyprlock";
-          text = "Lock";
           keybind = "l";
+          label = "lock";
+          text = "Lock";
         }
         {
-          label = "shutdown";
           action = "systemctl poweroff";
-          text = "Shutdown";
           keybind = "s";
+          label = "shutdown";
+          text = "Shutdown";
         }
         {
-          label = "reboot";
           action = "systemctl reboot";
-          text = "Reboot";
           keybind = "r";
+          label = "reboot";
+          text = "Reboot";
         }
       ];
 

@@ -1,4 +1,5 @@
-{ inputs, config, ... }: {
+{ config, inputs, ... }:
+{
   flake.nixosConfigurations.mihari = inputs.nixpkgs.lib.nixosSystem {
     modules = with config.flake.nixosModules; [
       mihari
@@ -15,7 +16,7 @@
   flake.nixosModules.mihari = { pkgs, ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
       mihari
-      
+
       bash
       cli
       core-settings
@@ -23,13 +24,15 @@
       nixos-desktop
       nixos-extra
 
-      inputs.stylix.homeModules.stylix
       inputs.nvf.homeManagerModules.default
+      inputs.stylix.homeModules.stylix
     ];
 
     environment.systemPackages = with pkgs; [
       adwaita-icon-theme
       curl
+      nixd
+      nixfmt
       tray-tui
       usbutils
       wget

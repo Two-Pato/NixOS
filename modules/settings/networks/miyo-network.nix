@@ -3,18 +3,21 @@
     systemd.network.enable = true;
 
     systemd.network.networks."10-wan" = {
-      matchConfig = {
-        Name = [ "en*" "eth*" ];
-      };
-
       linkConfig = {
         RequiredForOnline = "routable";
       };
 
+      matchConfig = {
+        Name = [
+          "en*"
+          "eth*"
+        ];
+      };
+
       networkConfig = {
         Address = [ "10.0.20.23/24" ];
-        Gateway = "10.0.20.1";
         DNS = [ "10.0.20.1" ];
+        Gateway = "10.0.20.1";
       };
     };
 

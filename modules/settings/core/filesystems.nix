@@ -14,7 +14,8 @@
       "uid=1000"
       "gid=100"
     ];
-  in {
+  in
+  {
     systemd.tmpfiles.rules = [
       "d /home/laurent/.cache 0755 laurent users - -"
     ];
@@ -32,6 +33,14 @@
         };
       }
 
+      (lib.mkIf (config.networking.hostName == "mihari") {
+        "/mnt/backup" = {
+          device = "//10.0.20.32/backup";
+          fsType = "cifs";
+          options = cifsOptions;
+        };
+      })
+
       (lib.mkIf (lib.elem config.networking.hostName [ "mihari" "kaede" ]) {
         "/mnt/media" = {
           device = "//10.0.20.31/media";
@@ -43,14 +52,6 @@
       (lib.mkIf (config.networking.hostName == "mahiro") {
         "/mnt/videogames" = {
           device = "//10.0.20.31/videogames";
-          fsType = "cifs";
-          options = cifsOptions;
-        };
-      })
-
-      (lib.mkIf (config.networking.hostName == "mihari") {
-        "/mnt/backup" = {
-          device = "//10.0.20.32/backup";
           fsType = "cifs";
           options = cifsOptions;
         };

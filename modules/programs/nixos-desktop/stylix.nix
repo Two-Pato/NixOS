@@ -1,5 +1,6 @@
-{ config, ... }: {
-  flake.homeModules.nixos-desktop = { lib, pkgs, osConfig, ... }: {
+{ config, ... }:
+{
+  flake.homeModules.nixos-desktop = { lib, osConfig, pkgs, ... }: {
     stylix = {
       enable = true;
       autoEnable = false;
@@ -46,24 +47,24 @@
       };
 
       fonts = {
-        serif = {
-          package = pkgs.noto-fonts;
-          name = "Noto Serif";
-        };
-
-        sansSerif = {
-          package = pkgs.noto-fonts;
-          name = "Noto Sans";
+        emoji = {
+          name = "Noto Color Emoji";
+          package = pkgs.noto-fonts-emoji;
         };
 
         monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
           name = "JetBrainsMono Nerd Font Mono";
+          package = pkgs.nerd-fonts.jetbrains-mono;
         };
 
-        emoji = {
-          package = pkgs.noto-fonts-emoji;
-          name = "Noto Color Emoji";
+        sansSerif = {
+          name = "Noto Sans";
+          package = pkgs.noto-fonts;
+        };
+
+        serif = {
+          name = "Noto Serif";
+          package = pkgs.noto-fonts;
         };
       };
     };

@@ -19,14 +19,14 @@
     ];
 
     environment.systemPackages = with pkgs; [
-      (import ../../../scripts/mkv-convert.nix { inherit pkgs; })
       (import ../../../scripts/magick-cut.nix { inherit pkgs; })
-      (import ../../../scripts/magick-merge.nix { inherit pkgs; })
       (import ../../../scripts/magick-fix.nix { inherit pkgs; })
+      (import ../../../scripts/magick-merge.nix { inherit pkgs; })
+      (import ../../../scripts/mkv-convert.nix { inherit pkgs; })
     ];
   };
 
-  flake.darwinModules.core-settings = { config, lib, pkgs, ... }: {
+  flake.darwinModules.core-settings = { ... }: {
     environment.shellAliases = {
       garbage = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
       rebuild-momiji = "sudo darwin-rebuild switch --flake ./NixOS/.#momiji";

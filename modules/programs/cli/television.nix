@@ -7,6 +7,7 @@
 
       settings = {
         tick_rate = 50;
+
         ui = {
           ui_scale = 100;
           orientation = "landscape";
@@ -40,20 +41,6 @@
           };
         };
 
-        zsh-history = {
-          metadata = {
-            name = "zsh-history";
-            description = "A channel to select from your zsh history";
-            requirements = [ "zsh" ];
-          };
-
-          source = {
-            command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.zsh_history}";
-            display = "{split:;:1..}";
-            output = "{split:;:1..}";
-          };
-        };
-
         dirs = {
           metadata = {
             name = "dirs";
@@ -62,7 +49,10 @@
           };
 
           source = {
-            command = [ "fd -t d" "fd -t d --hidden" ];
+            command = [
+              "fd -t d"
+              "fd -t d --hidden"
+            ];
           };
 
           preview = {
@@ -106,11 +96,17 @@
           metadata = {
             name = "files";
             description = "A channel to select files and directories";
-            requirements = [ "fd" "bat" ];
+            requirements = [
+              "fd"
+              "bat"
+            ];
           };
 
           source = {
-            command = [ "fd -t f" "fd -t f -H" ];
+            command = [
+              "fd -t f"
+              "fd -t f -H"
+            ];
           };
 
           preview = {
@@ -136,7 +132,10 @@
           metadata = {
             name = "text";
             description = "A channel to find and select text from files";
-            requirements = [ "rg" "bat" ];
+            requirements = [
+              "rg"
+              "bat"
+            ];
           };
 
           source = {
@@ -168,6 +167,20 @@
             description = "Opens the selected entry with neovim at the matching line";
             command = "nvim +'{strip_ansi|split:\\::1}' '{strip_ansi|split:\\::0}'";
             mode = "execute";
+          };
+        };
+
+        zsh-history = {
+          metadata = {
+            name = "zsh-history";
+            description = "A channel to select from your zsh history";
+            requirements = [ "zsh" ];
+          };
+
+          source = {
+            command = "sed '1!G;h;$!d' \${HISTFILE:-\${HOME}/.zsh_history}";
+            display = "{split:;:1..}";
+            output = "{split:;:1..}";
           };
         };
       };

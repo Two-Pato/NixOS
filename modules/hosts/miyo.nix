@@ -1,4 +1,5 @@
-{ inputs, config, ... }: {
+{ config, inputs, ... }:
+{
   flake.nixosConfigurations.miyo = inputs.nixpkgs.lib.nixosSystem {
     modules = with config.flake.nixosModules; [
       miyo

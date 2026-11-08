@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   flake.homeModules.nixos-desktop = { pkgs, ... }: {
     services.clipse = {
       enable = true;

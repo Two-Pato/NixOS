@@ -8,13 +8,15 @@
       faugus-launcher
       protonup-qt
 
-      (retroarch.withCores (cores: with cores; [
-        snes9x  # Nintendo SNES
-        mgba    # Game Boy Advance
-        melonds # Nintendo DS
-        dolphin # Nintendo GameCube / Wii
-        pcsx2   # Playstation 2
-      ]))
+      (retroarch.withCores (
+        cores: with cores; [
+          dolphin # Nintendo GameCube / Wii
+          melonds # Nintendo DS
+          mgba # Game Boy Advance
+          pcsx2 # Playstation 2
+          snes9x # Nintendo SNES
+        ]
+      ))
     ];
   };
 }

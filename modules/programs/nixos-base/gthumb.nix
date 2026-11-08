@@ -1,5 +1,5 @@
 {
-  flake.homeModules.nixos-base = { lib, pkgs, ... }: with lib.hm.gvariant; {
+  flake.homeModules.nixos-base = { pkgs, ... }: {
     dconf.settings = {
       "org/gnome/gthumb" = {
         sort-type = "file::name";

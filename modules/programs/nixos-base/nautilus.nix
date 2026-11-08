@@ -6,11 +6,11 @@
       terminal = "kitty";
     };
 
-    services.gvfs.enable = true;
     services.gnome.sushi.enable = true;
+    services.gvfs.enable = true;
   };
 
-  flake.homeModules.nixos-base = { lib, pkgs, osConfig, ... }: with lib.hm.gvariant; {
+  flake.homeModules.nixos-base = { lib, osConfig, pkgs, ... }: {
     dconf.settings = {
       "org/gnome/nautilus/icon-view" = {
         captions = [ "size" "none" "none" ];
@@ -19,8 +19,8 @@
 
       "org/gnome/nautilus/preferences" = {
         default-folder-viewer = "icon-view";
-        default-sort-order = "name";
         default-sort-in-reverse-order = false;
+        default-sort-order = "name";
         executable-text-activation = "ask";
         migrated-gtk-settings = true;
         search-filter-time-type = "last_modified";

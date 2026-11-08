@@ -1,8 +1,8 @@
 {
   flake.nixosModules.core-settings = { pkgs, ... }: {
     users.users.laurent = {
-      isNormalUser = true;
       extraGroups = [ "wheel" ];
+      isNormalUser = true;
       shell = pkgs.bash;
     };
 

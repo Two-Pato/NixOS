@@ -8,13 +8,13 @@
       history = {
         ignoreAllDups = true;
         ignorePatterns = [
-          "ls"
-          "la"
-          "ll"
-          "lt"
           "cd *"
           "clear"
           "exit"
+          "la"
+          "ll"
+          "ls"
+          "lt"
         ];
       };
     };

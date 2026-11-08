@@ -1,4 +1,5 @@
-{ inputs, config, ... }: {
+{ config, inputs, ... }:
+{
   flake.darwinConfigurations.momiji = inputs.nix-darwin.lib.darwinSystem {
     modules = with config.flake.darwinModules; [
       momiji
@@ -10,7 +11,7 @@
     ];
   };
 
-  flake.darwinModules.momiji = { pkgs, ... }: {
+  flake.darwinModules.momiji = { ... }: {
     home-manager.users.laurent.imports = with config.flake.homeModules; [
       momiji
 

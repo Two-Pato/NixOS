@@ -3,10 +3,10 @@
     dconf.settings = {
       "org/gnome/TextEditor" = {
         custom-font = "JetBrainsMono Nerd Font 11";
-        restore-session = false;
-        use-system-font = false;
         indent-style = "space";
+        restore-session = false;
         tab-width = mkUint32 2;
+        use-system-font = false;
       };
     };
 
