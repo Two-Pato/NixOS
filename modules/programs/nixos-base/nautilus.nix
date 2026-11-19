@@ -27,6 +27,10 @@
         show-image-thumbnails = "always";
         thumbnail-limit = 10;
       };
+
+      "org/gtk/gtk4/settings/file-chooser" = {
+        show-hidden = true;
+      };
     };
 
     home.packages = with pkgs; [

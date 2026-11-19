@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   flake.homeModules.nixos-desktop = hmConfig:
   let
@@ -11,7 +11,7 @@
       settings = {
         display-drun = "";
         drun-display-format = "{name}";
-        font = "JetBrainsMono Nerd Font 12";
+        font = lib.mkDefault "JetBrainsMono Nerd Font 12";
         modi = "drun";
         show-icons = true;
       };

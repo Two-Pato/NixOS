@@ -1,5 +1,7 @@
 {
   flake.nixosModules.desktop-settings = { pkgs, ... }: {
-    programs.openlogi.enable = true;
+    programs.openlogi = {
+      enable = true;
+    };
   };
 }

@@ -9,8 +9,8 @@
 
         # Nix
         garbage = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
-        "rebuild-${config.networking.hostName}" = "sudo nixos-rebuild switch --flake /etc/nixos/.#${config.networking.hostName}";
-        update = "nix flake update --flake /etc/nixos/";
+        "rebuild-${config.networking.hostName}" = "sudo nixos-rebuild switch --flake /home/laurent/NixOS/.#${config.networking.hostName}";
+        update = "nix flake update --flake /home/laurent/NixOS/";
       }
 
       (lib.mkIf (config.networking.hostName == "mihari") {

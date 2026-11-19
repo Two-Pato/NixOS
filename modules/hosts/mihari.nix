@@ -26,7 +26,7 @@
       nixos-desktop
       nixos-extra
 
-      inputs.nvf.homeManagerModules.default
+      inputs.nvf.homeModules.default
       inputs.stylix.homeModules.stylix
     ];
 

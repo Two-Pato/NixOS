@@ -35,7 +35,7 @@
             (lib.generators.mkLuaInline ''
               function()
                 hl.exec_cmd("uwsm app -- waybar")
-                hl.exec_cmd("uwsm app -- solaar --window=hide")
+                hl.exec_cmd("uwsm app -- openlogi-agent")
                 ${lib.optionalString (osConfig.networking.hostName == "mihari") ''
                   hl.exec_cmd("[ workspace 1 silent ] uwsm app -- firefox")
                   hl.exec_cmd("[ workspace 2 silent ] uwsm app -- nautilus")

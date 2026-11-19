@@ -6,9 +6,16 @@
       hashedPasswordFile = "/persistent/secrets/password";
       isNormalUser = true;
       shell = pkgs.bash;
+      uid = 1000;
     };
 
-    security.sudo.enable = true;
+    security.sudo = {
+      enable = true;
+
+      extraConfig = ''
+        Defaults lecture = never
+      '';
+    };
   };
 
   flake.darwinModules.core-settings = { pkgs, ... }: {

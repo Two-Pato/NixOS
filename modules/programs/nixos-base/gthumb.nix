@@ -2,8 +2,19 @@
   flake.homeModules.nixos-base = { pkgs, ... }: {
     dconf.settings = {
       "org/gnome/gthumb" = {
+        reuse-active-window = false;
         sort-type = "file::name";
         sort-inverse = false;
+        store-metadata-in-files = false;
+      };
+
+      "org/gnome/gthumb/savers/jpeg" = {
+        default-ext = "jpg";
+      };
+
+      "org/gnome/gthumb/viewers/images" = {
+        scroll-action = "change-file";
+        transparency = "checkered";
       };
     };
 
@@ -17,19 +28,6 @@
         <shortcut action="win.edit-metadata"/>
         <shortcut accelerator="c" action="viewer.crop"/>
       </shortcuts>
-    '';
-
-    home.file.".local/share/applications/org.gnome.gthumb.desktop".text = ''
-      [Desktop Entry]
-      Name=Thumbnails
-      Categories=GNOME;GTK;Graphics;Viewer;RasterGraphics;2DGraphics;Photography;
-      Exec=gthumb --new-window %U
-      MimeType=image/png;image/apng;image/jpeg;image/webp;image/svg+xml;image/jxl;image/heif;image/heic;image/avif;image/tiff;image/gif;
-      Comment=View and organize your images
-      Icon=org.gnome.gthumb
-      StartupNotify=true
-      Terminal=false
-      Type=Application
     '';
   };
 }

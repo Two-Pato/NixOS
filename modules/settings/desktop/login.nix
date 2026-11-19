@@ -10,6 +10,8 @@
             "--sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions"
             "--time"
             "--user-menu"
+            #"--user-menu-min-uid 1000"
+            #"--user-menu-max-uid 1000"
             "--remember"
             "--remember-user-session"
             "--asterisks"

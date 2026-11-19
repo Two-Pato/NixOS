@@ -102,11 +102,6 @@
             keyColor = "38;2;198;176;214";
           }
           {
-            type = "swap";
-            key = " ├ 󰓡 ";
-            keyColor = "38;2;198;176;214";
-          }
-          {
             type = "disk";
             key = " ├ 󰋊 ";
             keyColor = "38;2;198;176;214";
