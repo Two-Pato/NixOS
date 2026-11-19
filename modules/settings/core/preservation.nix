@@ -27,6 +27,11 @@
         ];
 
         users.laurent = {
+          commonMountOptions = [
+            "x-gvfs-hide"
+            "x-gdu.hide"
+          ];
+
           directories = [
             ".cache"
             ".config/mozilla"
