@@ -16,21 +16,17 @@
     ];
   in
   {
-    systemd.tmpfiles.rules = [
-      "d /home/laurent/.cache 0755 laurent users - -"
-    ];
+    systemd.tmpfiles.settings.preservation = {
+      "/home/laurent/.config".d = { user = "laurent"; group = "users"; mode = "0755"; };
+      "/home/laurent/.local".d = { user = "laurent"; group = "users"; mode = "0755"; };
+      "/home/laurent/.local/share".d = { user = "laurent"; group = "users"; mode = "0755"; };
+      "/home/laurent/.local/state".d = { user = "laurent"; group = "users"; mode = "0755"; };
+    };
 
     fileSystems = lib.mkMerge [
       {
-        "/home/laurent/.cache/thumbnails" = {
-          fsType = "tmpfs";
-          neededForBoot = false;
-          options = [
-            "size=512M"
-            "uid=1000"
-            "gid=100"
-          ];
-        };
+        "/nix".neededForBoot = true;
+        "/persistent".neededForBoot = true;
       }
 
       (lib.mkIf (config.networking.hostName == "mihari") {

@@ -1,12 +1,8 @@
 {
-  flake.nixosModules.boot-efi = {
+  flake.nixosModules.core-settings = {
+    boot.initrd.systemd.enable = true;
+
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-  };
-
-  flake.nixosModules.boot-grub = {
-    boot.loader.grub.enable = true;
-    boot.loader.grub.device = "/dev/sda";
-    boot.loader.grub.useOSProber = true;
   };
 }

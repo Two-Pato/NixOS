@@ -6,7 +6,6 @@
       miyo-hardware
       miyo-network
 
-      boot-grub
       core-settings
       desktop-nvidia
       nixos-server-miyo

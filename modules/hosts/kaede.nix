@@ -6,7 +6,6 @@
       kaede-hardware
       kaede-network
 
-      boot-grub
       core-settings
       nixos-server-kaede
     ];

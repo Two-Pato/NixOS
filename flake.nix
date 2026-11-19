@@ -8,6 +8,13 @@
 
     import-tree.url = "github:vic/import-tree";
 
+    preservation.url = "github:nix-community/preservation";
+
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";

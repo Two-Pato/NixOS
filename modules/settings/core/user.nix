@@ -1,7 +1,9 @@
 {
   flake.nixosModules.core-settings = { pkgs, ... }: {
+    users.mutableUsers = false;
     users.users.laurent = {
       extraGroups = [ "wheel" ];
+      hashedPasswordFile = "/persistent/secrets/password";
       isNormalUser = true;
       shell = pkgs.bash;
     };

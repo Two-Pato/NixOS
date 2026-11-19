@@ -6,10 +6,12 @@
       mihari-hardware
       mihari-network
 
-      boot-efi
       core-settings
       desktop-settings
       nixos-base
+
+      inputs.disko.nixosModules.disko
+      inputs.preservation.nixosModules.default
     ];
   };
 

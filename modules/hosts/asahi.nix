@@ -6,7 +6,6 @@
       asahi-hardware
       asahi-network
 
-      boot-grub
       core-settings
       nixos-server-asahi
     ];

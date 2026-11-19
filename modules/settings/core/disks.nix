@@ -1,0 +1,67 @@
+{
+  flake.nixosModules.core-settings = { config, lib, ... }: {
+    disko.devices = {
+      nodev."/" = {
+        fsType = "tmpfs";
+        mountOptions = [
+          "size=25%"
+          "mode=755"
+        ];
+      };
+
+      disk.main = {
+        device = lib.mkMerge [
+          (lib.mkIf (config.networking.hostName == "asahi")
+            "/dev/vda")
+
+          (lib.mkIf (config.networking.hostName == "kaede")
+            "/dev/vda")
+
+          (lib.mkIf (config.networking.hostName == "mahiro")
+            "/dev/disk/by-id/CHANGE-ME")
+
+          (lib.mkIf (config.networking.hostName == "mihari")
+            "/dev/disk/by-id/CHANGE-ME")
+
+          (lib.mkIf (config.networking.hostName == "miyo")
+            "/dev/vda")
+        ];
+
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              type = "EF00";
+              size = "1G";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
+              };
+            };
+
+            nix = {
+              size = "50G";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/nix";
+              };
+            };
+
+            persist = {
+              size = "100%";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/persistent";
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}

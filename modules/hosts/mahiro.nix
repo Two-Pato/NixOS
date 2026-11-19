@@ -6,7 +6,6 @@
       mahiro-hardware
       mahiro-network
 
-      boot-efi
       core-settings
       desktop-nvidia
       desktop-settings
