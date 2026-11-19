@@ -41,7 +41,6 @@
     home.packages = with pkgs; [
       discord
       ncdu
-      solaar
     ];
   };
 }

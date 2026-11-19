@@ -48,7 +48,6 @@
       mkvtoolnix
       ncdu
       pinta
-      solaar
       tinymist
       typst
       unzip
