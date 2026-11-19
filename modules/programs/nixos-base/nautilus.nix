@@ -29,7 +29,7 @@
       };
 
       "org/gtk/gtk4/settings/file-chooser" = {
-        show-hidden = true;
+        show-hidden = false;
       };
     };
 

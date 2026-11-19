@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.core-settings = {
+  flake.nixosModules.core-settings = { config, lib, ... }: {
     preservation = {
       enable = true;
 
@@ -14,15 +14,16 @@
           "/var/log"
 
           {
+            directory = "/var/lib/nixos";
+            inInitrd = true;
+          }
+        ]
+        ++ lib.optionals (lib.elem config.networking.hostName [ "mihari" "mahiro" ]) [
+          {
             directory = "/var/cache/tuigreet";
             user = "greeter";
             group = "greeter";
             mode = "0755";
-          }
-
-          {
-            directory = "/var/lib/nixos";
-            inInitrd = true;
           }
         ];
 
@@ -35,28 +36,29 @@
 
         users.laurent = {
           commonMountOptions = [
-            "x-gvfs-hide"
             "x-gdu.hide"
+            "x-gvfs-hide"
+            "x-gvfs-trash"
           ];
 
           directories = [
             ".cache"
-            ".config/clipse"
-            ".config/Code"
-            ".config/ghb"
-            ".config/gthumb"
-            ".config/mozilla"
-            ".config/openlogi"
-            ".config/Upscayl"
-            ".local/state/wireplumber"
             ".secrets"
-            ".vscode"
-            ".vscode-shared"
 
             {
               directory = ".ssh";
               mode = "0700";
             }
+          ]
+          ++ lib.optionals (lib.elem config.networking.hostName [ "mihari" "mahiro" ]) [
+            ".config/clipse"
+            ".config/gthumb"
+            ".config/mozilla"
+            ".config/openlogi"
+            ".local/state/wireplumber"
+
+            ".vscode"
+            ".vscode-shared"
 
             "Desktop"
             "Documents"
@@ -66,6 +68,11 @@
             "Pictures"
             "Programs"
             "Videos"
+          ]
+          ++ lib.optionals (config.networking.hostName == "mihari") [
+            ".config/Code"
+            ".config/ghb"
+            ".config/Upscayl"
           ];
 
           files = [

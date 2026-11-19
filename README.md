@@ -1,43 +1,103 @@
-cd ~/NixOS <br>
-nix flake check <br>
+# NixOS Configuration
 
-Find the SSD and put its ID in the config  <br>
-ls -l /dev/disk/by-id/ | grep -v -- '-part'  <br>
-lsblk -d -o NAME,SIZE,MODEL,SERIAL  <br>
+## Installation
 
-Partition, format and mount <br>
-sudo nix --extra-experimental-features 'nix-command flakes' run \ <br>
-  'github:nix-community/disko/latest' -- \ <br>
-  --mode destroy,format,mount \ <br>
-  --yes-wipe-all-disks \ <br>
-  --flake ~/NixOS#mihari <br>
+### 1. Check the flake
 
-findmnt -R /mnt <br>
+```bash
+git clone https://github.com/Two-Pato/NixOS.git
+cd ~/NixOS
+nix flake check
+```
 
-Generate hardware configuration <br>
-sudo nixos-generate-config \ <br>
-  --root /mnt \ <br>
-  --no-filesystems <br>
+<br>
 
+### 2. Find your SSD
 
+Find the SSD and put its ID in the config:<br>
 
-Create your password hash <br>
-sudo mkdir -p /mnt/persistent/secrets  <br>
-sudo chmod 700 /mnt/persistent/secrets  <br>
+```bash
+ls -l /dev/disk/by-id/ | grep -v -- '-part'
+lsblk -d -o NAME,SIZE,MODEL,SERIAL
+```
 
-nix-shell -p mkpasswd \   <br>
-  --run 'mkpasswd -m yescrypt' \  <br>
-  | sudo tee /mnt/persistent/secrets/password  <br>
-sudo chmod 600 /mnt/persistent/secrets/password  <br>
+<br>
 
-Put the flake where it will live <br>
-sudo mkdir -p /mnt/persistent/home/laurent <br>
-sudo cp -a ~/NixOS /mnt/persistent/home/laurent/NixOS <br>
-sudo chown -R 1000:100 /mnt/persistent/home/laurent <br>
+### 3. Partition, format and mount
 
+```bash
+sudo nix --extra-experimental-features 'nix-command flakes' run \
+  'github:nix-community/disko/latest' -- \
+  --mode destroy,format,mount \
+  --yes-wipe-all-disks \
+  --flake ~/NixOS#my-flake
+```
 
-Install
-sudo nixos-install --flake ~/NixOS#mihari --no-root-passwd
+Verify that everything is mounted under `/mnt`:<br>
 
+```bash
+findmnt -R /mnt
+```
 
-sudo nixos-rebuild switch --flake .#my-flake  <br>
+<br>
+
+### 4. Generate the hardware configuration (optional if already in config)
+
+Filesystems are handled by disko, so they are skipped here:<br>
+
+```bash
+sudo nixos-generate-config \
+  --root /mnt \
+  --no-filesystems
+```
+
+<br>
+
+### 5. Create your password hash
+
+Create a locked-down secrets directory:<br>
+
+```bash
+sudo mkdir -p /mnt/persistent/secrets
+sudo chmod 700 /mnt/persistent/secrets
+```
+
+Generate a yescrypt hash and store it:<br>
+
+```bash
+nix-shell -p mkpasswd \
+  --run 'mkpasswd -m yescrypt' \
+  | sudo tee /mnt/persistent/secrets/password
+sudo chmod 600 /mnt/persistent/secrets/password
+```
+
+<br>
+
+### 6. Put the flake where it will live
+
+```bash
+sudo mkdir -p /mnt/persistent/home/laurent
+sudo cp -a ~/NixOS /mnt/persistent/home/laurent/NixOS
+sudo chown -R 1000:100 /mnt/persistent/home/laurent
+```
+
+<br>
+
+### 7. Install
+
+```bash
+sudo nixos-install --flake ~/NixOS#my-flake --no-root-passwd
+```
+
+Reboot into the new system when it finishes.<br>
+
+<br>
+
+## Updating the system
+
+Apply changes from the flake directory:<br>
+
+```bash
+cd ~/NixOS
+sudo nixos-rebuild switch --flake .#my-flake
+```
