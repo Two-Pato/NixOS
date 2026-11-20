@@ -57,9 +57,6 @@
             ".config/openlogi"
             ".local/state/wireplumber"
 
-            ".vscode"
-            ".vscode-shared"
-
             "Desktop"
             "Documents"
             "Downloads"
@@ -73,6 +70,17 @@
             ".config/Code"
             ".config/ghb"
             ".config/Upscayl"
+
+            ".vscode"
+            ".vscode-shared"
+          ]
+          ++ lib.optionals (config.networking.hostName == "mahiro") [
+            ".config/faugus-launcher"
+            ".config/retroarch"
+            ".local/share/faugus-launcher"
+            ".local/share/Steam"
+
+            "Games"
           ];
 
           files = [

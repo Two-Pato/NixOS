@@ -6,8 +6,6 @@
       powerOnBoot = true;
     };
 
-    hardware.logitech.wireless.enable = true;
-
     services.blueman.enable = true;
   };
 }
