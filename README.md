@@ -7,12 +7,11 @@
 ```bash
 git clone https://github.com/Two-Pato/NixOS.git
 cd ~/NixOS
-nix flake check
 ```
 
 <br>
 
-### 2. Find your SSD
+### 2. Find your SSD (optional if already in config)
 
 Find the SSD and put its ID in the config:<br>
 
@@ -59,6 +58,10 @@ Create a locked-down secrets directory:<br>
 
 ```bash
 sudo mkdir -p /mnt/persistent/secrets
+
+```
+
+```bash
 sudo chmod 700 /mnt/persistent/secrets
 ```
 
@@ -68,6 +71,9 @@ Generate a yescrypt hash and store it:<br>
 nix-shell -p mkpasswd \
   --run 'mkpasswd -m yescrypt' \
   | sudo tee /mnt/persistent/secrets/password
+```
+
+```bash
 sudo chmod 600 /mnt/persistent/secrets/password
 ```
 

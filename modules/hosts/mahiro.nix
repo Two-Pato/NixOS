@@ -11,6 +11,9 @@
       desktop-settings
       games
       nixos-base
+
+      inputs.disko.nixosModules.disko
+      inputs.preservation.nixosModules.default
     ];
   };
 

@@ -18,7 +18,7 @@
             "/dev/vda")
 
           (lib.mkIf (config.networking.hostName == "mahiro")
-            "/dev/disk/by-id/CHANGE-ME")
+            "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b448b47035018")
 
           (lib.mkIf (config.networking.hostName == "mihari")
             "/dev/disk/by-id/nvme-eui.00000000000000000026b738301e07e5")
