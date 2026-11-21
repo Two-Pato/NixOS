@@ -1,5 +1,9 @@
 {
   flake.homeModules.nixos-base = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      gthumb
+    ];
+
     dconf.settings = {
       "org/gnome/gthumb" = {
         reuse-active-window = false;
@@ -17,10 +21,6 @@
         transparency = "checkered";
       };
     };
-
-    home.packages = with pkgs; [
-      gthumb
-    ];
 
     home.file.".config/gthumb/shortcuts.xml".text = ''
       <?xml version="1.0" encoding="UTF-8"?>

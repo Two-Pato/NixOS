@@ -1,5 +1,9 @@
 {
   flake.homeModules.nixos-base = { lib, pkgs, ... }: with lib.hm.gvariant; {
+    home.packages = with pkgs; [
+      gnome-text-editor
+    ];
+
     dconf.settings = {
       "org/gnome/TextEditor" = {
         custom-font = "JetBrainsMono Nerd Font 11";
@@ -9,10 +13,6 @@
         use-system-font = false;
       };
     };
-
-    home.packages = with pkgs; [
-      gnome-text-editor
-    ];
 
     home.file.".local/share/applications/org.gnome.TextEditor.desktop".text = ''
       [Desktop Entry]

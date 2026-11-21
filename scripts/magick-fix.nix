@@ -9,7 +9,6 @@ pkgs.writeShellScriptBin "magick-fix" ''
   EXTS=(jpg jpeg png webp avif tiff tif bmp gif)
   MAGICK="${pkgs.imagemagick}/bin/magick"
 
-  # Crop bottom 30px from each image in FOLDER2, save as numbered PNGs
   echo "==> Cropping $FOLDER2 ..."
   mkdir -p "$FOLDER2/temp"
 
@@ -25,7 +24,6 @@ pkgs.writeShellScriptBin "magick-fix" ''
     (( i++ ))
   done
 
-  # Merge each FOLDER1 image with its numbered overlay
   echo "==> Merging into $FOLDER1/merged ..."
   mkdir -p "$FOLDER1/merged"
 

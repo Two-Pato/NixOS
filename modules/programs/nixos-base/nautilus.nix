@@ -11,6 +11,10 @@
   };
 
   flake.homeModules.nixos-base = { lib, osConfig, pkgs, ... }: {
+    home.packages = with pkgs; [
+      nautilus
+    ];
+
     dconf.settings = {
       "org/gnome/nautilus/icon-view" = {
         captions = [ "size" "none" "none" ];
@@ -32,10 +36,6 @@
         show-hidden = false;
       };
     };
-
-    home.packages = with pkgs; [
-      nautilus
-    ];
 
     home.file.".config/gtk-3.0/bookmarks".text = ''
       file:///home/laurent/Documents Documents
