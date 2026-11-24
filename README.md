@@ -2,10 +2,13 @@
 
 ## Installation
 
-### 1. Check the flake
+### 1. Clone the repo
 
 ```bash
 git clone https://github.com/Two-Pato/NixOS.git
+```
+
+```bash
 cd ~/NixOS
 ```
 
@@ -13,11 +16,10 @@ cd ~/NixOS
 
 ### 2. Find your SSD (optional if already in config)
 
-Find the SSD and put its ID in the config:<br>
+Find the SSD and put its ID in disko.nix:<br>
 
 ```bash
 ls -l /dev/disk/by-id/ | grep -v -- '-part'
-lsblk -d -o NAME,SIZE,MODEL,SERIAL
 ```
 
 <br>
@@ -58,7 +60,6 @@ Create a locked-down secrets directory:<br>
 
 ```bash
 sudo mkdir -p /mnt/persistent/secrets
-
 ```
 
 ```bash
@@ -83,7 +84,13 @@ sudo chmod 600 /mnt/persistent/secrets/password
 
 ```bash
 sudo mkdir -p /mnt/persistent/home/laurent
+```
+
+```bash
 sudo cp -a ~/NixOS /mnt/persistent/home/laurent/NixOS
+```
+
+```bash
 sudo chown -R 1000:100 /mnt/persistent/home/laurent
 ```
 

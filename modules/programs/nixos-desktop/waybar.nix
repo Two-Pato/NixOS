@@ -68,6 +68,7 @@
             persistent-workspaces = {
               "*" = 5;
             };
+            tooltip = false;
           };
 
           network = {

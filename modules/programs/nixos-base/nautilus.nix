@@ -29,7 +29,6 @@
         migrated-gtk-settings = true;
         search-filter-time-type = "last_modified";
         show-image-thumbnails = "always";
-        thumbnail-limit = 10;
       };
 
       "org/gtk/gtk4/settings/file-chooser" = {

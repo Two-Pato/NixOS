@@ -17,11 +17,34 @@
   in
   {
     systemd.tmpfiles.settings.preservation = {
-      "/home/laurent/.config".d = { user = "laurent"; group = "users"; mode = "0755"; };
-      "/home/laurent/.local".d = { user = "laurent"; group = "users"; mode = "0755"; };
-      "/home/laurent/.local/share".d = { user = "laurent"; group = "users"; mode = "0755"; };
-      "/home/laurent/.local/state".d = { user = "laurent"; group = "users"; mode = "0755"; };
+      "/home/laurent/.config".d = {
+        user = "laurent";
+        group = "users";
+        mode = "0755";
+      };
+
+      "/home/laurent/.local".d = {
+        user = "laurent";
+        group = "users";
+        mode = "0755";
+      };
+
+      "/home/laurent/.local/share".d = {
+        user = "laurent";
+        group = "users";
+        mode = "0755";
+      };
+
+      "/home/laurent/.local/state".d = {
+        user = "laurent";
+        group = "users";
+        mode = "0755";
+      };
     };
+
+    systemd.user.tmpfiles.rules = [
+      "R %h/.cache/thumbnails - - - - -"
+    ];
 
     fileSystems = lib.mkMerge [
       {
