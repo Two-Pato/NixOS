@@ -36,7 +36,7 @@
             "10.0.20.21"
           ];
 
-          publicKey = "ssh-ed25519 AAAAC3...";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFwAYaYT/pn0uiZuj6bLRSPfyQ7y7a6qAF9jSzJeEblH";
         };
 
         kaede = {
