@@ -8,6 +8,9 @@
 
       core-settings
       nixos-server-kaede
+
+      inputs.disko.nixosModules.disko
+      inputs.preservation.nixosModules.default
     ];
   };
 

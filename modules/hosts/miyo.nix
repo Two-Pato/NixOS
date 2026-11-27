@@ -9,6 +9,9 @@
       core-settings
       desktop-nvidia
       nixos-server-miyo
+
+      inputs.disko.nixosModules.disko
+      inputs.preservation.nixosModules.default
     ];
   };
 
