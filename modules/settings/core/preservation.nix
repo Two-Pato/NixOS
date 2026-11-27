@@ -18,6 +18,12 @@
             inInitrd = true;
           }
         ]
+        ++ lib.optionals (config.networking.hostName == "asahi") [
+          {
+            directory = "/var/lib/private";
+            mode = "0700";
+          }
+        ]
         ++ lib.optionals (lib.elem config.networking.hostName [ "mihari" "mahiro" ]) [
           {
             directory = "/var/cache/tuigreet";
