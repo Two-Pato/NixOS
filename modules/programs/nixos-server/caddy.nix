@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.nixos-server-kaede = { pkgs, ... }: {
+  flake.nixosModules.nixos-server-asahi = { pkgs, ... }: {
     services.caddy = {
       enable = true;
 
@@ -19,7 +19,7 @@
       '';
 
       virtualHosts."jellyfin.nexuinque.de".extraConfig = ''
-        reverse_proxy http://localhost:8096
+        reverse_proxy http://10.0.20.22:8096
         tls {
           dns porkbun {
             api_key {$APIKEY}
@@ -29,7 +29,7 @@
       '';
 
       virtualHosts."kavita.nexuinque.de".extraConfig = ''
-        reverse_proxy http://localhost:5000
+        reverse_proxy http://10.0.20.22:5000
         tls {
           dns porkbun {
             api_key {$APIKEY}
@@ -53,7 +53,7 @@
       '';
 
       virtualHosts."stirling.nexuinque.de".extraConfig = ''
-        reverse_proxy http://localhost:8080
+        reverse_proxy http://10.0.20.22:8080
         tls {
           dns porkbun {
             api_key {$APIKEY}
