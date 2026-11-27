@@ -23,6 +23,12 @@
             directory = "/var/lib/private";
             mode = "0700";
           }
+          {
+            directory = "/var/lib/caddy";
+            user = "caddy";
+            group = "caddy";
+            mode = "0700";
+          }
         ]
         ++ lib.optionals (lib.elem config.networking.hostName [ "mihari" "mahiro" ]) [
           {
