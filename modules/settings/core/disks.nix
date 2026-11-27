@@ -12,10 +12,10 @@
       disk.main = {
         device = lib.mkMerge [
           (lib.mkIf (config.networking.hostName == "asahi")
-            "/dev/vda")
+            "/dev/sda")
 
           (lib.mkIf (config.networking.hostName == "kaede")
-            "/dev/vda")
+            "/dev/sda")
 
           (lib.mkIf (config.networking.hostName == "mahiro")
             "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b448b47035018")
@@ -24,7 +24,7 @@
             "/dev/disk/by-id/nvme-eui.00000000000000000026b738301e07e5")
 
           (lib.mkIf (config.networking.hostName == "miyo")
-            "/dev/vda")
+            "/dev/sda")
         ];
 
         type = "disk";
