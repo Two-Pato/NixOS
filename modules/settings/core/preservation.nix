@@ -45,6 +45,8 @@
             ".cache"
             ".secrets"
 
+            "NixOS"
+
             {
               directory = ".ssh";
               mode = "0700";
@@ -61,7 +63,6 @@
             "Documents"
             "Downloads"
             "Music"
-            "NixOS"
             "Pictures"
             "Programs"
             "Videos"
