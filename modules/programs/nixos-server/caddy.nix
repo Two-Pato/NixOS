@@ -18,6 +18,16 @@
         }
       '';
 
+      virtualHosts."comfyui.nexuinque.de".extraConfig = ''
+        reverse_proxy http://10.0.20.23:8188
+        tls {
+          dns porkbun {
+            api_key {$APIKEY}
+            api_secret_key {$APISECRETKEY}
+          }
+        }
+      '';
+
       virtualHosts."jellyfin.nexuinque.de".extraConfig = ''
         reverse_proxy http://10.0.20.22:8096
         tls {

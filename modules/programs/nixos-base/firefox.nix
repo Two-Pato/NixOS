@@ -93,8 +93,8 @@
               url = "https://jellyfin.nexuinque.de/";
             }
             {
-              name = "The Movie Database";
-              url = "https://www.themoviedb.org/";
+              name = "ComfyUI";
+              url = "https://comfyui.nexuinque.de";
             }
             {
               name = "Stirling PDF";
