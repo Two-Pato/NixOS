@@ -36,7 +36,7 @@
             "10.0.20.21"
           ];
 
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGX3Wllv0n4ydzD9sFI3DvRRBgy0Outg0MYBqSf9mtdY";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJrGYrmEZ/oHVYrv8vRzIqRS0IyplRJcGuzXYxhyIvth";
         };
 
         kaede = {
@@ -45,7 +45,7 @@
             "10.0.20.22"
           ];
 
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJEb7b8m8OQgdKaRaQw4klIDphzZAiyPzlEPpSZLD6v";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBjuah21q4amEiOeOCTprz/9lRNnhfza3mU7YOU8SKWh";
         };
 
         miyo = {

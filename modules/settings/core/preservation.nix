@@ -26,9 +26,31 @@
         ]
         ++ lib.optionals (config.networking.hostName == "kaede") [
           {
+            directory = "/var/cache/jellyfin";
+            user = "jellyfin";
+            group = "jellyfin";
+            mode = "0700";
+          }
+          {
             directory = "/var/lib/caddy";
             user = "caddy";
             group = "caddy";
+            mode = "0700";
+          }
+          {
+            directory = "/var/lib/jellyfin";
+            user = "jellyfin";
+            group = "jellyfin";
+            mode = "0700";
+          }
+          {
+            directory = "/var/lib/kavita";
+            user = "kavita";
+            group = "kavita";
+            mode = "0700";
+          }
+          {
+            directory = "/var/lib/private";
             mode = "0700";
           }
         ]
