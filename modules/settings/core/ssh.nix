@@ -54,7 +54,7 @@
             "10.0.20.23" 
           ];
 
-          publicKey = "ssh-ed25519 AAAAC3...";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOBadKApNhwtMpGyruQCyZP1Cok6uExJVyDP8626q1TU";
         };
       };
     };

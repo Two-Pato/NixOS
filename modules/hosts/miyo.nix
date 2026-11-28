@@ -7,6 +7,7 @@
       miyo-network
 
       core-settings
+      cuda
       desktop-nvidia
       nixos-server-miyo
 

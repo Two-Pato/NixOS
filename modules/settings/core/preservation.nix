@@ -61,6 +61,14 @@
             group = "greeter";
             mode = "0755";
           }
+        ]
+        ++ lib.optionals (config.networking.hostName == "miyo") [
+          {
+            directory = "/var/lib/comfyui";
+            user = "comfyui";
+            group = "comfyui";
+            mode = "0700";
+          }
         ];
 
         files = [
