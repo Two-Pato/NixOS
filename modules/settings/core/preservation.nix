@@ -23,6 +23,8 @@
             directory = "/var/lib/private";
             mode = "0700";
           }
+        ]
+        ++ lib.optionals (config.networking.hostName == "kaede") [
           {
             directory = "/var/lib/caddy";
             user = "caddy";
@@ -30,7 +32,7 @@
             mode = "0700";
           }
         ]
-        ++ lib.optionals (lib.elem config.networking.hostName [ "mihari" "mahiro" ]) [
+        ++ lib.optionals (lib.elem config.networking.hostName [ "mahiro" "mihari" ]) [
           {
             directory = "/var/cache/tuigreet";
             user = "greeter";
@@ -64,7 +66,7 @@
               mode = "0700";
             }
           ]
-          ++ lib.optionals (lib.elem config.networking.hostName [ "mihari" "mahiro" ]) [
+          ++ lib.optionals (lib.elem config.networking.hostName [ "mahiro" "mihari" ]) [
             ".config/clipse"
             ".config/gthumb"
             ".config/mozilla"
@@ -79,14 +81,6 @@
             "Programs"
             "Videos"
           ]
-          ++ lib.optionals (config.networking.hostName == "mihari") [
-            ".config/Code"
-            ".config/ghb"
-            ".config/Upscayl"
-
-            ".vscode"
-            ".vscode-shared"
-          ]
           ++ lib.optionals (config.networking.hostName == "mahiro") [
             ".config/faugus-launcher"
             ".config/retroarch"
@@ -94,6 +88,14 @@
             ".local/share/Steam"
 
             "Games"
+          ]
+          ++ lib.optionals (config.networking.hostName == "mihari") [
+            ".config/Code"
+            ".config/ghb"
+            ".config/Upscayl"
+
+            ".vscode"
+            ".vscode-shared"
           ];
 
           files = [

@@ -37,6 +37,7 @@
 
       allowedTCPPorts = [
         80
+        53 # DNS server
         443
       ];
 

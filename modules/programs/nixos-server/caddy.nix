@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.nixos-server-asahi = { pkgs, ... }: {
+  flake.nixosModules.nixos-server-kaede = { pkgs, ... }: {
     services.caddy = {
       enable = true;
 
@@ -9,7 +9,7 @@
       };
 
       virtualHosts."adguard.nexuinque.de".extraConfig = ''
-        reverse_proxy http://10.0.20.21:3001
+        reverse_proxy http://10.0.20.21:80
         tls {
           dns porkbun {
             api_key {$APIKEY}
