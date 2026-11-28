@@ -39,6 +39,7 @@
         80
         53 # DNS server
         443
+        3001 # AdGuard
       ];
 
       allowedUDPPorts = [
